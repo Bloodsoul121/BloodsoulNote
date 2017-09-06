@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<amigoui.preference.AmigoPreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:amigo="http://schemas.android.com/apk/res-auto" >
+
+    <amigoui.preference.AmigoSwitchPreference
+        amigo:amigodefaultValue="true"
+        amigo:amigokey="compress_advert_intercept_switch"
+        amigo:amigosummary="@string/compress_advert_summary"
+        amigo:amigotitle="@string/compress_advert" />
+
+    <amigoui.preference.AmigoPreference
+        amigo:amigokey="advert_num"
+        amigo:amigotitle="@string/compress_advert_num"
+        amigo:amigoShowPreferenceArrow="false" />
+
+</amigoui.preference.AmigoPreferenceScreen>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="tv_bg_pressed">#696969</color>
+    <color name="tv_bg_normal">#ffffff</color>
+
+    <color name="top_bar_bg">#fafafa</color>
+    <color name="title_bar_text_color">#606060</color>
+    <color name="edit_txt_content_bg">#eaeaea</color>
+    <color name="addbookmark_page_text_color">#66000000</color>
+    <color name="addbookmark_page_title_pressed_color">#575a5d</color>
+    <color name="addbookmark_to_tx">#cc000000</color>
+    <color name="addbookmark_item_bg_color">#dbdbdb</color>
+    <color name="addbookmark_to_tx_select">#ff9000</color>
+    <color name="list_item_headline_tx">#cc000000</color>
+
+    <color name="shortcut_input_view_bg">#fafafa</color>
+    <color name="shortcut_input_view_bg_press">#ebebeb</color>
+    <color name="shortcut_input_text_color">#666666</color>
+    <color name="shortcut_input_paster_text_color">#00a1e9</color>
+    <color name="shortcut_input_text_unable_color">#cccccc</color>
+
+    <color name="transparent">#00000000</color>
+
+</resources>

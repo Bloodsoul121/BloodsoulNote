@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/addbookmark_titlbar"
+        style="@style/GNElevation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top_bar_bg">
+
+        <TextView
+            android:text="舍弃"
+            android:id="@+id/drop"
+            style="@style/TitleBarDoubleSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingLeft="@dimen/multi_check_text_padding"
+            android:paddingRight="@dimen/multi_check_text_padding"/>
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:text="保存"
+            android:id="@+id/save"
+            style="@style/TitleBarDoubleSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingLeft="@dimen/multi_check_text_padding"
+            android:paddingRight="@dimen/multi_check_text_padding"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/addbookmark_page_margin"
+                android:layout_marginRight="@dimen/addbookmark_page_margin"
+                android:layout_marginTop="@dimen/addbookmark_page_margin"
+                android:shrinkColumns="1"
+                android:stretchColumns="1" >
+
+                <TableRow
+                    android:background="@color/edit_txt_content_bg"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:minHeight="@dimen/addbookmark_item_height" >
+
+                    <TextView
+                        android:id="@+id/title_tx"
+                        style="@style/AddBookmarkActivityText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/addbookmark_item_text_pading_left"
+                        android:text="@string/bookmark_name" />
+
+                    <amigoui.widget.AmigoEditText
+                        android:id="@+id/bookmark_title"
+                        style="@style/AddBookmarkActivityEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:maxLength="30" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="@dimen/addbookmark_page_margin"
+                    android:background="@color/edit_txt_content_bg"
+                    android:minHeight="@dimen/addbookmark_item_height" >
+
+                    <TextView
+                        android:id="@+id/url_tx"
+                        style="@style/AddBookmarkActivityText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/addbookmark_item_text_pading_left"
+                        android:text="@string/bookmark_address" />
+
+                    <EditText
+                        android:id="@+id/bookmark_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:inputType="textUri"
+                        android:textColor="@color/addbookmark_page_text_color"
+                        android:textCursorDrawable="@drawable/edit_cursor_light"/>
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/add_to_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/addbookmark_to_margin_hsides"
+                android:layout_marginLeft="@dimen/addbookmark_to_margin_left"
+                android:layout_marginTop="@dimen/addbookmark_to_margin_hsides"
+                android:text="@string/addbookmark_to"
+                android:textColor="@color/addbookmark_page_text_color"
+                android:textSize="@dimen/addbookmark_to_tx_size" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" >
+
+                <LinearLayout
+                    android:layout_width="@dimen/addbookmark_to_item_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/add_bookmark"
+                        style="@style/AddBookmark_To_Item"
+                        android:layout_width="@dimen/addbookmark_to_item_width"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/actionBarItemBackground"
+                        android:drawablePadding="@dimen/addbookmark_to_padding"
+                        android:drawableTop="@drawable/add_bookmark_selector"
+                        android:text="@string/add_bookmark" />
+
+                    <ImageView
+                        android:id="@+id/add_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/amigo_expander_open_light" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/add_online_app"
+                    style="@style/AddBookmark_To_Item"
+                    android:layout_width="@dimen/addbookmark_to_item_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/addbookmark_to_margin"
+                    android:layout_marginRight="@dimen/addbookmark_to_margin"
+                    android:background="?android:attr/actionBarItemBackground"
+                    android:drawablePadding="@dimen/addbookmark_to_padding"
+                    android:drawableTop="@drawable/add_online_app_selector"
+                    android:text="@string/add_online_page" />
+
+                <TextView
+                    android:id="@+id/add_home"
+                    style="@style/AddBookmark_To_Item"
+                    android:layout_width="@dimen/addbookmark_to_item_width"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/actionBarItemBackground"
+                    android:drawablePadding="@dimen/addbookmark_to_padding"
+                    android:drawableTop="@drawable/add_home_selector"
+                    android:text="@string/add_home" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_chose_folder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:layout_marginLeft="@dimen/addbookmark_page_margin"
+                android:layout_marginRight="@dimen/addbookmark_page_margin"
+                android:layout_marginTop="@dimen/addbookmark_page_margin"
+                android:background="@drawable/add_bookmark_item_selector"
+                android:descendantFocusability="blocksDescendants"
+                android:minHeight="@dimen/list_item_height" >
+
+                <ImageView
+                    android:id="@+id/icon_img"
+                    android:layout_width="@dimen/list_item_guide_icon_size"
+                    android:layout_height="@dimen/list_item_guide_icon_size"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/list_item_guide_icon_margin"
+                    android:layout_marginRight="@dimen/list_item_guide_icon_margin"
+                    android:padding="@dimen/list_item_guide_icon_padding"
+                    android:alpha="@dimen/icon_alpha_opacity"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/add_bookmark_folder" />
+
+                <ImageView
+                    android:id="@+id/check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/list_item_right_icon_margin_left"
+                    android:layout_marginRight="@dimen/list_item_right_icon_margin"
+                    android:src="@drawable/amigo_detail_unpress" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/list_item_text_padding"
+                    android:layout_toLeftOf="@id/check_box"
+                    android:layout_toRightOf="@id/icon_img"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/title_text"
+                        style="@style/ListTextHeadLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bookmark_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

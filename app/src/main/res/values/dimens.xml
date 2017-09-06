@@ -1,0 +1,62 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- dimes for addbookmark -->
+    <dimen name="addbookmark_page_margin">16dp</dimen>
+    <dimen name="addbookmark_item_height">32dip</dimen>
+    <dimen name="addbookmark_item_text_pading_left">10dp</dimen>
+    <dimen name="addbookmark_item_text_size">14dp</dimen>
+    <dimen name="addbookmark_to_margin_hsides">16dip</dimen>
+    <dimen name="addbookmark_to_margin_left">18dip</dimen>
+    <dimen name="addbookmark_to_tx_size">18dp</dimen>
+    <dimen name="addbookmark_to_item_height">107dip</dimen>
+    <dimen name="addbookmark_to_padding">8dip</dimen>
+    <dimen name="addbookmark_to_item_tx_size">14dp</dimen>
+    <dimen name="addbookmark_to_item_width">85dip</dimen>
+    <dimen name="addbookmark_to_item_padding">36dip</dimen>
+    <dimen name="addbookmark_prompt_layout_margin_top">20dip</dimen>
+    <dimen name="addbookmark_prompt_icon_size">40dip</dimen>
+    <dimen name="addbookmark_prompt_icon_margin_left">60dip</dimen>
+    <dimen name="addbookmark_prompt_tx_margin_top">12dip</dimen>
+    <dimen name="addbookmark_to_margin">16dip</dimen>
+    <dimen name="addbookmark_prompt_tx_size">12dip</dimen>
+
+    <!-- pulic dimes for list -->
+    <dimen name="list_item_height">64dp</dimen>
+    <dimen name="list_item_guide_icon_size">40dip</dimen>
+    <dimen name="list_item_guide_icon_margin">16dip</dimen>
+    <dimen name="list_item_guide_icon_padding">8dip</dimen>
+    <dimen name="list_item_right_icon_margin">16dip</dimen>
+    <dimen name="list_item_right_icon_size">32dip</dimen>
+    <dimen name="list_item_guide_icon_margin_left">46dip</dimen>
+    <dimen name="list_item_right_icon_padding">16dip</dimen>
+    <dimen name="list_headline_tx_size">18dp</dimen>
+    <dimen name="list_subline_tx_size">12dp</dimen>
+    <dimen name="multi_check_text_padding">16dip</dimen>
+    <dimen name="list_item_text_padding">20dp</dimen>
+    <dimen name="list_item_right_icon_margin_left">-4dip</dimen>
+    <dimen name="list_item_padding_side">14dip</dimen>
+
+    <!-- elevation depth -->
+    <dimen name="elevation_depth">2dp</dimen>
+
+    <!-- public dimens for top bar double selection -->
+    <dimen name="titlebar_double_selection_height">50dip</dimen>
+    <dimen name="titilebar_height_landscape">40dip</dimen>
+    <dimen name="titlebar_selection_tx_size">18dp</dimen>
+    <dimen name="titlebar_selection_tx_margin">20dp</dimen>
+
+    <item name="icon_alpha_opacity" format="float" type="dimen">1</item>
+
+    <!-- shortcut input view -->
+    <dimen name="shortcut_input_view_height">40dip</dimen>
+    <dimen name="shortcut_input_text_size">14dp</dimen>
+    <dimen name="risk_url_tips_bg_cut_left">37dip</dimen>
+    <dimen name="risk_url_tips_margin_top">68dip</dimen>
+    <dimen name="risk_url_tips_height">41dip</dimen>
+    <dimen name="risk_url_tips_text_size">14dp</dimen>
+    <dimen name="topbar_height">45dip</dimen>
+
+</resources>

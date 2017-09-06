@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="text_style">
+        <item name="android:padding">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- title bar of double selection -->
+    <style name="TitleBarDoubleSelection">
+        <item name="android:background">?android:attr/actionBarItemBackground</item>
+        <item name="android:textColor">@color/title_bar_text_color</item>
+        <item name="android:textSize">@dimen/titlebar_selection_tx_size</item>
+    </style>
+
+    <style name="AddBookmarkActivityText">
+        <item name="android:textSize">@dimen/addbookmark_item_text_size</item>
+        <item name="android:textColor">@color/addbookmark_page_text_color</item>
+    </style>
+
+    <style name="AddBookmarkActivityEditText">
+        <item name="android:textSize">@dimen/addbookmark_item_text_size</item>
+        <item name="android:textColor">@color/addbookmark_page_text_color</item>
+        <item name="android:background">@null</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:inputType">textCapSentences|textNoSuggestions</item>
+        <item name="android:textCursorDrawable">@drawable/edit_cursor_light</item>
+    </style>
+
+    <style name="AddBookmark_To_Item">
+        <item name="android:textSize">@dimen/addbookmark_to_item_tx_size</item>
+        <item name="android:textColor">@color/add_bookmark_item_tx_color</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="ListTextHeadLine">
+        <item name="android:textSize">@dimen/list_headline_tx_size</item>
+        <item name="android:textColor">@color/list_item_headline_tx</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="ShortcutInputTextStyle">
+        <item name="android:textSize">@dimen/shortcut_input_text_size</item>
+        <item name="android:textColor">@color/shortcut_input_text_color</item>
+        <item name="android:background">@drawable/shortcut_input_text_bg_selector</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>

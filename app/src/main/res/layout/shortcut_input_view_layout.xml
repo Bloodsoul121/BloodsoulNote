@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shortcut_input_view_height"
+        android:orientation="vertical"
+        android:showDividers="beginning" >
+
+        <LinearLayout
+            android:id="@+id/text_item_parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/shortcut_input_view_height"
+            android:background="@color/shortcut_input_view_bg"
+            android:orientation="horizontal"
+            android:showDividers="middle" >
+
+            <TextView
+                android:id="@+id/shortcut_www"
+                style="@style/ShortcutInputTextStyle"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="@string/shortcut_www" />
+
+            <TextView
+                android:id="@+id/shortcut_slash"
+                style="@style/ShortcutInputTextStyle"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="@string/shortcut_slash" />
+
+            <TextView
+                android:id="@+id/shortcut_point"
+                style="@style/ShortcutInputTextStyle"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="@string/shortcut_point" />
+
+            <TextView
+                android:id="@+id/shortcut_com"
+                style="@style/ShortcutInputTextStyle"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="@string/shortcut_com" />
+
+            <TextView
+                android:id="@+id/shortcut_cn"
+                style="@style/ShortcutInputTextStyle"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="@string/shortcut_cn" />
+
+            <TextView
+                android:id="@+id/shortcut_paste"
+                style="@style/ShortcutInputTextStyle"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="@string/shortcut_Paste"
+                android:textColor="@color/shortcut_input_text_color_selector" />
+        </LinearLayout>
+    </LinearLayout>
+
+</merge>

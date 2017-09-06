@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="onClick1"
+            android:id="@+id/tv1"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="get"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:onClick="onClick2"
+            android:id="@+id/tv2"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="post"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:onClick="onClick3"
+            android:id="@+id/tv3"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="文件上传"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <View
+        android:background="#5d5d5d"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/show"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:text="hello world"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </ScrollView>
+
+</LinearLayout>
