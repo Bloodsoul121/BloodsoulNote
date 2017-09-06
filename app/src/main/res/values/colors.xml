@@ -25,4 +25,7 @@
 
     <color name="transparent">#00000000</color>
 
+    <color name="webview_progress_start_color">#65e1fb</color>
+    <color name="webview_progress_end_color">#2e90f3</color>
+
 </resources>

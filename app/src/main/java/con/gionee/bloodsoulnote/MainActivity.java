@@ -24,6 +24,7 @@ import con.gionee.bloodsoulnote.recyclerview.RecyclerViewActivity;
 import con.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity;
 import con.gionee.bloodsoulnote.retrofit2.Retrofit2Activity;
 import con.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
+import con.gionee.bloodsoulnote.stepdownload.StepDownloadActivity;
 import con.gionee.bloodsoulnote.viewpager.ViewPagerActivity;
 import con.gionee.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity;
 import con.gionee.bloodsoulnote.viewpagerfragment.TeacherStudentActivity;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("14 - fragment viewpager 分析生命周期");
         mDatas.add("15 - fragment viewpager 学生管理演示");
         mDatas.add("16 - fragment viewpager 懒加载");
+        mDatas.add("17 - 多线程分布下载");
     }
 
     private void clickRecyclerItem(int position) {
@@ -115,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 16:
                 startActivity(new Intent(this, LazyViewPagerActivity.class));
+                break;
+            case 17:
+                startActivity(new Intent(this, StepDownloadActivity.class));
                 break;
         }
     }
