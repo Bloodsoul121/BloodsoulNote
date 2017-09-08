@@ -15,6 +15,7 @@
         android:onClick="onclick"
         android:id="@+id/tv"
         android:background="@drawable/tv_bg_selector"
+        android:gravity="center"
         style="@style/text_style"/>
 
 </RelativeLayout>

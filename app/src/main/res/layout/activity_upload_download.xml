@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="con.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity">
+
+    <Button
+        android:onClick="upload"
+        android:padding="10dp"
+        android:text="上传文件"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="download"
+        android:padding="10dp"
+        android:text="下载文件"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="get"
+        android:padding="10dp"
+        android:text="get 请求"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="post"
+        android:padding="10dp"
+        android:text="post 请求"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

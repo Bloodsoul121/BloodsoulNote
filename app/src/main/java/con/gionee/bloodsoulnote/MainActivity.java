@@ -25,10 +25,12 @@ import con.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity;
 import con.gionee.bloodsoulnote.retrofit2.Retrofit2Activity;
 import con.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
 import con.gionee.bloodsoulnote.stepdownload.StepDownloadActivity;
+import con.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity;
 import con.gionee.bloodsoulnote.viewpager.ViewPagerActivity;
 import con.gionee.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity;
 import con.gionee.bloodsoulnote.viewpagerfragment.TeacherStudentActivity;
 import con.gionee.bloodsoulnote.viewpagerfragment.ViewPagerFragmentActivity;
+import con.gionee.bloodsoulnote.webview.WebviewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("15 - fragment viewpager 学生管理演示");
         mDatas.add("16 - fragment viewpager 懒加载");
         mDatas.add("17 - 多线程分布下载");
+        mDatas.add("18 - 上传 and 下载  get / post");
+        mDatas.add("19 - webview 加载网页");
     }
 
     private void clickRecyclerItem(int position) {
@@ -120,6 +124,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 17:
                 startActivity(new Intent(this, StepDownloadActivity.class));
+                break;
+            case 18:
+                startActivity(new Intent(this, UploadDownloadActivity.class));
+                break;
+            case 19:
+                startActivity(new Intent(this, WebviewActivity.class));
                 break;
         }
     }
