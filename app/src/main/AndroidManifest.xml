@@ -79,6 +79,10 @@
         </activity>
         <activity android:name=".stepdownload.StepDownloadActivity">
         </activity>
+        <activity android:name=".uploadordownload.UploadDownloadActivity">
+        </activity>
+        <activity android:name=".webview.WebviewActivity">
+        </activity>
     </application>
 
 </manifest>
