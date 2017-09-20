@@ -83,6 +83,10 @@
         </activity>
         <activity android:name=".webview.WebviewActivity">
         </activity>
+        <activity android:name=".layout.LayoutActivity">
+        </activity>
+        <activity android:name=".mvprxpicture.MvpRxPictureActivity">
+        </activity>
     </application>
 
 </manifest>

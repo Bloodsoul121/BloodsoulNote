@@ -18,6 +18,8 @@ import con.gionee.bloodsoulnote.bitmap.ClipPatchActivity;
 import con.gionee.bloodsoulnote.halfitem.HalfItemActivity;
 import con.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import con.gionee.bloodsoulnote.inputbar.InputBarActivity;
+import con.gionee.bloodsoulnote.layout.LayoutActivity;
+import con.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
 import con.gionee.bloodsoulnote.okhttp.OkhttpActivity;
 import con.gionee.bloodsoulnote.openfile.OpenFileActivity;
 import con.gionee.bloodsoulnote.recyclerview.RecyclerViewActivity;
@@ -69,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("17 - 多线程分布下载");
         mDatas.add("18 - 上传 and 下载  get / post");
         mDatas.add("19 - webview 加载网页");
+        mDatas.add("20 - 布局");
+        mDatas.add("21 - 加载手机相册中所有的图片");
     }
 
     private void clickRecyclerItem(int position) {
@@ -130,6 +134,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 19:
                 startActivity(new Intent(this, WebviewActivity.class));
+                break;
+            case 20:
+                startActivity(new Intent(this, LayoutActivity.class));
+                break;
+            case 21:
+                startActivity(new Intent(this, MvpRxPictureActivity.class));
                 break;
         }
     }

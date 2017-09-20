@@ -100,12 +100,19 @@ public class HalfItemActivity extends AppCompatActivity {
     private Boolean isItemDisplayHalf(int position, ListView listView){
         int start = listView.getFirstVisiblePosition(); ///获取可见区域的第一个索引
         int end = listView.getLastVisiblePosition(); //可见区域的最后一个索引
-        if(position > start && position<end){
+
+        Log.i("HalfItemActivity", "start : " + start + ", end : " + end + ", position : " + position);
+
+        View child = listView.getChildAt(position - start);
+
+        Log.i("HalfItemActivity", "getBottom : " + child.getBottom() + ", getTop : " + child.getTop() + ", getHeight/2 : " + child.getHeight()/2);
+
+        if(position > start && position < end){
             return true;
         }else if(position == start){
-            return Math.abs(listView.getChildAt(position).getBottom()) > listView.getChildAt(position).getHeight()/2;
+            return Math.abs(child.getBottom()) > child.getHeight()/2;
         }else if(position == end){
-            return Math.abs((listView.getHeight() - listView.getChildAt(position).getTop())) > listView.getChildAt(position).getHeight()/2;
+            return Math.abs((listView.getHeight() - child.getTop())) > child.getHeight()/2;
         }else {
             return false;
         }
