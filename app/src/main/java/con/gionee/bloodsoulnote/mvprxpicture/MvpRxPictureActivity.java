@@ -1,47 +1,83 @@
 package con.gionee.bloodsoulnote.mvprxpicture;
 
+import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.view.ViewGroup;
 
 import con.gionee.bloodsoulnote.R;
+import con.gionee.bloodsoulnote.mvprxpicture.contract.MainContract;
+import con.gionee.bloodsoulnote.mvprxpicture.other.ToastUtils;
+import con.gionee.bloodsoulnote.mvprxpicture.presenter.MainPresenter;
 
-public class MvpRxPictureActivity extends AppCompatActivity {
+public class MvpRxPictureActivity extends AppCompatActivity implements MainContract.View {
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
+    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mvp_rx_picture);
-
-        initView();
+        init();
     }
 
-    private void initView() {
+    private void init() {
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefreshlayout);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-    }
 
-    private static class RecyAdapter extends RecyclerView.Adapter {
+        mSwipeRefreshLayout.setColorSchemeColors(Color.RED);
+        mSwipeRefreshLayout.setEnabled(false);
 
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return null;
-        }
+        MainPresenter.newInstance(this);
 
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return 0;
+        if (presenter != null) {
+            presenter.load(this);
         }
     }
 
+    @Override
+    public void bindPresenter(MainPresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    public void initView() {
+        if (presenter != null && mRecyclerView != null) {
+            presenter.getRecyclerView(mRecyclerView);
+        }
+    }
+
+    @Override
+    public void showProgress() {
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.post(new Runnable() {
+                @Override
+                public void run() {
+                    mSwipeRefreshLayout.setRefreshing(true);
+                }
+            });
+        }
+    }
+
+    @Override
+    public void closeProgress() {
+        if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) {
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
+    }
+
+    @Override
+    public void showInfo(String info) {
+        ToastUtils.show(this, info);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (presenter != null) presenter.recycle();
+        if (mRecyclerView != null) mRecyclerView.setAdapter(null);
+    }
 }
