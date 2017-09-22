@@ -23,6 +23,7 @@ import con.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
 import con.gionee.bloodsoulnote.okhttp.OkhttpActivity;
 import con.gionee.bloodsoulnote.openfile.OpenFileActivity;
 import con.gionee.bloodsoulnote.recyclerview.RecyclerViewActivity;
+import con.gionee.bloodsoulnote.recyitemdelete.RecyItemDeleteActivity;
 import con.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity;
 import con.gionee.bloodsoulnote.retrofit2.Retrofit2Activity;
 import con.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("19 - webview 加载网页");
         mDatas.add("20 - 布局");
         mDatas.add("21 - 加载手机相册中所有的图片");
+        mDatas.add("22 - RecyclerView 侧滑删除");
     }
 
     private void clickRecyclerItem(int position) {
@@ -140,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 21:
                 startActivity(new Intent(this, MvpRxPictureActivity.class));
+                break;
+            case 22:
+                startActivity(new Intent(this, RecyItemDeleteActivity.class));
                 break;
         }
     }

@@ -87,6 +87,8 @@
         </activity>
         <activity android:name=".mvprxpicture.MvpRxPictureActivity">
         </activity>
+        <activity android:name=".recyitemdelete.RecyItemDeleteActivity">
+        </activity>
     </application>
 
 </manifest>
