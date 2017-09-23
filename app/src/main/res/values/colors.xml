@@ -28,4 +28,6 @@
     <color name="webview_progress_start_color">#65e1fb</color>
     <color name="webview_progress_end_color">#2e90f3</color>
 
+    <color name="toast_click_color">#00a1e9</color>
+
 </resources>

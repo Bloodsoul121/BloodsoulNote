@@ -2,6 +2,7 @@ package con.gionee.bloodsoulnote.mvprxpicture.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -28,7 +29,9 @@ public class RecyAdapter extends CommonBaseAdapter<String> {
         img.post(new Runnable() {
             @Override
             public void run() {
-                Glide.with(activity).load(item).override(img.getWidth(),img.getHeight()).into(img);
+                Log.i("RecyAdapter", "width " + img.getWidth() + ", height " + img.getHeight());
+//                Glide.with(activity).load(item).override(img.getMeasuredWidth(),img.getMeasuredHeight()).into(img);
+                Glide.with(activity).load(item).into(img);
             }
         });
     }

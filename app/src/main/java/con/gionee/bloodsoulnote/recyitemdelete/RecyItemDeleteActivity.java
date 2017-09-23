@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -68,6 +69,7 @@ public class RecyItemDeleteActivity extends AppCompatActivity {
         @Override
         public void bindViewData(BaseViewHolder holder, Person item, int position) {
             TextView tv = holder.getView(R.id.recy_item_tv);
+            Log.i("RecyAdapter", "width " + tv.getMeasuredWidth() + ", height " + tv.getMeasuredHeight());
             tv.setText(item.getName() + " ---> " + item.getMoney());
         }
 

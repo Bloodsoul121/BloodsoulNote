@@ -65,5 +65,8 @@
     <string name="shortcut_cn">.cn</string>
     <string name="shortcut_Paste">粘帖</string>
 
+    <string name="toast_downloaded_File">正在下载中，</string>
+    <string name="toast_downloaded_click">点击查看</string>
+
 
 </resources>

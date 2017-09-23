@@ -28,6 +28,7 @@ import con.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity;
 import con.gionee.bloodsoulnote.retrofit2.Retrofit2Activity;
 import con.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
 import con.gionee.bloodsoulnote.stepdownload.StepDownloadActivity;
+import con.gionee.bloodsoulnote.toast.ToastActivity;
 import con.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity;
 import con.gionee.bloodsoulnote.viewpager.ViewPagerActivity;
 import con.gionee.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("20 - 布局");
         mDatas.add("21 - 加载手机相册中所有的图片");
         mDatas.add("22 - RecyclerView 侧滑删除");
+        mDatas.add("23 - Toast的自定义,及封装  build模式");
     }
 
     private void clickRecyclerItem(int position) {
@@ -145,6 +147,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 22:
                 startActivity(new Intent(this, RecyItemDeleteActivity.class));
+                break;
+            case 23:
+                startActivity(new Intent(this, ToastActivity.class));
                 break;
         }
     }
