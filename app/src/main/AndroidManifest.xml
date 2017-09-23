@@ -6,8 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <!-- 只有系统app才有的权限，这里是无效的 -->
     <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
@@ -92,6 +91,8 @@
         <activity android:name=".recyitemdelete.RecyItemDeleteActivity">
         </activity>
         <activity android:name=".toast.ToastActivity">
+        </activity>
+        <activity android:name=".recyclerdrag.RecyDragActivity">
         </activity>
     </application>
 

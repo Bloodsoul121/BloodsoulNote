@@ -22,6 +22,7 @@ import con.gionee.bloodsoulnote.layout.LayoutActivity;
 import con.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
 import con.gionee.bloodsoulnote.okhttp.OkhttpActivity;
 import con.gionee.bloodsoulnote.openfile.OpenFileActivity;
+import con.gionee.bloodsoulnote.recyclerdrag.RecyDragActivity;
 import con.gionee.bloodsoulnote.recyclerview.RecyclerViewActivity;
 import con.gionee.bloodsoulnote.recyitemdelete.RecyItemDeleteActivity;
 import con.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity;
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("21 - 加载手机相册中所有的图片");
         mDatas.add("22 - RecyclerView 侧滑删除");
         mDatas.add("23 - Toast的自定义,及封装  build模式");
+        mDatas.add("23 - RecyclerView  ItemTouchHelper帮助实现拖拽效果");
     }
 
     private void clickRecyclerItem(int position) {
@@ -150,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 23:
                 startActivity(new Intent(this, ToastActivity.class));
+                break;
+            case 24:
+                startActivity(new Intent(this, RecyDragActivity.class));
                 break;
         }
     }
