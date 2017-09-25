@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="con.gionee.bloodsoulnote">
+          package="com.gionee.bloodsoulnote">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -12,14 +12,14 @@
     <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
 
     <application
-        android:name=".NoteApplication"
+        android:name="com.gionee.bloodsoulnote.NoteApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.gionee.bloodsoulnote.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -28,17 +28,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".retrofit2.Retrofit2Activity"
+            android:name="com.gionee.bloodsoulnote.retrofit2.Retrofit2Activity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".okhttp.OkhttpActivity"
+            android:name="com.gionee.bloodsoulnote.okhttp.OkhttpActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".halfitem.HalfItemActivity"/>
-        <activity android:name=".recyclerview.RecyclerViewActivity"/>
-        <activity android:name=".silentinstall.SilentInstallActivity"/>
+        <activity android:name="com.gionee.bloodsoulnote.halfitem.HalfItemActivity"/>
+        <activity android:name="com.gionee.bloodsoulnote.recyclerview.RecyclerViewActivity"/>
+        <activity android:name="com.gionee.bloodsoulnote.silentinstall.SilentInstallActivity"/>
 
         <service
-            android:name=".silentinstall.MyAccessibilityService"
+            android:name="com.gionee.bloodsoulnote.silentinstall.MyAccessibilityService"
             android:label="我的智能安装"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
@@ -50,49 +50,49 @@
                 android:resource="@xml/accessibility_service_config"/>
         </service>
 
-        <activity android:name=".silentinstall.FileExplorerActivity"/>
-        <activity android:name=".immersive.ImmersiveActivity"/>
+        <activity android:name="com.gionee.bloodsoulnote.silentinstall.FileExplorerActivity"/>
+        <activity android:name="com.gionee.bloodsoulnote.immersive.ImmersiveActivity"/>
         <!-- android:theme="@style/ImmersiveStyle" -->
 
-        <activity android:name=".addBookMark.AddBookMarkActivity">
+        <activity android:name="com.gionee.bloodsoulnote.addBookMark.AddBookMarkActivity">
         </activity>
-        <activity android:name=".openfile.OpenFileActivity">
+        <activity android:name="com.gionee.bloodsoulnote.openfile.OpenFileActivity">
         </activity>
-        <activity android:name=".viewpager.ViewPagerActivity">
+        <activity android:name="com.gionee.bloodsoulnote.viewpager.ViewPagerActivity">
         </activity>
-        <activity android:name=".requestpermission.RequestPermissionActivity">
+        <activity android:name="com.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity">
         </activity>
-        <activity android:name=".screenshot.ScreenshotActivity">
+        <activity android:name="com.gionee.bloodsoulnote.screenshot.ScreenshotActivity">
         </activity>
-        <activity android:name=".bitmap.ClipPatchActivity">
-        </activity>
-        <activity
-            android:name=".viewpagerfragment.ViewPagerFragmentActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
-        <activity android:name=".inputbar.InputBarActivity">
+        <activity android:name="com.gionee.bloodsoulnote.bitmap.ClipPatchActivity">
         </activity>
         <activity
-            android:name=".viewpagerfragment.TeacherStudentActivity"
+            android:name="com.gionee.bloodsoulnote.viewpagerfragment.ViewPagerFragmentActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".viewpagerfragment.LazyViewPagerActivity">
+        <activity android:name="com.gionee.bloodsoulnote.inputbar.InputBarActivity">
         </activity>
-        <activity android:name=".stepdownload.StepDownloadActivity">
+        <activity
+            android:name="com.gionee.bloodsoulnote.viewpagerfragment.TeacherStudentActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".uploadordownload.UploadDownloadActivity">
+        <activity android:name="com.gionee.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity">
         </activity>
-        <activity android:name=".webview.WebviewActivity">
+        <activity android:name="com.gionee.bloodsoulnote.stepdownload.StepDownloadActivity">
         </activity>
-        <activity android:name=".layout.LayoutActivity">
+        <activity android:name="com.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity">
         </activity>
-        <activity android:name=".mvprxpicture.MvpRxPictureActivity">
+        <activity android:name="com.gionee.bloodsoulnote.webview.WebviewActivity">
         </activity>
-        <activity android:name=".recyitemdelete.RecyItemDeleteActivity">
+        <activity android:name="com.gionee.bloodsoulnote.layout.LayoutActivity">
         </activity>
-        <activity android:name=".toast.ToastActivity">
+        <activity android:name="com.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity">
         </activity>
-        <activity android:name=".recyclerdrag.RecyDragActivity">
+        <activity android:name="com.gionee.bloodsoulnote.recyitemdelete.RecyItemDeleteActivity">
+        </activity>
+        <activity android:name="com.gionee.bloodsoulnote.toast.ToastActivity">
+        </activity>
+        <activity android:name="com.gionee.bloodsoulnote.recyclerdrag.RecyDragActivity">
         </activity>
     </application>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="con.gionee.bloodsoulnote.webview.WebviewActivity">
+    tools:context="com.gionee.bloodsoulnote.com.cgz.bloodsoulnote.webview.WebviewActivity">
 
     <LinearLayout
         android:padding="5dp"
@@ -27,7 +27,7 @@
 
     </LinearLayout>
 
-    <con.gionee.bloodsoulnote.webview.MyWebview
+    <com.gionee.bloodsoulnote.webview.MyWebview
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="con.gionee.bloodsoulnote.toast.ToastActivity">
+    tools:context="com.gionee.bloodsoulnote.com.cgz.bloodsoulnote.toast.ToastActivity">
 
     <Button
         android:onClick="toast1"

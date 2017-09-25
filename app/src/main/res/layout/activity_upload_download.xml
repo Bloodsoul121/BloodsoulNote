@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="con.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity">
+    tools:context="com.gionee.bloodsoulnote.com.cgz.bloodsoulnote.uploadordownload.UploadDownloadActivity">
 
     <Button
         android:onClick="upload"

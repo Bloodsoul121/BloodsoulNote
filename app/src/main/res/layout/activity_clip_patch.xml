@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="con.gionee.bloodsoulnote.bitmap.ClipPatchActivity">
+    tools:context="com.gionee.bloodsoulnote.com.cgz.bloodsoulnote.bitmap.ClipPatchActivity">
 
-    <con.gionee.bloodsoulnote.bitmap.ClipPathView
+    <com.gionee.bloodsoulnote.bitmap.ClipPathView
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
