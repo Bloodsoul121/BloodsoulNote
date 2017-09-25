@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.0'
 
     defaultConfig {
-        applicationId "com.cgz.bloodsoulnote"
+        applicationId "com.gionee.bloodsoulnote"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1

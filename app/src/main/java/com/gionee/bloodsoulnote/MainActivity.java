@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.addBookMark.AddBookMarkActivity;
 import com.gionee.bloodsoulnote.bitmap.ClipPatchActivity;
+import com.gionee.bloodsoulnote.button.ButtonActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
 import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
@@ -78,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("21 - 加载手机相册中所有的图片");
         mDatas.add("22 - RecyclerView 侧滑删除");
         mDatas.add("23 - Toast的自定义,及封装  build模式");
-        mDatas.add("23 - RecyclerView  ItemTouchHelper帮助实现拖拽效果");
+        mDatas.add("24 - RecyclerView 实现拖拽效果");
+        mDatas.add("25 - button 验证功能");
     }
 
     private void clickRecyclerItem(int position) {
@@ -156,6 +158,9 @@ public class MainActivity extends AppCompatActivity {
             case 24:
                 startActivity(new Intent(this, RecyDragActivity.class));
                 break;
+            case 25:
+                startActivity(new Intent(this, ButtonActivity.class));
+                break;
         }
     }
 
@@ -166,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mAdapter = new RecyclerAdapter();
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setHasFixedSize(true);
     }
 
     private class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder> {
