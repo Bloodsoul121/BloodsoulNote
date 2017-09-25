@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.gionee.bloodsoulnote.com.cgz.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity">
+    tools:context="com.gionee.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

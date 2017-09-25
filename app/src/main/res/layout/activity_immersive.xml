@@ -5,6 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gionee.bloodsoulnote.com.cgz.bloodsoulnote.immersive.ImmersiveActivity">
+    tools:context="com.gionee.bloodsoulnote.immersive.ImmersiveActivity">
 
 </android.support.constraint.ConstraintLayout>

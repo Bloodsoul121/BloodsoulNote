@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.gionee.bloodsoulnote.com.cgz.bloodsoulnote.requestpermission.RequestPermissionActivity">
+    tools:context="com.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity">
 
     <Button
         android:onClick="clickBtn1"
