@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.addBookMark.AddBookMarkActivity;
+import com.gionee.bloodsoulnote.animation.AnimationActivity;
 import com.gionee.bloodsoulnote.bitmap.ClipPatchActivity;
 import com.gionee.bloodsoulnote.button.ButtonActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("23 - Toast的自定义,及封装  build模式");
         mDatas.add("24 - RecyclerView 实现拖拽效果");
         mDatas.add("25 - button 验证功能");
+        mDatas.add("26 - 三类动画");
     }
 
     private void clickRecyclerItem(int position) {
@@ -160,6 +162,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 25:
                 startActivity(new Intent(this, ButtonActivity.class));
+                break;
+            case 26:
+                startActivity(new Intent(this, AnimationActivity.class));
                 break;
         }
     }

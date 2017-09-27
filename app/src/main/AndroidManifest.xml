@@ -10,7 +10,6 @@
 
     <!-- 只有系统app才有的权限，这里是无效的 -->
     <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
-
     <uses-permission android:name="android.permission.REBOOT"/>
 
     <application
@@ -97,6 +96,14 @@
         <activity android:name=".recyclerdrag.RecyDragActivity">
         </activity>
         <activity android:name=".button.ButtonActivity">
+        </activity>
+        <activity android:name=".animation.AnimationActivity">
+        </activity>
+        <activity android:name=".animation.ZhenAniActivity">
+        </activity>
+        <activity android:name=".animation.BujianAniActivity">
+        </activity>
+        <activity android:name=".animation.ShuxingAniActivity">
         </activity>
     </application>
 

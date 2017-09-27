@@ -32,6 +32,7 @@ public class ToastActivity extends AppCompatActivity {
         new ToastUtil.Builder(this).setMessage("message").build();
     }
 
+    // build模式
     public void toast2(View view) {
         new ToastUtil.Builder(this)
                 .setMessage("123456")
