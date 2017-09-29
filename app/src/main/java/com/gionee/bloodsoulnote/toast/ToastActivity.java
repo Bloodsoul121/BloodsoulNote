@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -71,6 +72,11 @@ public class ToastActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void toast4() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.show();
     }
 
 }
