@@ -54,7 +54,7 @@ public class MyWebview extends WebView {
         settings.setLoadWithOverviewMode(true);
 
         settings.setNeedInitialFocus(false);
-        settings.setSupportMultipleWindows(true);
+//        settings.setSupportMultipleWindows(true);   // 多窗口
         settings.setEnableSmoothTransition(true);
         settings.setAllowContentAccess(true);
 
