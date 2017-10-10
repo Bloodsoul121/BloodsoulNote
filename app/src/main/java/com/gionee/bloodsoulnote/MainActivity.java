@@ -166,6 +166,9 @@ public class MainActivity extends AppCompatActivity {
             case 26:
                 startActivity(new Intent(this, AnimationActivity.class));
                 break;
+            case 27:
+                startActivity(new Intent(this, AnimationActivity.class));
+                break;
         }
     }
 
