@@ -19,11 +19,13 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.gionee.bloodsoulnote.NoteApplication;
+import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.openfile.AndroidUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhuzhejun on 16-12-1.
@@ -211,7 +213,7 @@ public class DownloadNotifyToast {
         textView.setText(builder);
         textView.setTextColor(Color.WHITE);
         textView.setTextSize(DEFAULT_TOAST_TEXT_SIZE);
-        textView.setBackgroundResource(com.gionee.bloodsoulnote.R.drawable.toast_custom_bg);
+        textView.setBackgroundResource(R.drawable.toast_custom_bg);
         textView.setPadding(AndroidUtils.dip2px(context, DEFAULT_PADDING_LEFT), AndroidUtils.dip2px(context, DEFAULT_PADDING_TOP),
                 AndroidUtils.dip2px(context, DEFAULT_PADDING_RIGHT), AndroidUtils.dip2px(context, DEFAULT_PADDING_BOTTOM));
         return textView;

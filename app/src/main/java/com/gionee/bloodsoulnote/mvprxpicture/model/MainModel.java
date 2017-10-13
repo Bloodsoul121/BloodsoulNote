@@ -6,12 +6,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
+
+import com.gionee.bloodsoulnote.mvprxpicture.contract.MainContract;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import com.gionee.bloodsoulnote.mvprxpicture.contract.MainContract;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -51,6 +52,7 @@ public class MainModel implements MainContract.Model {
                 .map(new Func1<String, List<String>>() {
                     @Override
                     public List<String> call(String type) {
+                        Log.i("bloodsoul", "thread " + Thread.currentThread().getName());
                         return getPngAndJpgList(activity, type);
                     }
                 })
