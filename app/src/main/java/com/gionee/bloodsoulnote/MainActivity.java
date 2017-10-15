@@ -14,6 +14,7 @@ import com.gionee.bloodsoulnote.addBookMark.AddBookMarkActivity;
 import com.gionee.bloodsoulnote.animation.AnimationActivity;
 import com.gionee.bloodsoulnote.bitmap.ClipPatchActivity;
 import com.gionee.bloodsoulnote.button.ButtonActivity;
+import com.gionee.bloodsoulnote.circlemenu.CircleMenuActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
 import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("24 - RecyclerView 实现拖拽效果");
         mDatas.add("25 - button 验证功能");
         mDatas.add("26 - 三类动画");
+        mDatas.add("27 - 圆形菜单");
     }
 
     private void clickRecyclerItem(int position) {
@@ -167,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, AnimationActivity.class));
                 break;
             case 27:
-                startActivity(new Intent(this, AnimationActivity.class));
+                startActivity(new Intent(this, CircleMenuActivity.class));
                 break;
         }
     }
