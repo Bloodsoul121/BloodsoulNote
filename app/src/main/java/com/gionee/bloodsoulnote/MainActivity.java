@@ -16,6 +16,7 @@ import com.gionee.bloodsoulnote.bitmap.ClipPatchActivity;
 import com.gionee.bloodsoulnote.button.ButtonActivity;
 import com.gionee.bloodsoulnote.circlemenu.CircleMenuActivity;
 import com.gionee.bloodsoulnote.customview.HorizontalCustomActivity;
+import com.gionee.bloodsoulnote.customview.CustomViewActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
 import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("26 - 三类动画");
         mDatas.add("27 - 圆形菜单");
         mDatas.add("28 - 自定义 HorizontalView ");
+        mDatas.add("29 - 自定义 view 体系 六种移动方式");
     }
 
     private void clickRecyclerItem(int position) {
@@ -175,6 +177,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 28:
                 startActivity(new Intent(this, HorizontalCustomActivity.class));
+                break;
+            case 29:
+                startActivity(new Intent(this, CustomViewActivity.class));
                 break;
         }
     }

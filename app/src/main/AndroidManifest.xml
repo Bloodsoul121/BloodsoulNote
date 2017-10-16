@@ -109,6 +109,8 @@
         </activity>
         <activity android:name=".customview.HorizontalCustomActivity">
         </activity>
+        <activity android:name=".customview.CustomViewActivity">
+        </activity>
     </application>
 
 </manifest>
