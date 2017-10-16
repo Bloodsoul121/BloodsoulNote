@@ -88,8 +88,8 @@ public class CircleMenuLayout extends ViewGroup {
     }
 
     private void initMenuItem(View itemView, int childIndex) {
-        ImageView iv = itemView.findViewById(R.id.id_circle_menu_item_image);
-        TextView tv = itemView.findViewById(R.id.id_circle_menu_item_text);
+        ImageView iv = (ImageView) itemView.findViewById(R.id.id_circle_menu_item_image);
+        TextView tv = (TextView) itemView.findViewById(R.id.id_circle_menu_item_text);
         iv.setVisibility(VISIBLE);
         iv.setImageResource(mItemImgs[childIndex]);
         tv.setVisibility(VISIBLE);
