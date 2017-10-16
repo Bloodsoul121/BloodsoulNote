@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="con.gionee.bloodsoulnote.inputbar.InputBarActivity">
+    tools:context="com.gionee.bloodsoulnote.inputbar.InputBarActivity">
 
     <EditText
         android:id="@+id/et"
         android:hint="click"
+        android:lines="1"
         android:layout_marginTop="5dp"
         android:layout_width="368dp"
         android:layout_height="wrap_content"/>
 
-    <con.gionee.bloodsoulnote.inputbar.ShortcutInputView
+    <com.gionee.bloodsoulnote.inputbar.ShortcutInputView
         android:visibility="gone"
         android:id="@+id/shortcut_input_view"
         android:layout_width="match_parent"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BloodsoulNote</string>
+    <string name="app_name">Note</string>
     <string name="accessibility_service_description">智能安装服务，无需用户的任何操作就可以自动安装程序。</string>
 
     <!-- Compress Speed Up -->
@@ -64,6 +64,9 @@
     <string name="shortcut_com">.com</string>
     <string name="shortcut_cn">.cn</string>
     <string name="shortcut_Paste">粘帖</string>
+
+    <string name="toast_downloaded_File">正在下载中，</string>
+    <string name="toast_downloaded_click">点击查看</string>
 
 
 </resources>
