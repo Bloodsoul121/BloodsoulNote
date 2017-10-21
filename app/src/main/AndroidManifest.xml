@@ -113,6 +113,8 @@
         </activity>
         <activity android:name=".designmode.DesignModeActivity">
         </activity>
+        <activity android:name=".snaphelper.SnaphelperActivity">
+        </activity>
     </application>
 
 </manifest>
