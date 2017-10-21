@@ -27,6 +27,17 @@ public class DesignModeActivity extends AppCompatActivity {
         List<String> list = new ArrayList<>();
         list.add("设计模式");
         list.add("1 - 单例模式");
+        list.add("2 - 建造者模式");
+        list.add("3 - 简单工厂模式");
+        list.add("4 - 工厂方法模式");
+        list.add("5 - 抽象工厂模式");
+        list.add("6 - 代理模式");
+        list.add("7 - 装饰模式");
+        list.add("8 - 外观模式");
+        list.add("9 - 享元模式");
+        list.add("10 - 观察者模式");
+        list.add("11 - 策略模式");
+        list.add("12 - 状态模式");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, list);
         listView.setAdapter(adapter);
 

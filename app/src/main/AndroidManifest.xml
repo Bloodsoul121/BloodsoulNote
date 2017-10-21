@@ -115,6 +115,14 @@
         </activity>
         <activity android:name=".snaphelper.SnaphelperActivity">
         </activity>
+        <activity android:name=".designmode.build.BuildActivity">
+        </activity>
+        <activity android:name=".designmode.simplefactory.FactoryActivity">
+        </activity>
+        <activity android:name=".designmode.proxy.ProxyActivity">
+        </activity>
+        <activity android:name=".designmode.observer.ObserverActivity">
+        </activity>
     </application>
 
 </manifest>
