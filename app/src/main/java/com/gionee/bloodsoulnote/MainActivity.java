@@ -21,6 +21,7 @@ import com.gionee.bloodsoulnote.designmode.DesignModeActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
 import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
+import com.gionee.bloodsoulnote.ipc.IPCActivity;
 import com.gionee.bloodsoulnote.layout.LayoutActivity;
 import com.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
 import com.gionee.bloodsoulnote.okhttp.OkhttpActivity;
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("28 - 自定义 HorizontalView ");
         mDatas.add("29 - 自定义 view 体系 六种移动方式");
         mDatas.add("30 - 23种设计模式");
+        mDatas.add("31 - IPC");
     }
 
     private void clickRecyclerItem(int position) {
@@ -185,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 30:
                 startActivity(new Intent(this, DesignModeActivity.class));
+                break;
+            case 31:
+                startActivity(new Intent(this, IPCActivity.class));
                 break;
         }
     }

@@ -123,6 +123,27 @@
         </activity>
         <activity android:name=".designmode.observer.ObserverActivity">
         </activity>
+
+        <service
+            android:name=".ipc.messenger.MessengerService"
+            android:process=":remote"/>
+        <service
+            android:name=".ipc.aidl.AidlService"
+            android:process=":remote"/>
+
+        <provider
+            android:name=".ipc.contentprovider.GameProvider"
+            android:authorities="com.bloodsoul.game"
+            android:process=":remote"/>
+
+        <activity android:name=".ipc.messenger.MessengerActivity">
+        </activity>
+        <activity android:name=".ipc.IPCActivity">
+        </activity>
+        <activity android:name=".ipc.aidl.AidlActivity">
+        </activity>
+        <activity android:name=".ipc.contentprovider.ContentProviderActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gionee.bloodsoulnote.ipc.IPCActivity">
+
+    <Button
+        android:onClick="startMessenger"
+        android:id="@+id/button16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Messenger"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="36dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <Button
+        android:onClick="startAidl"
+        android:id="@+id/button18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AIDL"
+        android:layout_marginTop="41dp"
+        app:layout_constraintTop_toBottomOf="@+id/button16"
+        android:layout_marginLeft="36dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <Button
+        android:onClick="startContentProvider"
+        android:id="@+id/button20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ContentProvider"
+        android:layout_marginTop="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/button18"
+        android:layout_marginLeft="36dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+</android.support.constraint.ConstraintLayout>

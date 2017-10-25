@@ -5,13 +5,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.gionee.bloodsoulnote.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ToastActivity extends AppCompatActivity {
 
@@ -74,9 +76,14 @@ public class ToastActivity extends AppCompatActivity {
         }
     }
 
-    public void toast4() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.show();
+    public void toast4(View view) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.show();
+
+        List<String> list = new ArrayList<>();
+        list.add("hahah");
+        List<String> subList = list.subList(0, 0);
+        Toast.makeText(this, "size " + subList.size(), Toast.LENGTH_SHORT).show();
     }
 
 }
