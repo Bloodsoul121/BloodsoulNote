@@ -9,6 +9,7 @@ import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.ipc.aidl.AidlActivity;
 import com.gionee.bloodsoulnote.ipc.contentprovider.ContentProviderActivity;
 import com.gionee.bloodsoulnote.ipc.messenger.MessengerActivity;
+import com.gionee.bloodsoulnote.ipc.socket.SocketClientActivity;
 
 public class IPCActivity extends AppCompatActivity {
 
@@ -28,5 +29,9 @@ public class IPCActivity extends AppCompatActivity {
 
     public void startContentProvider(View view) {
         startActivity(new Intent(this, ContentProviderActivity.class));
+    }
+
+    public void startSocket(View view) {
+        startActivity(new Intent(this, SocketClientActivity.class));
     }
 }

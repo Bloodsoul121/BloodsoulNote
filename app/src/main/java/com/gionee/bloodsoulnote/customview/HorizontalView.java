@@ -140,7 +140,7 @@ public class HorizontalView extends ViewGroup {
                 // 相对当前 view 滑动的距离，正为向左，负为向右
                 int distance = getScrollX() - mCurrentIndex * mChildWidth;
                 // 滑动的距离要大于 1/2 个宽度，否则不会切换到其他页面
-                if (Math.abs(distance) > mChildWidth / 2) {
+                if (Math.abs(distance) > mChildWidth / 4) {
                     if (distance > 0) {
                         mCurrentIndex++;
                     }else {

@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <!-- 只有系统app才有的权限，这里是无效的 -->
     <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
@@ -130,6 +131,9 @@
         <service
             android:name=".ipc.aidl.AidlService"
             android:process=":remote"/>
+        <service
+            android:name=".ipc.socket.SocketService"
+            android:process=":remote"/>
 
         <provider
             android:name=".ipc.contentprovider.GameProvider"
@@ -143,6 +147,9 @@
         <activity android:name=".ipc.aidl.AidlActivity">
         </activity>
         <activity android:name=".ipc.contentprovider.ContentProviderActivity">
+        </activity>
+        <activity android:name=".ipc.socket.SocketClientActivity"
+                  android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
 

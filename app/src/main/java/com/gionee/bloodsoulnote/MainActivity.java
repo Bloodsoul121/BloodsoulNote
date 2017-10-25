@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("17 - 多线程分布下载");
         mDatas.add("18 - 上传 and 下载  get / post");
         mDatas.add("19 - webview 加载网页");
-        mDatas.add("20 - 布局");
+        mDatas.add("20 - 测试布局");
         mDatas.add("21 - 加载手机相册中所有的图片");
         mDatas.add("22 - RecyclerView 侧滑删除");
         mDatas.add("23 - Toast的自定义,及封装  build模式");
