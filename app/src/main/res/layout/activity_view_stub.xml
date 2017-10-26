@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gionee.bloodsoulnote.viewstub.ViewStubActivity">
+
+    <ViewStub
+        android:id="@+id/viewstub"
+        android:layout="@layout/viewstub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:onClick="onclick1"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:onClick="onclick2"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="click inflate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:onClick="onclick3"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="click visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:onClick="onclick4"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="click invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:onClick="onclick5"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="click find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

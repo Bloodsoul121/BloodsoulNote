@@ -148,8 +148,11 @@
         </activity>
         <activity android:name=".ipc.contentprovider.ContentProviderActivity">
         </activity>
-        <activity android:name=".ipc.socket.SocketClientActivity"
-                  android:windowSoftInputMode="adjustPan">
+        <activity
+            android:name=".ipc.socket.SocketClientActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity android:name=".viewstub.ViewStubActivity">
         </activity>
     </application>
 

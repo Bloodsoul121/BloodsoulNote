@@ -39,6 +39,7 @@ import com.gionee.bloodsoulnote.viewpager.ViewPagerActivity;
 import com.gionee.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity;
 import com.gionee.bloodsoulnote.viewpagerfragment.TeacherStudentActivity;
 import com.gionee.bloodsoulnote.viewpagerfragment.ViewPagerFragmentActivity;
+import com.gionee.bloodsoulnote.viewstub.ViewStubActivity;
 import com.gionee.bloodsoulnote.webview.WebviewActivity;
 
 import java.util.ArrayList;
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("29 - 自定义 view 体系 六种移动方式");
         mDatas.add("30 - 23种设计模式");
         mDatas.add("31 - IPC");
+        mDatas.add("32 - ViewStub");
     }
 
     private void clickRecyclerItem(int position) {
@@ -190,6 +192,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 31:
                 startActivity(new Intent(this, IPCActivity.class));
+                break;
+            case 32:
+                startActivity(new Intent(this, ViewStubActivity.class));
                 break;
         }
     }
