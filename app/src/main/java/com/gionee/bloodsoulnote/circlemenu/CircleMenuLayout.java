@@ -12,6 +12,7 @@ package com.gionee.bloodsoulnote.circlemenu;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +26,9 @@ public class CircleMenuLayout extends ViewGroup {
     // 圆形直径
     private int mRadius;
     // 该容器内 child item 的默认尺寸
-    private static final float radio_default_child_dimension = 1 /4f;
+    private static final float RADIO_DEFAULT_CHILD_DIMENSION = 1 /4f;
     // 该容器的内边距，无视 padding 属性，如需边距请使用该变量
-    private static final float radio_default_padding_layout = 1 / 12f;
+    private static final float RADIO_DEFAULT_PADDING_LAYOUT = 1 / 12f;
     // 该容器的内边距，无视 padding 属性，如需边距请使用该变量
     private float mPadding;
     // 布局时的开始角度
@@ -49,15 +50,11 @@ public class CircleMenuLayout extends ViewGroup {
 
     public CircleMenuLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setPadding(0, 0, 0, 0);
     }
 
     public CircleMenuLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-
     }
 
     public void setMenuItemIconsAndTexts(int[] images, String[] texts) {
@@ -125,6 +122,7 @@ public class CircleMenuLayout extends ViewGroup {
      */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.i("CircleMenuLayout", "onMeasure");
 //        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         // 丈量自身尺寸
         measureMyself(widthMeasureSpec, heightMeasureSpec);
@@ -166,11 +164,11 @@ public class CircleMenuLayout extends ViewGroup {
 
     private void measureChildViews() {
         // 获得半径
-        mRadius = Math.max(getMeasuredWidth(),getMeasuredHeight());
+        mRadius = Math.min(getMeasuredWidth(),getMeasuredHeight());
         // menu item 数量
         final int count = getChildCount();
         // menu item 尺寸
-        int childSize = (int) (mRadius * radio_default_child_dimension);
+        int childSize = (int) (mRadius * RADIO_DEFAULT_CHILD_DIMENSION);
         // menu item 测量模式
         int childMode = MeasureSpec.EXACTLY;
         // 迭代测量
@@ -179,7 +177,50 @@ public class CircleMenuLayout extends ViewGroup {
             if (child.getVisibility() == GONE) {
                 continue;
             }
+
+            // 计算 menu item 的尺寸, 以及设置好的模式, 去对 item 进行测量
+            int makeMeasurespec = -1;
+            makeMeasurespec = MeasureSpec.makeMeasureSpec(childSize, childMode);
+            child.measure(makeMeasurespec, makeMeasurespec);
+        }
+        mPadding = RADIO_DEFAULT_PADDING_LAYOUT * mRadius;
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.i("CircleMenuLayout", "onLayout");
+        final int childcount = getChildCount();
+        int left, top;
+        // menu item 的尺寸
+        int itemWidth = (int) (mRadius * RADIO_DEFAULT_CHILD_DIMENSION);
+        // 根据 menuitem的个数, 计算 item 的布局占用的角度
+        float angleDelay = 360 / childcount;
+        // 遍历所有菜单项, 设置它们的位置
+        for (int i = 0; i < childcount; i++) {
+            final View child = getChildAt(i);
+            if (child.getVisibility() == GONE) {
+                continue;
+            }
+
+            // 菜单项的起始角度
+            mStartAngle %= 360;
+            // 计算 , 中心点到 menu item 中心的距离
+            float distanceFromCenter = mRadius / 2f - itemWidth / 2 - mPadding;
+
+            left = mRadius / 2 + (int) Math.round(distanceFromCenter * Math.cos(Math.toRadians(mStartAngle) - 1 / 2f * itemWidth));
+
+            top = mRadius / 2 + (int) Math.round(distanceFromCenter * Math.sin(Math.toRadians(mStartAngle)) - 1 / 2f * itemWidth);
+
+            child.layout(left, top, left + itemWidth, top + itemWidth);
+            mStartAngle += angleDelay;
+
+//            Log.i("CircleMenuLayout", left + ", " + top + ", " + (left + itemWidth) + ", " + (top + itemWidth));
         }
     }
 
+    @Override
+    protected void onAttachedToWindow() {
+        Log.i("CircleMenuLayout", "onAttachedToWindow");
+        super.onAttachedToWindow();
+    }
 }
