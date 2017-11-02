@@ -32,6 +32,7 @@ import com.gionee.bloodsoulnote.recyitemdelete.RecyItemDeleteActivity;
 import com.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity;
 import com.gionee.bloodsoulnote.retrofit2.Retrofit2Activity;
 import com.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
+import com.gionee.bloodsoulnote.sqlite.SQLiteActivity;
 import com.gionee.bloodsoulnote.stepdownload.StepDownloadActivity;
 import com.gionee.bloodsoulnote.toast.ToastActivity;
 import com.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity;
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("30 - 23种设计模式");
         mDatas.add("31 - IPC");
         mDatas.add("32 - ViewStub");
+        mDatas.add("33 - 源生操作数据库");
     }
 
     private void clickRecyclerItem(int position) {
@@ -195,6 +197,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 32:
                 startActivity(new Intent(this, ViewStubActivity.class));
+                break;
+            case 33:
+                startActivity(new Intent(this, SQLiteActivity.class));
                 break;
         }
     }

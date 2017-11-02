@@ -26,7 +26,9 @@ public class ContentProviderActivity extends AppCompatActivity {
         values.put("name", "cgz");
         values.put("describe", "zhuai");
         getContentResolver().insert(GAME_CONTENT_URI, values);
+    }
 
+    public void query(View view) {
         // 查询
         Cursor cursor = getContentResolver().query(GAME_CONTENT_URI, new String[]{"name", "describe"}, null, null, null);
         if (cursor != null) {
@@ -37,6 +39,5 @@ public class ContentProviderActivity extends AppCompatActivity {
             }
             cursor.close();
         }
-
     }
 }

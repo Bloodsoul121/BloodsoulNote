@@ -14,12 +14,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action0;
-import rx.functions.Action1;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
+import io.reactivex.schedulers.Schedulers;
+
+//import rx.Observable;
+//import rx.android.schedulers.AndroidSchedulers;
+//import rx.functions.Action0;
+//import rx.functions.Action1;
+//import rx.functions.Func1;
+//import rx.schedulers.Schedulers;
 
 /**
  * Created by cgz on 17-9-21.
@@ -30,9 +39,9 @@ public class MainModel implements MainContract.Model {
     @Override
     public void loadPic(final Activity activity, final onLoadPicListener onLoadPicListener) {
         Observable.just("image/jpeg,image/png")
-                .filter(new Func1<String, Boolean>() {
+                .filter(new Predicate<String>() {
                     @Override
-                    public Boolean call(String s) {
+                    public boolean test(String s) throws Exception {
                         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                             return true;
                         } else {
@@ -41,31 +50,31 @@ public class MainModel implements MainContract.Model {
                         }
                     }
                 })
-                .doOnSubscribe(new Action0() {
+                .doOnSubscribe(new Consumer<Disposable>() {
                     @Override
-                    public void call() {
+                    public void accept(Disposable disposable) throws Exception {
                         onLoadPicListener.onLoadBefore();
                     }
                 })
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .map(new Func1<String, List<String>>() {
+                .map(new Function<String, List<String>>() {
                     @Override
-                    public List<String> call(String type) {
+                    public List<String> apply(String type) throws Exception {
                         Log.i("bloodsoul", "thread " + Thread.currentThread().getName());
                         return getPngAndJpgList(activity, type);
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnCompleted(new Action0() {
+                .doOnComplete(new Action() {
                     @Override
-                    public void call() {
+                    public void run() throws Exception {
                         onLoadPicListener.onLoadAfter();
                     }
                 })
-                .subscribe(new Action1<List<String>>() {
+                .subscribe(new Consumer<List<String>>() {
                     @Override
-                    public void call(List<String> picPathList) {
+                    public void accept(List<String> picPathList) throws Exception {
                         onLoadPicListener.onResult(picPathList);
                     }
                 });
