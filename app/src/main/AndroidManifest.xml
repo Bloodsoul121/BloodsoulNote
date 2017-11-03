@@ -158,6 +158,8 @@
         </activity>
         <activity android:name=".sqlite.SQLiteActivity">
         </activity>
+        <activity android:name=".threadpool.ThreadPoolActivity">
+        </activity>
     </application>
 
 </manifest>
