@@ -162,6 +162,12 @@
         </activity>
         <activity android:name=".customview2.CustomView2Activity">
         </activity>
+        <activity android:name=".listview.ListViewActivity">
+        </activity>
+        <activity android:name=".listview.testlistview.TestListViewActivity">
+        </activity>
+        <activity android:name=".listview.customlistview.CustomListViewActivity">
+        </activity>
     </application>
 
 </manifest>

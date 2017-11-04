@@ -24,6 +24,7 @@ import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
 import com.gionee.bloodsoulnote.ipc.IPCActivity;
 import com.gionee.bloodsoulnote.layout.LayoutActivity;
+import com.gionee.bloodsoulnote.listview.ListViewActivity;
 import com.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
 import com.gionee.bloodsoulnote.okhttp.OkhttpActivity;
 import com.gionee.bloodsoulnote.openfile.OpenFileActivity;
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("33 - 源生操作数据库");
         mDatas.add("34 - 线程池工具类");
         mDatas.add("35 - 自定义View, 测试");
+        mDatas.add("36 - ListView, 测试");
     }
 
     private void clickRecyclerItem(int position) {
@@ -210,6 +212,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 35:
                 startActivity(new Intent(this, CustomView2Activity.class));
+                break;
+            case 36:
+                startActivity(new Intent(this, ListViewActivity.class));
                 break;
         }
     }
