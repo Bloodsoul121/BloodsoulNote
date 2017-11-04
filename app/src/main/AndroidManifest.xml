@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.gionee.bloodsoulnote">
+<manifest package="com.gionee.bloodsoulnote"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -159,6 +159,8 @@
         <activity android:name=".sqlite.SQLiteActivity">
         </activity>
         <activity android:name=".threadpool.ThreadPoolActivity">
+        </activity>
+        <activity android:name=".customview2.CustomView2Activity">
         </activity>
     </application>
 

@@ -59,4 +59,6 @@
     <dimen name="risk_url_tips_text_size">14dp</dimen>
     <dimen name="topbar_height">45dip</dimen>
 
+    <dimen name="topbar_title_size">8sp</dimen>
+
 </resources>

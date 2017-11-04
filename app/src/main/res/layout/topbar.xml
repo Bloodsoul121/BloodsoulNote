@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gionee.bloodsoulnote.customview2.topbar.TopBar
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#5e5e5e"
+    android:id="@+id/topbar"
+    custom:leftText="Back"
+    custom:leftTextColor="#ffffff"
+    custom:rightText="More"
+    custom:rightTextColor="#ffffff"
+    custom:title="标题"
+    custom:titleTextColor="#eeeeee"
+    custom:titleTextSize="@dimen/topbar_title_size"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+</com.gionee.bloodsoulnote.customview2.topbar.TopBar>

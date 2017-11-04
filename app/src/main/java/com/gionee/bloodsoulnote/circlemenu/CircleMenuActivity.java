@@ -2,7 +2,6 @@ package com.gionee.bloodsoulnote.circlemenu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
@@ -31,12 +30,10 @@ public class CircleMenuActivity
 
         mCircleMenuLayout.setMenuItemIconsAndTexts(mItemImgs, mItemTexts);
 
-
     }
 
     @Override
     public void onAttachedToWindow() {
-
         super.onAttachedToWindow();
         mCircleMenuLayout.addView(new TextView(this));
     }
