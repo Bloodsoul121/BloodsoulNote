@@ -28,12 +28,14 @@ import com.gionee.bloodsoulnote.listview.ListViewActivity;
 import com.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
 import com.gionee.bloodsoulnote.okhttp.OkhttpActivity;
 import com.gionee.bloodsoulnote.openfile.OpenFileActivity;
+import com.gionee.bloodsoulnote.pxdp.PxDpActivity;
 import com.gionee.bloodsoulnote.recyclerdrag.RecyDragActivity;
 import com.gionee.bloodsoulnote.recyclerview.RecyclerViewActivity;
 import com.gionee.bloodsoulnote.recyitemdelete.RecyItemDeleteActivity;
 import com.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity;
 import com.gionee.bloodsoulnote.retrofit2.Retrofit2Activity;
 import com.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
+import com.gionee.bloodsoulnote.sliding.SlidingActivity;
 import com.gionee.bloodsoulnote.sqlite.SQLiteActivity;
 import com.gionee.bloodsoulnote.stepdownload.StepDownloadActivity;
 import com.gionee.bloodsoulnote.threadpool.ThreadPoolActivity;
@@ -103,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("34 - 线程池工具类");
         mDatas.add("35 - 自定义View, 测试");
         mDatas.add("36 - ListView, 测试");
+        mDatas.add("37 - 侧滑菜单");
+        mDatas.add("38 - px 和 dp 的相互转换");
     }
 
     private void clickRecyclerItem(int position) {
@@ -215,6 +219,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 36:
                 startActivity(new Intent(this, ListViewActivity.class));
+                break;
+            case 37:
+                startActivity(new Intent(this, SlidingActivity.class));
+                break;
+            case 38:
+                startActivity(new Intent(this, PxDpActivity.class));
                 break;
         }
     }

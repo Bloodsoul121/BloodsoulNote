@@ -168,6 +168,12 @@
         </activity>
         <activity android:name=".listview.customlistview.CustomListViewActivity">
         </activity>
+        <activity android:name=".sliding.SlidingActivity">
+        </activity>
+        <activity android:name=".sliding.viewdraghelper.ViewGragHeplerActivity">
+        </activity>
+        <activity android:name=".pxdp.PxDpActivity">
+        </activity>
     </application>
 
 </manifest>
