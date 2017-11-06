@@ -20,6 +20,7 @@ import com.gionee.bloodsoulnote.customview.CustomViewActivity;
 import com.gionee.bloodsoulnote.customview2.CustomView2Activity;
 import com.gionee.bloodsoulnote.designmode.DesignModeActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
+import com.gionee.bloodsoulnote.huitu.HuituActivity;
 import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
 import com.gionee.bloodsoulnote.ipc.IPCActivity;
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("36 - ListView, 测试");
         mDatas.add("37 - 侧滑菜单");
         mDatas.add("38 - px 和 dp 的相互转换");
+        mDatas.add("39 - 绘图");
     }
 
     private void clickRecyclerItem(int position) {
@@ -225,6 +227,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 38:
                 startActivity(new Intent(this, PxDpActivity.class));
+                break;
+            case 39:
+                startActivity(new Intent(this, HuituActivity.class));
                 break;
         }
     }
