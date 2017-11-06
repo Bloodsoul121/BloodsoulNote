@@ -180,6 +180,8 @@
         </activity>
         <activity android:name=".huitu.layer.LayerActivity">
         </activity>
+        <activity android:name=".huitu.clock.ClockActivity">
+        </activity>
     </application>
 
 </manifest>

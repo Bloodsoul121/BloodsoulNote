@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.gionee.bloodsoulnote.R;
+import com.gionee.bloodsoulnote.huitu.clock.ClockActivity;
 import com.gionee.bloodsoulnote.huitu.layer.LayerActivity;
 import com.gionee.bloodsoulnote.huitu.yinyin.YinyinActivity;
 
@@ -28,7 +29,7 @@ public class HuituActivity
     }
 
     public void clickBtn3(View view) {
-
+        startActivity(new Intent(this, ClockActivity.class));
     }
 
     public void clickBtn4(View view) {
