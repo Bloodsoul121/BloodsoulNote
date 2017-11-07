@@ -77,8 +77,8 @@ public class ViewHolderAdapter extends BaseAdapter {
         public ImageView img;
         public TextView tv;
         private ViewHolder(View view) {
-            img = view.findViewById(R.id.img);
-            tv = view.findViewById(R.id.name);
+            img = (ImageView) view.findViewById(R.id.img);
+            tv = (TextView) view.findViewById(R.id.name);
         }
     }
 

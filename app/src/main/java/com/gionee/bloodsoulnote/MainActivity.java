@@ -15,8 +15,8 @@ import com.gionee.bloodsoulnote.animation.AnimationActivity;
 import com.gionee.bloodsoulnote.bitmap.ClipPatchActivity;
 import com.gionee.bloodsoulnote.button.ButtonActivity;
 import com.gionee.bloodsoulnote.circlemenu.CircleMenuActivity;
-import com.gionee.bloodsoulnote.customview.HorizontalCustomActivity;
 import com.gionee.bloodsoulnote.customview.CustomViewActivity;
+import com.gionee.bloodsoulnote.customview.HorizontalCustomActivity;
 import com.gionee.bloodsoulnote.customview2.CustomView2Activity;
 import com.gionee.bloodsoulnote.designmode.DesignModeActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
@@ -25,6 +25,7 @@ import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
 import com.gionee.bloodsoulnote.ipc.IPCActivity;
 import com.gionee.bloodsoulnote.layout.LayoutActivity;
+import com.gionee.bloodsoulnote.leak.LeakActivity;
 import com.gionee.bloodsoulnote.listview.ListViewActivity;
 import com.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
 import com.gionee.bloodsoulnote.okhttp.OkhttpActivity;
@@ -48,6 +49,7 @@ import com.gionee.bloodsoulnote.viewpagerfragment.TeacherStudentActivity;
 import com.gionee.bloodsoulnote.viewpagerfragment.ViewPagerFragmentActivity;
 import com.gionee.bloodsoulnote.viewstub.ViewStubActivity;
 import com.gionee.bloodsoulnote.webview.WebviewActivity;
+import com.squareup.leakcanary.RefWatcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("37 - 侧滑菜单");
         mDatas.add("38 - px 和 dp 的相互转换");
         mDatas.add("39 - 绘图");
+        mDatas.add("40 - 模拟内存泄漏");
     }
 
     private void clickRecyclerItem(int position) {
@@ -231,6 +234,9 @@ public class MainActivity extends AppCompatActivity {
             case 39:
                 startActivity(new Intent(this, HuituActivity.class));
                 break;
+            case 40:
+                startActivity(new Intent(this, LeakActivity.class));
+                break;
         }
     }
 
@@ -284,4 +290,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RefWatcher refWatcher = NoteApplication.getRefWatcher(this);//1
+        refWatcher.watch(this);
+    }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.gionee.bloodsoulnote"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.gionee.bloodsoulnote">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -181,6 +181,8 @@
         <activity android:name=".huitu.layer.LayerActivity">
         </activity>
         <activity android:name=".huitu.clock.ClockActivity">
+        </activity>
+        <activity android:name=".leak.LeakActivity">
         </activity>
     </application>
 
