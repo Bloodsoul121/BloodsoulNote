@@ -20,6 +20,7 @@ import com.gionee.bloodsoulnote.customview.HorizontalCustomActivity;
 import com.gionee.bloodsoulnote.customview2.CustomView2Activity;
 import com.gionee.bloodsoulnote.designmode.DesignModeActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
+import com.gionee.bloodsoulnote.heap.HeapActivity;
 import com.gionee.bloodsoulnote.huitu.HuituActivity;
 import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
@@ -36,6 +37,7 @@ import com.gionee.bloodsoulnote.recyclerview.RecyclerViewActivity;
 import com.gionee.bloodsoulnote.recyitemdelete.RecyItemDeleteActivity;
 import com.gionee.bloodsoulnote.requestpermission.RequestPermissionActivity;
 import com.gionee.bloodsoulnote.retrofit2.Retrofit2Activity;
+import com.gionee.bloodsoulnote.rxjava.RxJavaActivity;
 import com.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
 import com.gionee.bloodsoulnote.sliding.SlidingActivity;
 import com.gionee.bloodsoulnote.sqlite.SQLiteActivity;
@@ -112,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("38 - px 和 dp 的相互转换");
         mDatas.add("39 - 绘图");
         mDatas.add("40 - 模拟内存泄漏");
+        mDatas.add("41 - 内存优化");
+        mDatas.add("42 - RxBus 2.0 测试");
     }
 
     private void clickRecyclerItem(int position) {
@@ -236,6 +240,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 40:
                 startActivity(new Intent(this, LeakActivity.class));
+                break;
+            case 41:
+                startActivity(new Intent(this, HeapActivity.class));
+                break;
+            case 42:
+                startActivity(new Intent(this, RxJavaActivity.class));
                 break;
         }
     }
