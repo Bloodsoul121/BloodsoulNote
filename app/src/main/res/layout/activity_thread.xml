@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.gionee.bloodsoulnote.heap.HeapActivity">
+    tools:context="com.gionee.bloodsoulnote.thread.ThreadActivity">
 
     <Button
         android:onClick="clickBtn1"
-        android:text="LruCache"
-        android:textAllCaps="false"
+        android:text="测试守护线程"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+
     <Button
         android:onClick="clickBtn2"
-        android:text="LruCache"
-        android:textAllCaps="false"
+        android:text="测试插入线程"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

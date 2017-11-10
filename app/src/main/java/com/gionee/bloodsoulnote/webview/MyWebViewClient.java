@@ -56,7 +56,7 @@ public class MyWebViewClient extends WebViewClient {
 
 //        String js2 = "(function(){var videoEls = document.querySelectorAll('video');var status = 0, isVideo = false;showLocalNativeTip();function showLocalNativeTip(){for(var i = 0; i < videoEls.length; i++){webviewListenerVideo(videoEls[i],i);}function webviewListenerVideo(el,index){el.addEventListener('play',function(){status = 1;window.HtmlStatisticJSInterface.video(el.src);},false);el.addEventListener('pause',function(){status = 0;},false);el.addEventListener('ended',function(){status = 0;},false);el.addEventListener('timeupdate',function(){if(status === 2){window.HtmlStatisticJSInterface.showToast();status = 0;} },false);}}function netchangecallback(){status = 2;}window.netchangecallback = netchangecallback;})();";
 
-        webView.loadUrl("javascript:" + jsCode);
+//        webView.loadUrl("javascript:" + jsCode);
     }
 
     @Override

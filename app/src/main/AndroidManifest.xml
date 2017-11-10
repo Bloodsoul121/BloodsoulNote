@@ -84,7 +84,9 @@
         </activity>
         <activity android:name=".uploadordownload.UploadDownloadActivity">
         </activity>
-        <activity android:name=".webview.WebviewActivity">
+        <activity
+            android:name=".webview.WebviewActivity"
+            android:configChanges="orientation">
         </activity>
         <activity android:name=".layout.LayoutActivity">
         </activity>
@@ -185,6 +187,8 @@
         <activity android:name=".leak.LeakActivity">
         </activity>
         <activity android:name=".heap.HeapActivity">
+        </activity>
+        <activity android:name=".thread.ThreadActivity">
         </activity>
     </application>
 

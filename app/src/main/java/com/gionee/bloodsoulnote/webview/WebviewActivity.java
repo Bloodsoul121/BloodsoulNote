@@ -20,6 +20,13 @@ public class WebviewActivity extends AppCompatActivity {
 
     private EditText mEt;
 
+    private static final String baidu = "https://www.baidu.com";
+
+    private static final String videoUrl = "http://open.toutiao.com/a6486343222829253134/?utm_campaign=open&utm_med" +
+            "ium=webview&utm_source=jinlillq&gy=b71c171a4d00a5a04a03aacbaf63765cf6ae5f774d62e0" +
+            "9f39431061693971e14f104332b5a337dfbb889454f1a0e9baf42de2df23699c07e5a91549bb535b07" +
+            "&crypt=7748&item_id=6486343222829253134&&openudid=9de131f6e96feb36";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +42,7 @@ public class WebviewActivity extends AppCompatActivity {
 
         mWebView.initWebSetting();
         mWebView.initClient();
-        mWebView.loadUrl("https://www.baidu.com");
+        mWebView.loadUrl(videoUrl);
     }
 
     /**

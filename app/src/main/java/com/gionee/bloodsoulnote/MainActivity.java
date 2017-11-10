@@ -42,6 +42,7 @@ import com.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
 import com.gionee.bloodsoulnote.sliding.SlidingActivity;
 import com.gionee.bloodsoulnote.sqlite.SQLiteActivity;
 import com.gionee.bloodsoulnote.stepdownload.StepDownloadActivity;
+import com.gionee.bloodsoulnote.thread.ThreadActivity;
 import com.gionee.bloodsoulnote.threadpool.ThreadPoolActivity;
 import com.gionee.bloodsoulnote.toast.ToastActivity;
 import com.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity;
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("40 - 模拟内存泄漏");
         mDatas.add("41 - 内存优化");
         mDatas.add("42 - RxBus 2.0 测试");
+        mDatas.add("43 - 测试线程");
     }
 
     private void clickRecyclerItem(int position) {
@@ -246,6 +248,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 42:
                 startActivity(new Intent(this, RxJavaActivity.class));
+                break;
+            case 43:
+                startActivity(new Intent(this, ThreadActivity.class));
                 break;
         }
     }
