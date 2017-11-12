@@ -52,6 +52,7 @@ import com.gionee.bloodsoulnote.viewpagerfragment.TeacherStudentActivity;
 import com.gionee.bloodsoulnote.viewpagerfragment.ViewPagerFragmentActivity;
 import com.gionee.bloodsoulnote.viewstub.ViewStubActivity;
 import com.gionee.bloodsoulnote.webview.WebviewActivity;
+import com.gionee.bloodsoulnote.webviewdetail.WebviewDetailActivity;
 import com.squareup.leakcanary.RefWatcher;
 
 import java.util.ArrayList;
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("41 - 内存优化");
         mDatas.add("42 - RxBus 2.0 测试");
         mDatas.add("43 - 测试线程");
+        mDatas.add("44 - webview底部加上评论区");
     }
 
     private void clickRecyclerItem(int position) {
@@ -251,6 +253,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 43:
                 startActivity(new Intent(this, ThreadActivity.class));
+                break;
+            case 44:
+                startActivity(new Intent(this, WebviewDetailActivity.class));
                 break;
         }
     }
