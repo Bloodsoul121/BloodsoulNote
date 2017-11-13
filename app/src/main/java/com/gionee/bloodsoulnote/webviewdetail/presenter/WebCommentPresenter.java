@@ -1,6 +1,6 @@
 package com.gionee.bloodsoulnote.webviewdetail.presenter;
 
-import com.gionee.bloodsoulnote.webviewdetail.I.IWebComment;
+import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebComment;
 import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
 import com.gionee.bloodsoulnote.webviewdetail.model.WebCommentModel;
 

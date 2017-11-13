@@ -1,15 +1,8 @@
 package com.gionee.bloodsoulnote.webviewdetail.adapter;
 
-/*
- *  @项目名：  BloodsoulNote 
- *  @包名：    com.gionee.bloodsoulnote.webviewdetail
- *  @文件名:   CommentAdapter
- *  @创建者:   Bloodsoul
- *  @创建时间:  2017/11/12 12:36
- *  @描述：    TODO
- */
-
 import android.content.Context;
+import android.view.View;
+import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.webviewdetail.base.CommonRecyAdapter;
@@ -26,6 +19,10 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
 
     private OnItemChildClickListener mOnItemChildClickListener;
 
+    private TextView mLikeNum;
+
+    private TextView mCommentContent;
+
     public CommentAdapter(Context context) {
         super(context);
     }
@@ -39,12 +36,15 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
     }
 
     @Override
-    protected void convert(ViewHolder holder, CommentBean data) {
+    protected void convert(ViewHolder holder, CommentBean data, boolean isFirstInGroup) {
         this.mData = data;
-        holder.setText(R.id.item_recy_comment_content, data.getComment());
-
-        addOnItemChildClickListener(R.id.item_recy_comment_discuss, this);
-        addOnItemChildClickListener(R.id.item_recy_comment_delete, this);
+        // 初始状态
+        holder.setVisibility(R.id.group_title, isFirstInGroup ? View.VISIBLE : View.GONE);
+        holder.setTextLine(R.id.comment_content_more);
+        // 点击事件
+        addOnItemChildClickListener(R.id.like_img, this);
+        addOnItemChildClickListener(R.id.comment_content_more, this);
+        addOnItemChildClickListener(R.id.comment_reply, this);
     }
 
     @Override
@@ -53,23 +53,41 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
     }
 
     @Override
+    protected String getGroupId(CommentBean commentBean) {
+        return commentBean.getGroupId();
+    }
+
+    @Override
     public void onItemChildClick(ViewHolder viewHolder, CommentBean data, int position, int id) {
         if (mOnItemChildClickListener == null) {
             return;
         }
         switch (id) {
-            case R.id.item_recy_comment_discuss:
-                mOnItemChildClickListener.onDiscussClick(viewHolder, mData, position);
+            case R.id.like_img:
+                // // TODO: 17-11-13
+                // 点赞数 加减1
+                mLikeNum = viewHolder.getView(R.id.like_num);
+
+                // 回调
+                mOnItemChildClickListener.onLikeClick(viewHolder, mData, position);
                 break;
-            case R.id.item_recy_comment_delete:
-                mOnItemChildClickListener.onDeleteClick(viewHolder, mData, position);
+            case R.id.comment_content_more:
+                // 查看更多
+                mCommentContent = viewHolder.getView(R.id.comment_content);
+                mCommentContent.setMaxLines(10);
+                String content = mCommentContent.getText() + data.getComment();
+                mCommentContent.setText(content);
+                break;
+            case R.id.comment_reply:
+                // 回复
+                mOnItemChildClickListener.onReplyClick(viewHolder, mData, position);
                 break;
         }
     }
 
     public interface OnItemChildClickListener {
-        void onDiscussClick(ViewHolder viewHolder, CommentBean data, int position);
-        void onDeleteClick(ViewHolder viewHolder, CommentBean data, int position);
+        void onLikeClick(ViewHolder viewHolder, CommentBean data, int position);
+        void onReplyClick(ViewHolder viewHolder, CommentBean data, int position);
     }
 
     public void setOnItemChildClickListener(OnItemChildClickListener itemChildClickListener) {

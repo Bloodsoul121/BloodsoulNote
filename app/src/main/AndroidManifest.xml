@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.gionee.bloodsoulnote"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.gionee.bloodsoulnote">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -190,8 +190,15 @@
         </activity>
         <activity android:name=".thread.ThreadActivity">
         </activity>
-        <activity android:name=".webviewdetail.WebviewDetailActivity"
+        <activity
+            android:name=".webviewdetail.WebviewDetailActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".vieweffects.ViewEffectsActivity">
+        </activity>
+        <activity android:name=".vieweffects.textview.TextViewActivity">
+        </activity>
+        <activity android:name=".vieweffects.imageview.ImageViewActivity">
         </activity>
     </application>
 

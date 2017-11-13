@@ -46,6 +46,7 @@ import com.gionee.bloodsoulnote.thread.ThreadActivity;
 import com.gionee.bloodsoulnote.threadpool.ThreadPoolActivity;
 import com.gionee.bloodsoulnote.toast.ToastActivity;
 import com.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity;
+import com.gionee.bloodsoulnote.vieweffects.ViewEffectsActivity;
 import com.gionee.bloodsoulnote.viewpager.ViewPagerActivity;
 import com.gionee.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity;
 import com.gionee.bloodsoulnote.viewpagerfragment.TeacherStudentActivity;
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("42 - RxBus 2.0 测试");
         mDatas.add("43 - 测试线程");
         mDatas.add("44 - webview底部加上评论区");
+        mDatas.add("45 - view 的视图效果");
     }
 
     private void clickRecyclerItem(int position) {
@@ -256,6 +258,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 44:
                 startActivity(new Intent(this, WebviewDetailActivity.class));
+                break;
+            case 45:
+                startActivity(new Intent(this, ViewEffectsActivity.class));
                 break;
         }
     }

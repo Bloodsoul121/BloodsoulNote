@@ -1,4 +1,4 @@
-package com.gionee.bloodsoulnote.webviewdetail.I;
+package com.gionee.bloodsoulnote.webviewdetail.IContract;
 
 import android.webkit.WebView;
 

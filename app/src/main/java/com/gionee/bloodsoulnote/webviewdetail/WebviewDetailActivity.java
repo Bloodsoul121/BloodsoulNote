@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.gionee.bloodsoulnote.R;
-import com.gionee.bloodsoulnote.webviewdetail.view.WebDetailView;
+import com.gionee.bloodsoulnote.webviewdetail.view.WebPageView;
 
 public class WebviewDetailActivity
         extends Activity
 {
 
-    private WebDetailView  mWebDetailView;
+    private WebPageView  mWebPageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +21,8 @@ public class WebviewDetailActivity
     }
 
     private void initView() {
-        mWebDetailView = (WebDetailView) findViewById(R.id.web_detail_view);
-        mWebDetailView.loadUrl("https://www.baidu.com");
+        mWebPageView = (WebPageView) findViewById(R.id.web_page_view);
+        mWebPageView.loadUrl("https://www.baidu.com");
     }
 
 }

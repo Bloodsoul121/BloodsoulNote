@@ -1,6 +1,7 @@
 package com.gionee.bloodsoulnote.webviewdetail.base;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -64,6 +65,16 @@ public class ViewHolder
     public void setBgColor(int viewId, int colorId) {
         View view = getView(viewId);
         view.setBackgroundColor(colorId);
+    }
+
+    public void setTextLine(int viewId) {
+        TextView view = (TextView) getView(viewId);
+        view.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+    }
+
+    public void setVisibility(int viewId, int visibility) {
+        View view = getView(viewId);
+        view.setVisibility(visibility);
     }
 
 }

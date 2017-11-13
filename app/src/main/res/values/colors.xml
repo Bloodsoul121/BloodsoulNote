@@ -30,4 +30,6 @@
 
     <color name="toast_click_color">#00a1e9</color>
 
+    <color name="num_color">#000000</color>
+
 </resources>

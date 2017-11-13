@@ -115,7 +115,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
 
     private void bindCommonItem(RecyclerView.ViewHolder holder, final int position) {
         final ViewHolder viewHolder = (ViewHolder) holder;
-        convert(viewHolder, mDatas.get(position));
+        convert(viewHolder, mDatas.get(position), isFirstInGroup(position));
         viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,7 +176,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         return mDatas.get(position);
     }
 
-    protected abstract void convert(ViewHolder holder, T data);
+    protected abstract void convert(ViewHolder holder, T data, boolean isFirstInGroup);
 
     protected abstract int getItemLayoutId();
 
@@ -419,5 +419,17 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         isAutoLoadMore = true;
         mDatas.clear();
     }
+
+    private boolean isFirstInGroup(int position) {
+        if (position == 0) {
+            return true;
+        } else {
+            String prevGroupId = getGroupId(mDatas.get(position - 1));
+            String groupId = getGroupId(mDatas.get(position));
+            return prevGroupId != null && groupId != null && !prevGroupId.equals(groupId);
+        }
+    }
+
+    protected abstract String getGroupId(T t);
 
 }

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 
-import com.gionee.bloodsoulnote.webviewdetail.I.IWebComment;
+import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebComment;
 import com.gionee.bloodsoulnote.webviewdetail.adapter.CommentAdapter;
 import com.gionee.bloodsoulnote.webviewdetail.base.CommonRecyAdapter;
 import com.gionee.bloodsoulnote.webviewdetail.base.ViewHolder;
@@ -18,23 +18,23 @@ import com.gionee.bloodsoulnote.webviewdetail.presenter.WebCommentPresenter;
 
 import java.util.List;
 
-public class WebCommentView extends FrameLayout implements IWebComment.IView,
+public class CommentView extends FrameLayout implements IWebComment.IView,
                                                            CommonRecyAdapter.OnLoadMoreListener,
                                                            CommentAdapter.OnItemChildClickListener
 {
 
-    private CommentAdapter         mRecyclerAdapter;
-    private RecyclerView           mRecyclerView;
-    private IWebComment.IPresenter mPresenter;
     private Context mContext;
+    private IWebComment.IPresenter mPresenter;
+    private RecyclerView           mRecyclerView;
+    private CommentAdapter         mRecyclerAdapter;
     private LinearLayoutManager mLayoutManager;
 
-    public WebCommentView(Context context) {
+    public CommentView(Context context) {
         super(context);
         init(context);
     }
 
-    public WebCommentView(Context context, AttributeSet attrs) {
+    public CommentView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
@@ -92,6 +92,9 @@ public class WebCommentView extends FrameLayout implements IWebComment.IView,
     @Override
     public void bindWebview(WebView webView) {
         // // TODO: 2017/11/12
+        // 1. 滑到底部的监听
+        // 2. 进度条的监听, start, finish, overrideurl
+        // 3. 参数 , 比如 网页id
     }
 
     @Override
@@ -116,12 +119,12 @@ public class WebCommentView extends FrameLayout implements IWebComment.IView,
     }
 
     @Override
-    public void onDiscussClick(ViewHolder viewHolder, CommentBean data, int position) {
+    public void onLikeClick(ViewHolder viewHolder, CommentBean data, int position) {
 
     }
 
     @Override
-    public void onDeleteClick(ViewHolder viewHolder, CommentBean data, int position) {
+    public void onReplyClick(ViewHolder viewHolder, CommentBean data, int position) {
 
     }
 }
