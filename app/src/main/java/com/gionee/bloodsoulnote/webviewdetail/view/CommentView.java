@@ -68,9 +68,8 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
         mRecyclerAdapter = new CommentAdapter(mContext);
         initAdapter();
         mRecyclerView.setAdapter(mRecyclerAdapter);
+        mRecyclerAdapter.setOnItemChildClickListener(this);
         addView(mRecyclerView);
-
-//        mRecyclerAdapter.setOnItemChildClickListener(this);
     }
 
     private void initAdapter() {
@@ -79,10 +78,11 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
         mRecyclerAdapter.setOnItemChildClickListener(this);
         //初始化EmptyView
         mRecyclerAdapter.setEmptyView(R.layout.layout_foot_comment_empty);
+        //初始化 开始加载更多的loading View
+        mRecyclerAdapter.setLoadingView(R.layout.layout_foot_comment_empty);
+
 //        mRecyclerAdapter.startLoadMore(mRecyclerView, mLayoutManager);
 
-//        //初始化 开始加载更多的loading View
-//        mRecyclerAdapter.setLoadingView(R.layout.load_loading_layout);
 //        //加载失败，更新footer view提示
 //        mRecyclerAdapter.setLoadFailedView(R.layout.load_failed_layout);
 //        //加载完成，更新footer view提示

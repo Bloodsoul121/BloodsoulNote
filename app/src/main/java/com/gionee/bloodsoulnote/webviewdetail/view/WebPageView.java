@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -59,7 +58,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView, View.On
         ImageView back = (ImageView) findViewById(R.id.back);
         ImageView share = (ImageView) findViewById(R.id.share);
         ImageView mutilWindow = (ImageView) findViewById(R.id.mutil_window);
-        EditText commentBar = (EditText) findViewById(R.id.comment_bar);
+        TextView commentBar = (TextView) findViewById(R.id.comment_bar);
         mCommentNum = (NumImageView) findViewById(R.id.comment_num);
         back.setOnClickListener(this);
         share.setOnClickListener(this);

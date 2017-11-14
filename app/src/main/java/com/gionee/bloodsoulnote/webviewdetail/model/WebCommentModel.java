@@ -45,7 +45,7 @@ public class WebCommentModel implements IWebComment.IModel {
                     @Override
                     public List<CommentBean> apply(String type) throws Exception {
                         // // TODO: 17-11-14  模拟3秒的加载
-                        Thread.currentThread().sleep(3000);
+                        Thread.currentThread().sleep(2000);
                         return getWebComments();
                     }
                 })
@@ -66,18 +66,18 @@ public class WebCommentModel implements IWebComment.IModel {
 
     private List<CommentBean> getWebComments() {
         List<CommentBean> datas = new ArrayList<>();
-//        for (int i = 0; i < 5; i++) {
-//            CommentBean bean = new CommentBean();
-//            bean.setComment("评论区 - " + i);
-//            bean.setGroupId("hot");
-//            datas.add(bean);
-//        }
-//        for (int i = 5; i < 15; i++) {
-//            CommentBean bean = new CommentBean();
-//            bean.setComment("评论区 - " + i);
-//            bean.setGroupId("new");
-//            datas.add(bean);
-//        }
+        for (int i = 0; i < 5; i++) {
+            CommentBean bean = new CommentBean();
+            bean.setComment("评论区 - " + i);
+            bean.setGroupId("hot");
+            datas.add(bean);
+        }
+        for (int i = 5; i < 15; i++) {
+            CommentBean bean = new CommentBean();
+            bean.setComment("评论区 - " + i);
+            bean.setGroupId("new");
+            datas.add(bean);
+        }
         return datas;
     }
 

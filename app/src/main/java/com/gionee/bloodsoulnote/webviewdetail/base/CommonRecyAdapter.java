@@ -263,8 +263,8 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                Log.i("bloodsoul", "CommonRecyAdapter onScrolled --> " );
                 super.onScrolled(recyclerView, dx, dy);
+                // 这里一直为 true
                 if (isAutoLoadMore && findLastVisibleItemPosition(layoutManager) + 1 == getItemCount()) {
                     scrollLoadMore();
                 } else if (isAutoLoadMore) {
@@ -306,7 +306,12 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         }
         int count = mDatas.size();
         this.mDatas.addAll(datas);
-        notifyItemChanged(count);
+        Log.i("bloodsoul", "addNewBottomData " + mDatas.size());
+        if (count <= 0) {
+            notifyDataSetChanged();
+        } else {
+            notifyItemChanged(count - 1);
+        }
     }
 
     public void addNewTopData(List<T> datas) {
