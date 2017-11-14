@@ -29,7 +29,7 @@ public interface IWebComment {
 
     public interface IModel {
 
-        void loadComment(OnLoadCommentListener onLoadCommentListener);
+        void loadWebComments(OnLoadCommentListener onLoadCommentListener);
 
         interface OnLoadCommentListener {
             void onLoadBefore();

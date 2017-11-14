@@ -1,7 +1,58 @@
 package com.gionee.bloodsoulnote.webviewdetail.presenter;
 
-public class WebPagePresenter {
+import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebPage;
+import com.gionee.bloodsoulnote.webviewdetail.bean.WebpageBean;
+import com.gionee.bloodsoulnote.webviewdetail.model.WebPageModel;
 
+public class WebPagePresenter implements IWebPage.IPresenter{
 
+    private IWebPage.IView mView;
+    private WebPageModel mModel;
 
+    public WebPagePresenter(IWebPage.IView view) {
+        this.mView = view;
+        this.mView.bindPresenter(this);
+        this.mView.initView();
+        this.mModel = new WebPageModel();
+    }
+
+    public static WebPagePresenter bindPresenter(IWebPage.IView view) {
+        return new WebPagePresenter(view);
+    }
+
+    @Override
+    public void loadWebpageInfo() {
+        this.mModel.loadWebpageInfo(new IWebPage.IModel.OnLoadCommentBarListener() {
+            @Override
+            public void onLoadBefore() {
+
+            }
+
+            @Override
+            public void onLoadAfter() {
+
+            }
+
+            @Override
+            public void onResult(WebpageBean webpageInfo) {
+
+            }
+
+            @Override
+            public void onFailed(String info) {
+
+            }
+        });
+    }
+
+    @Override
+    public void publish(String publishContent) {
+        // 判断用户是否已经登录
+
+        // 如果没有登录, 则登录
+
+        // 是否是黑用户
+
+        // 发表成功
+    }
 }

@@ -24,7 +24,7 @@ public class WebCommentPresenter implements IWebComment.IPresenter {
 
     @Override
     public void loadMoreComments() {
-        this.mModel.loadComment(new IWebComment.IModel.OnLoadCommentListener() {
+        this.mModel.loadWebComments(new IWebComment.IModel.OnLoadCommentListener() {
             @Override
             public void onLoadBefore() {
 

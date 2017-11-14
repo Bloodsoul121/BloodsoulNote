@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 
+import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebComment;
 import com.gionee.bloodsoulnote.webviewdetail.adapter.CommentAdapter;
 import com.gionee.bloodsoulnote.webviewdetail.base.CommonRecyAdapter;
@@ -64,10 +65,9 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
         mRecyclerView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                                                     ViewGroup.LayoutParams.MATCH_PARENT));
         mRecyclerAdapter = new CommentAdapter(mContext);
+        initAdapter();
         mRecyclerView.setAdapter(mRecyclerAdapter);
         addView(mRecyclerView);
-
-        initAdapter();
 
 //        mRecyclerAdapter.setOnItemChildClickListener(this);
     }
@@ -78,9 +78,8 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
         mRecyclerAdapter.startLoadMore(mRecyclerView, mLayoutManager);
         mRecyclerAdapter.setOnItemChildClickListener(this);
 
-//        //初始化EmptyView
-//        View emptyView = LayoutInflater.from(mContext).inflate(R.layout.empty_layout, (ViewGroup) mRecyclerView.getParent(), false);
-//        mRecyclerAdapter.setEmptyView(emptyView);
+        //初始化EmptyView
+        mRecyclerAdapter.setEmptyView(R.layout.layout_foot_comment_empty);
 //        //初始化 开始加载更多的loading View
 //        mRecyclerAdapter.setLoadingView(R.layout.load_loading_layout);
 //        //加载失败，更新footer view提示

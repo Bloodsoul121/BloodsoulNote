@@ -115,7 +115,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
 
     private void bindCommonItem(RecyclerView.ViewHolder holder, final int position) {
         final ViewHolder viewHolder = (ViewHolder) holder;
-        convert(viewHolder, mDatas.get(position), isFirstInGroup(position));
+        convert(viewHolder, mDatas.get(position), isFirstInGroup(position), isLastInGroup(position));
         viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,7 +176,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         return mDatas.get(position);
     }
 
-    protected abstract void convert(ViewHolder holder, T data, boolean isFirstInGroup);
+    protected abstract void convert(ViewHolder holder, T data, boolean isFirstInGroup, boolean isLastInGroup);
 
     protected abstract int getItemLayoutId();
 
@@ -330,6 +330,10 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         mEmptyView = emptyView;
     }
 
+    public void setEmptyView(int emptyId) {
+        setEmptyView(mInflater.inflate(emptyId, null));
+    }
+
     public void setLoadingView(View loadingView) {
         mLoadingView = loadingView;
         addFooterView(mLoadingView);
@@ -427,6 +431,16 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
             String prevGroupId = getGroupId(mDatas.get(position - 1));
             String groupId = getGroupId(mDatas.get(position));
             return prevGroupId != null && groupId != null && !prevGroupId.equals(groupId);
+        }
+    }
+
+    private boolean isLastInGroup(int position) {
+        if (position == mDatas.size() - 1) {
+            return true;
+        } else {
+            String groupId = getGroupId(mDatas.get(position));
+            String afterGroupId = getGroupId(mDatas.get(position + 1));
+            return afterGroupId != null && groupId != null && !groupId.equals(afterGroupId);
         }
     }
 

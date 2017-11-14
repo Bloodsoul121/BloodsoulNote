@@ -68,5 +68,8 @@
     <string name="toast_downloaded_File">正在下载中，</string>
     <string name="toast_downloaded_click">点击查看</string>
 
+    <string name="webpage_discuss_cancel">取消</string>
+    <string name="webpage_discuss_publish">发表</string>
+    <string name="publish_succeed">发表成功</string>
 
 </resources>

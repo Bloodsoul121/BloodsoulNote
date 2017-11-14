@@ -36,10 +36,11 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
     }
 
     @Override
-    protected void convert(ViewHolder holder, CommentBean data, boolean isFirstInGroup) {
+    protected void convert(ViewHolder holder, CommentBean data, boolean isFirstInGroup, boolean isLastInGroup) {
         this.mData = data;
         // 初始状态
         holder.setVisibility(R.id.group_title, isFirstInGroup ? View.VISIBLE : View.GONE);
+        holder.setVisibility(R.id.comment_divider, isLastInGroup ? View.GONE : View.VISIBLE);
         holder.setTextLine(R.id.comment_content_more);
         // 点击事件
         addOnItemChildClickListener(R.id.like_img, this);
