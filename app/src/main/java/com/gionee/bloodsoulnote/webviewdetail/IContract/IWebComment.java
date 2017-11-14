@@ -21,6 +21,8 @@ public interface IWebComment {
         void refreshItemData(int position);
         // 删除单个item数据
         void deleteItemData(int position);
+
+        void onLoadBefore();
     }
 
     public interface IPresenter {

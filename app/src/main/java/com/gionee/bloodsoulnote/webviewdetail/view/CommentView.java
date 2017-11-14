@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebComment;
@@ -110,6 +111,13 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
     @Override
     public void deleteItemData(int position) {
         mRecyclerAdapter.deleteItemData(position);
+    }
+
+    @Override
+    public void onLoadBefore() {
+        TextView tv = new TextView(mContext);
+        tv.setText("加载中...");
+        mRecyclerAdapter.setLoadingView(tv);
     }
 
     @Override

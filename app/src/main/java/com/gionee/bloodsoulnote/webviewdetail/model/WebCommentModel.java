@@ -1,10 +1,15 @@
 package com.gionee.bloodsoulnote.webviewdetail.model;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.RequestFuture;
 import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebComment;
 import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -39,6 +44,8 @@ public class WebCommentModel implements IWebComment.IModel {
                 .map(new Function<String, List<CommentBean>>() {
                     @Override
                     public List<CommentBean> apply(String type) throws Exception {
+                        // // TODO: 17-11-14  模拟3秒的加载
+                        Thread.currentThread().sleep(3000);
                         return getWebComments();
                     }
                 })
@@ -73,4 +80,27 @@ public class WebCommentModel implements IWebComment.IModel {
 //        }
         return datas;
     }
+
+    private void requestData() {
+        RequestFuture<CommentBean> future = RequestFuture.newFuture();
+        Request<CommentBean> request = new Request<CommentBean>(0, "", future) {
+            @Override
+            protected Response<CommentBean> parseNetworkResponse(NetworkResponse response) {
+                return null;
+            }
+
+            @Override
+            protected void deliverResponse(CommentBean response) {
+
+            }
+        };
+        try {
+            CommentBean commentBean = future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
