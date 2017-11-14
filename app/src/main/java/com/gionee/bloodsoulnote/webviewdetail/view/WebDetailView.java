@@ -40,11 +40,6 @@ public class WebDetailView extends ScrollView {
 
         mCommentView = (CommentView) mContainer.findViewById(R.id.web_comment_view);
 
-//        mWebView = new WebView(context);
-//        initWebView(mWebView);
-//        mContainer.addView(mWebView, 0);
-
-//        initCommentView();
     }
 
     private void initWebView(WebView webView) {
@@ -53,12 +48,6 @@ public class WebDetailView extends ScrollView {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
     }
-
-//    private void initCommentView() {
-//        mCommentView = new WebCommentView(mContext);
-//        mContainer.addView(mCommentView);
-//        mCommentView.bindWebview(mWebView);
-//    }
 
     public void loadUrl(String url) {
         if (mWebView != null) {
@@ -74,4 +63,7 @@ public class WebDetailView extends ScrollView {
         return mCommentView;
     }
 
+    public void updateSelfComment() {
+
+    }
 }

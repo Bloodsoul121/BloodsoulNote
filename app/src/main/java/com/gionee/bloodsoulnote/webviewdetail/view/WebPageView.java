@@ -2,7 +2,6 @@ package com.gionee.bloodsoulnote.webviewdetail.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -86,6 +85,12 @@ public class WebPageView extends LinearLayout implements IWebPage.IView, View.On
         // 发表成功
         showBottomBar();
         toast(getResources().getString(R.string.publish_succeed));
+        // 更新评论区, 滑到最新评论区
+        updateSelfComment();
+    }
+
+    private void updateSelfComment() {
+        mWebDetailView.updateSelfComment();
     }
 
     @Override
@@ -117,7 +122,6 @@ public class WebPageView extends LinearLayout implements IWebPage.IView, View.On
 
     private void publish() {
         String content = mDiscussEdit.getText().toString();
-        Log.i("bloodsoul", "content " + content);
         mPresenter.publish(content);
     }
 

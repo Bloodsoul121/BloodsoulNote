@@ -59,18 +59,18 @@ public class WebCommentModel implements IWebComment.IModel {
 
     private List<CommentBean> getWebComments() {
         List<CommentBean> datas = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            CommentBean bean = new CommentBean();
-            bean.setComment("评论区 - " + i);
-            bean.setGroupId("hot");
-            datas.add(bean);
-        }
-        for (int i = 5; i < 15; i++) {
-            CommentBean bean = new CommentBean();
-            bean.setComment("评论区 - " + i);
-            bean.setGroupId("new");
-            datas.add(bean);
-        }
+//        for (int i = 0; i < 5; i++) {
+//            CommentBean bean = new CommentBean();
+//            bean.setComment("评论区 - " + i);
+//            bean.setGroupId("hot");
+//            datas.add(bean);
+//        }
+//        for (int i = 5; i < 15; i++) {
+//            CommentBean bean = new CommentBean();
+//            bean.setComment("评论区 - " + i);
+//            bean.setGroupId("new");
+//            datas.add(bean);
+//        }
         return datas;
     }
 }

@@ -295,18 +295,24 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
     }
 
     private void scrollLoadMore() {
-        if (mFooterLayout.getChildAt(0) == mLoadingView) {
+        if (mFooterLayout != null && mFooterLayout.getChildAt(0) == mLoadingView) {
             mLoadMoreListener.onLoadMore(false);
         }
     }
 
     public void addNewBottomData(List<T> datas) {
+        if (datas == null || datas.isEmpty()) {
+            return;
+        }
         int count = mDatas.size();
         this.mDatas.addAll(datas);
         notifyItemChanged(count);
     }
 
     public void addNewTopData(List<T> datas) {
+        if (datas == null || datas.isEmpty()) {
+            return;
+        }
         this.mDatas.addAll(0, datas);
         notifyDataSetChanged();
     }

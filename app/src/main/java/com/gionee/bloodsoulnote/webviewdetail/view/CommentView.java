@@ -75,11 +75,11 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
     private void initAdapter() {
         mRecyclerAdapter.setOpenLoadMore(true);
         mRecyclerAdapter.setOnLoadMoreListener(this);
-        mRecyclerAdapter.startLoadMore(mRecyclerView, mLayoutManager);
         mRecyclerAdapter.setOnItemChildClickListener(this);
-
         //初始化EmptyView
         mRecyclerAdapter.setEmptyView(R.layout.layout_foot_comment_empty);
+//        mRecyclerAdapter.startLoadMore(mRecyclerView, mLayoutManager);
+
 //        //初始化 开始加载更多的loading View
 //        mRecyclerAdapter.setLoadingView(R.layout.load_loading_layout);
 //        //加载失败，更新footer view提示
