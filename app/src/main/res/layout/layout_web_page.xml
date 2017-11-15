@@ -49,7 +49,7 @@
 
     <LinearLayout
         android:id="@+id/web_bottom_bar"
-        android:background="#FF6A6A"
+        android:background="@drawable/web_bottom_bar_bg"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:padding="10dp"
