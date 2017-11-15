@@ -2,6 +2,7 @@ package com.gionee.bloodsoulnote.webviewdetail.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -22,6 +23,8 @@ public class WebDetailView extends ScrollView {
 
     private CommentView mCommentView;
 
+    public OnScrollChangeListener onScrollChangeListener;
+
     public WebDetailView(Context context) {
         super(context);
         init(context);
@@ -39,7 +42,7 @@ public class WebDetailView extends ScrollView {
         addView(mContainer);
 
         mCommentView = (CommentView) mContainer.findViewById(R.id.web_comment_view);
-
+        mCommentView.bindParentViewGroup(this);
     }
 
     private void initWebView(WebView webView) {
@@ -65,5 +68,32 @@ public class WebDetailView extends ScrollView {
 
     public void updateSelfComment() {
 
+    }
+
+    /**
+     * l当前水平滚动的开始位置
+     * t当前的垂直滚动的开始位置
+     * oldl上一次水平滚动的位置。
+     * oldt上一次垂直滚动的位置。
+     **/
+    @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+        if(t + getHeight() >= mContainer.getHeight() && onScrollChangeListener != null){
+            onScrollChangeListener.onScrollBottom();
+        }
+        if((t == 0 || t + getHeight() > mContainer.getHeight()) && onScrollChangeListener != null){
+            onScrollChangeListener.onScrollTop();
+        }
+    }
+
+    public interface OnScrollChangeListener{
+        void onScrollChange(WebDetailView view,int x,int y,int oldx,int oldy);
+        void onScrollTop();
+        void onScrollBottom();
+    }
+
+    public void setOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener){
+        this.onScrollChangeListener = onScrollChangeListener;
     }
 }

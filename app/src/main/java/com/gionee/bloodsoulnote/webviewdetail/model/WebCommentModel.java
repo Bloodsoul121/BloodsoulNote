@@ -45,7 +45,7 @@ public class WebCommentModel implements IWebComment.IModel {
                     @Override
                     public List<CommentBean> apply(String type) throws Exception {
                         // // TODO: 17-11-14  模拟3秒的加载
-                        Thread.currentThread().sleep(2000);
+                        Thread.currentThread().sleep(1000);
                         return getWebComments();
                     }
                 })

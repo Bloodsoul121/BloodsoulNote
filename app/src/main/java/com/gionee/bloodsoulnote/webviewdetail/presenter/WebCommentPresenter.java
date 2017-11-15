@@ -32,7 +32,7 @@ public class WebCommentPresenter implements IWebComment.IPresenter {
 
             @Override
             public void onLoadAfter() {
-
+                mView.onLoadEnd();
             }
 
             @Override
@@ -42,7 +42,7 @@ public class WebCommentPresenter implements IWebComment.IPresenter {
 
             @Override
             public void onFailed(String info) {
-
+                mView.onLoadFailed();
             }
         });
     }

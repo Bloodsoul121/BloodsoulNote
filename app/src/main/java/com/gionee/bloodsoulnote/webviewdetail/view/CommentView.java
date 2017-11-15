@@ -121,8 +121,26 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
     }
 
     @Override
+    public void onLoadFailed() {
+        loadBottomEnd();
+    }
+
+    @Override
+    public void onLoadEnd() {
+        loadBottomEnd();
+    }
+
+    @Override
     public void onLoadMore(boolean isReload) {
         mPresenter.loadMoreComments();
+    }
+
+    private void loadBottomMore() {
+        mRecyclerAdapter.startLoadMore();
+    }
+
+    private void loadBottomEnd() {
+        mRecyclerAdapter.endLoadMore();
     }
 
     @Override
@@ -133,5 +151,24 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
     @Override
     public void onReplyClick(ViewHolder viewHolder, CommentBean data, int position) {
 
+    }
+
+    public void bindParentViewGroup(WebDetailView webDetailView) {
+        webDetailView.setOnScrollChangeListener(new WebDetailView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(WebDetailView view, int x, int y, int oldx, int oldy) {
+
+            }
+
+            @Override
+            public void onScrollBottom() {
+                loadBottomMore();
+            }
+
+            @Override
+            public void onScrollTop() {
+
+            }
+        });
     }
 }

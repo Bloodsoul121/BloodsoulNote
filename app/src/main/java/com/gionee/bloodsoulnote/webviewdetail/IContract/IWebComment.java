@@ -23,6 +23,10 @@ public interface IWebComment {
         void deleteItemData(int position);
 
         void onLoadBefore();
+
+        void onLoadFailed();
+
+        void onLoadEnd();
     }
 
     public interface IPresenter {

@@ -244,34 +244,19 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         mOpenLoadMore = isOpenLoadMore;
     }
 
-    public void startLoadMore(RecyclerView recyclerView, final RecyclerView.LayoutManager layoutManager) {
+    public void startLoadMore() {
         if (!mOpenLoadMore || mLoadMoreListener == null) {
             return;
         }
 
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                Log.i("bloodsoul", "CommonRecyAdapter onScrollStateChanged --> " );
-                        super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    if (!isAutoLoadMore && findLastVisibleItemPosition(layoutManager) + 1 == getItemCount()) {
-                        scrollLoadMore();
-                    }
-                }
-            }
+        if (isAutoLoadMore) {
+            scrollLoadMore();
+            isAutoLoadMore = false;
+        }
+    }
 
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                // 这里一直为 true
-                if (isAutoLoadMore && findLastVisibleItemPosition(layoutManager) + 1 == getItemCount()) {
-                    scrollLoadMore();
-                } else if (isAutoLoadMore) {
-                    isAutoLoadMore = false;
-                }
-            }
-        });
+    public void endLoadMore() {
+        isAutoLoadMore = true;
     }
 
     private int findLastVisibleItemPosition(RecyclerView.LayoutManager layoutManager) {
@@ -295,6 +280,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
     }
 
     private void scrollLoadMore() {
+        Log.i("bloodsoul", "scrollLoadMore ");
         if (mFooterLayout != null && mFooterLayout.getChildAt(0) == mLoadingView) {
             mLoadMoreListener.onLoadMore(false);
         }
