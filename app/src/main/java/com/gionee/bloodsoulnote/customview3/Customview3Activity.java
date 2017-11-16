@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.gionee.bloodsoulnote.R;
+import com.gionee.bloodsoulnote.customview3.showAnimator.RightOutActivity;
+import com.gionee.bloodsoulnote.customview3.showAnimator.ShowAnimatorActivity;
 import com.gionee.bloodsoulnote.customview3.slidefinish.SlideFinishActivity;
 
 public class Customview3Activity extends AppCompatActivity {
@@ -18,5 +20,13 @@ public class Customview3Activity extends AppCompatActivity {
 
     public void clickBtn1(View view) {
         startActivity(new Intent(this, SlideFinishActivity.class));
+    }
+
+    public void clickBtn2(View view) {
+        startActivity(new Intent(this, ShowAnimatorActivity.class));
+    }
+
+    public void clickBtn3(View view) {
+        startActivity(new Intent(this, RightOutActivity.class));
     }
 }

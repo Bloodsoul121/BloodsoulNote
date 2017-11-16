@@ -43,6 +43,7 @@ import com.gionee.bloodsoulnote.silentinstall.SilentInstallActivity;
 import com.gionee.bloodsoulnote.sliding.SlidingActivity;
 import com.gionee.bloodsoulnote.sqlite.SQLiteActivity;
 import com.gionee.bloodsoulnote.stepdownload.StepDownloadActivity;
+import com.gionee.bloodsoulnote.surfaceview.SurfaceViewActivity;
 import com.gionee.bloodsoulnote.thread.ThreadActivity;
 import com.gionee.bloodsoulnote.threadpool.ThreadPoolActivity;
 import com.gionee.bloodsoulnote.toast.ToastActivity;
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("44 - webview底部加上评论区");
         mDatas.add("45 - view 控件 的视图效果");
         mDatas.add("46 - 自定义view 滑动退出效果");
+        mDatas.add("47 - SurfaceView");
     }
 
     private void clickRecyclerItem(int position) {
@@ -266,6 +268,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 46:
                 startActivity(new Intent(this, Customview3Activity.class));
+                break;
+            case 47:
+                startActivity(new Intent(this, SurfaceViewActivity.class));
                 break;
         }
     }
