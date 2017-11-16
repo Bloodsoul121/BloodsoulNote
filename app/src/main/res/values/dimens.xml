@@ -61,4 +61,15 @@
 
     <dimen name="topbar_title_size">8sp</dimen>
 
+    <!--// webpage-->
+    <dimen name="web_bottom_bar_margin_left">12dp</dimen>
+    <dimen name="web_bottom_bar_margin_right">14dp</dimen>
+    <dimen name="web_bottom_bar_height">48dp</dimen>
+    <dimen name="web_bottom_bar_commment_bar_width">139dp</dimen>
+    <dimen name="web_bottom_bar_commment_bar_height">32dp</dimen>
+    <dimen name="web_bottom_bar_commment_bar_text_size">14sp</dimen>
+    <dimen name="web_bottom_bar_commment_bar_margin_left">10dp</dimen>
+    <dimen name="web_bottom_bar_commment_bar_margin_right">22dp</dimen>
+    <dimen name="web_bottom_bar_comment_bar_bg_stroke_width">0.3dp</dimen>
+
 </resources>

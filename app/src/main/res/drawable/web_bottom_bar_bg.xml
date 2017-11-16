@@ -3,13 +3,13 @@
 
     <item>
         <shape>
-            <solid android:color="#FF6A6A"/>
+            <solid android:color="@color/web_bottom_bar_bg_line"/>
         </shape>
     </item>
 
     <item android:top="1dp">
         <shape>
-            <solid android:color="#828586"/>
+            <solid android:color="@color/web_bottom_bar_bg"/>
         </shape>
     </item>
 
