@@ -2,20 +2,18 @@ package com.gionee.bloodsoulnote.webviewdetail.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebPage;
+import com.gionee.bloodsoulnote.webviewdetail.base.ViewHolder;
+import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
 import com.gionee.bloodsoulnote.webviewdetail.presenter.WebPagePresenter;
 
-public class WebPageView extends LinearLayout implements IWebPage.IView, View.OnClickListener {
+public class WebPageView extends RelativeLayout implements IWebPage.IView {
 
     private Context mContext;
 
@@ -23,13 +21,11 @@ public class WebPageView extends LinearLayout implements IWebPage.IView, View.On
 
     private WebDetailView mWebDetailView;
 
-    private LinearLayout mCommentBottomBar;
+    private WebPageBottomBar mCommentBottomBar;
 
-    private NumImageView mCommentNum;
+    private DiscussView mDiscussView;
 
-    private RelativeLayout mDiscussContainer;
-
-    private ToastEditText mDiscussEdit;
+    private CommentDetailView mCommentDetailView;
 
     private Toast mToast;
 
@@ -51,32 +47,85 @@ public class WebPageView extends LinearLayout implements IWebPage.IView, View.On
     }
 
     @Override
-    public void initView() {
-        mWebDetailView = (WebDetailView) findViewById(R.id.web_detail_view);
-        // bottom bar
-        mCommentBottomBar = (LinearLayout) findViewById(R.id.web_bottom_bar);
-        ImageView back = (ImageView) findViewById(R.id.back);
-        ImageView share = (ImageView) findViewById(R.id.share);
-        ImageView mutilWindow = (ImageView) findViewById(R.id.mutil_window);
-        TextView commentBar = (TextView) findViewById(R.id.comment_bar);
-        mCommentNum = (NumImageView) findViewById(R.id.comment_num);
-        back.setOnClickListener(this);
-        share.setOnClickListener(this);
-        mutilWindow.setOnClickListener(this);
-        mCommentNum.setOnClickListener(this);
-        commentBar.setOnClickListener(this);
-        // discuss box
-        mDiscussContainer = (RelativeLayout) findViewById(R.id.discuss_container);
-        TextView discussCancel = (TextView) findViewById(R.id.discuss_cancel);
-        TextView discussPublish = (TextView) findViewById(R.id.discuss_publish);
-        mDiscussEdit = (ToastEditText) findViewById(R.id.discuss_edit);
-        discussCancel.setOnClickListener(this);
-        discussPublish.setOnClickListener(this);
+    public void bindPresenter(IWebPage.IPresenter presenter) {
+        mPresenter = presenter;
     }
 
     @Override
-    public void bindPresenter(IWebPage.IPresenter presenter) {
-        mPresenter = presenter;
+    public void initView() {
+        mWebDetailView = (WebDetailView) findViewById(R.id.web_detail_view);
+        // bottom bar
+        mCommentBottomBar = (WebPageBottomBar) findViewById(R.id.web_bottom_bar);
+        // discuss box
+        mDiscussView = (DiscussView) findViewById(R.id.discuss_view);
+        // comment detail view
+        mCommentDetailView = (CommentDetailView) findViewById(R.id.comment_detail_view);
+        initEvent();
+    }
+
+    private void initEvent() {
+        mWebDetailView.setOnNeedOpenCommentDetailListener(new CommentView.OnNeedOpenCommentDetailListener() {
+            @Override
+            public void onNeedOpenCommentDetail(ViewHolder viewHolder, CommentBean data, int position) {
+                // 打开评论详情页
+                toast("打开评论详情页");
+                OpenCommentDetail(data, position);
+            }
+        });
+        mCommentBottomBar.setOnWebPageBottomBarClickListener(new WebPageBottomBar.OnWebPageBottomBarClickListener() {
+            @Override
+            public void onClickBack() {
+                toast("返回");
+            }
+
+            @Override
+            public void onClickCommentBar() {
+                showDiscussBox();
+            }
+
+            @Override
+            public void onClickShare() {
+                toast("分享");
+            }
+
+            @Override
+            public void onClickCommentNum() {
+                toast("打开评论区");
+            }
+
+            @Override
+            public void onClickMutilWindow() {
+                toast("多窗口");
+            }
+        });
+        mDiscussView.setOnDiscussViewClickListener(new DiscussView.OnDiscussViewClickListener() {
+            @Override
+            public void onCancelClick() {
+                showBottomBar();
+            }
+
+            @Override
+            public void onPublishComment(String comment) {
+                mPresenter.publish(comment);
+            }
+        });
+        mCommentDetailView.setOnCommentDetailClickListener(new CommentDetailView.OnCommentDetailClickListener() {
+            @Override
+            public void onClickTopBack() {
+
+            }
+
+            @Override
+            public void onViewFinish() {
+                mCommentDetailView.setVisibility(GONE);
+            }
+        });
+    }
+
+    private void OpenCommentDetail(CommentBean data, int position) {
+        mCommentDetailView.setVisibility(VISIBLE);
+        mCommentDetailView.OpenCommentDetail();
+        Log.i("WebPageView", "OpenCommentDetail --> " + mCommentDetailView.getLeft());
     }
 
     @Override
@@ -88,75 +137,24 @@ public class WebPageView extends LinearLayout implements IWebPage.IView, View.On
         updateSelfComment();
     }
 
+    @Override
+    public void publishFailed() {
+        // 发表失败
+        toast(getResources().getString(R.string.publish_failed));
+    }
+
     private void updateSelfComment() {
         mWebDetailView.updateSelfComment();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.back:
-                toast("返回");
-                break;
-            case R.id.share:
-                toast("分享");
-                break;
-            case R.id.comment_num:
-                toast("打开评论区");
-                break;
-            case R.id.mutil_window:
-                toast("多窗口");
-                break;
-            case R.id.comment_bar:
-                showDiscussBox();
-                break;
-            case R.id.discuss_cancel:
-                showBottomBar();
-                break;
-            case R.id.discuss_publish:
-                publish();
-                break;
-        }
-    }
-
-    private void publish() {
-        String content = mDiscussEdit.getText().toString();
-        mPresenter.publish(content);
-    }
-
     private void showDiscussBox() {
-        mDiscussContainer.setVisibility(VISIBLE);
-        mDiscussEdit.setFocusable(true);
-        mDiscussEdit.setFocusableInTouchMode(true);
-        mDiscussEdit.requestFocus();
-        hideBottomBar();
-        showSoftKeyboard();
-    }
-
-    private void hideDiscussBox() {
-        mDiscussContainer.setVisibility(GONE);
-        mDiscussEdit.setFocusable(false);
-        mDiscussEdit.setFocusableInTouchMode(false);
-    }
-
-    private void showBottomBar() {
-        hideDiscussBox();
-        hideSoftKeyboard();
-        mCommentBottomBar.setVisibility(VISIBLE);
-    }
-
-    private void hideBottomBar() {
+        mDiscussView.showDiscussBox();
         mCommentBottomBar.setVisibility(GONE);
     }
 
-    private void showSoftKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.showSoftInput(mDiscussEdit, 0);
-    }
-
-    private void hideSoftKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(mDiscussEdit.getWindowToken(), 0);
+    private void showBottomBar() {
+        mDiscussView.hideDiscussBox();
+        mCommentBottomBar.setVisibility(VISIBLE);
     }
 
     public void loadUrl(String url) {

@@ -2,7 +2,6 @@ package com.gionee.bloodsoulnote.webviewdetail.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -67,15 +66,10 @@ public class WebDetailView extends ScrollView {
     }
 
     public void updateSelfComment() {
-
+        // 更新用户发表的评论 // TODO: 17-11-16
+        // 并滚动到用户评论区
     }
 
-    /**
-     * l当前水平滚动的开始位置
-     * t当前的垂直滚动的开始位置
-     * oldl上一次水平滚动的位置。
-     * oldt上一次垂直滚动的位置。
-     **/
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
@@ -95,5 +89,11 @@ public class WebDetailView extends ScrollView {
 
     public void setOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener){
         this.onScrollChangeListener = onScrollChangeListener;
+    }
+
+    public void setOnNeedOpenCommentDetailListener(CommentView.OnNeedOpenCommentDetailListener onNeedOpenCommentDetailListener) {
+        if (mCommentView != null) {
+            mCommentView.setOnNeedOpenCommentDetailListener(onNeedOpenCommentDetailListener);
+        }
     }
 }

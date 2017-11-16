@@ -200,6 +200,10 @@
         </activity>
         <activity android:name=".vieweffects.imageview.ImageViewActivity">
         </activity>
+        <activity android:name=".customview3.Customview3Activity">
+        </activity>
+        <activity android:name=".customview3.slidefinish.SlideFinishActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -48,11 +48,24 @@ public class WebPagePresenter implements IWebPage.IPresenter{
     @Override
     public void publish(String publishContent) {
         // 判断用户是否已经登录
+        if (isUserNeedLogin()) {
+            // 如果没有登录, 则登录
 
-        // 如果没有登录, 则登录
+        } else if (isUserDiscussLimited()){
+            // 是否是黑用户
+            mView.publishFailed();
+        } else {
+            // 发表成功
+            mView.publishSucceed();
+        }
 
-        // 是否是黑用户
+    }
 
-        // 发表成功
+    private boolean isUserNeedLogin() {
+        return false;
+    }
+
+    private boolean isUserDiscussLimited() {
+        return false;
     }
 }

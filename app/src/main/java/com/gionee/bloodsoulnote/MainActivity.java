@@ -18,6 +18,7 @@ import com.gionee.bloodsoulnote.circlemenu.CircleMenuActivity;
 import com.gionee.bloodsoulnote.customview.CustomViewActivity;
 import com.gionee.bloodsoulnote.customview.HorizontalCustomActivity;
 import com.gionee.bloodsoulnote.customview2.CustomView2Activity;
+import com.gionee.bloodsoulnote.customview3.Customview3Activity;
 import com.gionee.bloodsoulnote.designmode.DesignModeActivity;
 import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
 import com.gionee.bloodsoulnote.heap.HeapActivity;
@@ -121,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("42 - RxBus 2.0 测试");
         mDatas.add("43 - 测试线程");
         mDatas.add("44 - webview底部加上评论区");
-        mDatas.add("45 - view 的视图效果");
+        mDatas.add("45 - view 控件 的视图效果");
+        mDatas.add("46 - 自定义view 滑动退出效果");
     }
 
     private void clickRecyclerItem(int position) {
@@ -261,6 +263,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 45:
                 startActivity(new Intent(this, ViewEffectsActivity.class));
+                break;
+            case 46:
+                startActivity(new Intent(this, Customview3Activity.class));
                 break;
         }
     }

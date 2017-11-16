@@ -11,6 +11,8 @@ public class IWebPage {
         void bindPresenter(IPresenter presenter);
         // 发表成功
         void publishSucceed();
+        // 发表失败
+        void publishFailed();
     }
 
     public interface IPresenter {

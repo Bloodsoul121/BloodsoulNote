@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/discuss_cancel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/webpage_discuss_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/discuss_publish"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/webpage_discuss_publish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.gionee.bloodsoulnote.webviewdetail.view.ToastEditText
+        android:id="@+id/discuss_edit"
+        android:background="@null"
+        android:textCursorDrawable="@drawable/edit_cursor_color"
+        android:layout_below="@+id/discuss_cancel"
+        android:minLines="5"
+        android:gravity="top"
+        android:maxLength="1500"
+        android:hint="文案后台配置"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</merge>

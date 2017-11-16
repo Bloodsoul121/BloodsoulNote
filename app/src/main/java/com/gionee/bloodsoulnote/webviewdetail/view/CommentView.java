@@ -26,10 +26,16 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
 {
 
     private Context mContext;
+
     private IWebComment.IPresenter mPresenter;
+
     private RecyclerView           mRecyclerView;
+
     private CommentAdapter         mRecyclerAdapter;
+
     private LinearLayoutManager mLayoutManager;
+
+    private OnNeedOpenCommentDetailListener mOnNeedOpenCommentDetailListener;
 
     public CommentView(Context context) {
         super(context);
@@ -150,7 +156,9 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
 
     @Override
     public void onReplyClick(ViewHolder viewHolder, CommentBean data, int position) {
-
+        if (mOnNeedOpenCommentDetailListener != null) {
+            mOnNeedOpenCommentDetailListener.onNeedOpenCommentDetail(viewHolder, data, position);
+        }
     }
 
     public void bindParentViewGroup(WebDetailView webDetailView) {
@@ -170,5 +178,13 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
 
             }
         });
+    }
+
+    interface OnNeedOpenCommentDetailListener{
+        void onNeedOpenCommentDetail(ViewHolder viewHolder, CommentBean data, int position);
+    }
+
+    public void setOnNeedOpenCommentDetailListener(OnNeedOpenCommentDetailListener onNeedOpenCommentDetailListener) {
+        this.mOnNeedOpenCommentDetailListener = onNeedOpenCommentDetailListener;
     }
 }
