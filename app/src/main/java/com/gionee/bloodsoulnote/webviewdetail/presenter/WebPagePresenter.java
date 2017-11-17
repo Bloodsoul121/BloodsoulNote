@@ -1,6 +1,7 @@
 package com.gionee.bloodsoulnote.webviewdetail.presenter;
 
 import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebPage;
+import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
 import com.gionee.bloodsoulnote.webviewdetail.bean.WebpageBean;
 import com.gionee.bloodsoulnote.webviewdetail.model.WebPageModel;
 
@@ -56,7 +57,9 @@ public class WebPagePresenter implements IWebPage.IPresenter{
             mView.publishFailed();
         } else {
             // 发表成功
-            mView.publishSucceed();
+            CommentBean bean = new CommentBean();
+            bean.setComment(publishContent);
+            mView.publishSucceed(bean);
         }
 
     }

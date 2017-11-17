@@ -154,12 +154,12 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     }
 
     @Override
-    public void publishSucceed() {
+    public void publishSucceed(CommentBean bean) {
         // 发表成功
         showBottomBar();
         toast(getResources().getString(R.string.publish_succeed));
         // 更新评论区, 滑到最新评论区
-        updateSelfComment();
+        updateSelfComment(bean);
     }
 
     @Override
@@ -174,8 +174,8 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
         mWidth = getWidth();
     }
 
-    private void updateSelfComment() {
-        mWebDetailView.updateSelfComment();
+    private void updateSelfComment(CommentBean bean) {
+        mWebDetailView.updateSelfComment(bean);
     }
 
     private void showDiscussBox() {
@@ -202,8 +202,14 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     }
 
     public boolean onBackCliked() {
-        if (mCommentDetailView != null && mCommentDetailView.onBackCliked()) {
-            return true;
+        if (mCommentDetailView != null) {
+            if (mCommentDetailView.onBackCliked()) {
+                return true;
+            }
+            if (mCommentDetailView.getVisibility() == VISIBLE) {
+                mCommentDetailView.hide();
+                return true;
+            }
         }
         if (mDiscussView != null && mDiscussView.getVisibility() == VISIBLE) {
             showBottomBar();

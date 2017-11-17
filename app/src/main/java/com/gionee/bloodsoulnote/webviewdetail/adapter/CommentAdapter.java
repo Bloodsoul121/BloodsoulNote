@@ -1,6 +1,7 @@
 package com.gionee.bloodsoulnote.webviewdetail.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -44,6 +45,8 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
         // 初始状态
         holder.setVisibility(R.id.group_title, isFirstInGroup ? View.VISIBLE : View.GONE);
         holder.setVisibility(R.id.comment_divider, isLastInGroup ? View.GONE : View.VISIBLE);
+        String comment = holder.getText(R.id.comment_content);
+        Log.i("CommentAdapter", "comment --> " + comment);
         holder.setTextLine(R.id.comment_content_more);
         // 点击事件
         addOnItemChildClickListener(R.id.like_img, this);
@@ -122,6 +125,25 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
 
     public void setOnItemChildClickListener(OnItemChildClickListener itemChildClickListener) {
         mOnItemChildClickListener = itemChildClickListener;
+    }
+
+    public void addNewCommentData(List<CommentBean> datas) {
+        if (datas == null || datas.size() <= 0) {
+            return;
+        }
+        // 如果是 most new
+        addMostNewData(null);
+        // most hot
+        addMostHotData(null);
+        notifyDataSetChanged();
+    }
+
+    private void addMostNewData(List<CommentBean> datas) {
+        mDatas.addAll(0, datas);
+    }
+
+    private void addMostHotData(List<CommentBean> datas) {
+        mDatas.addAll(datas);
     }
 
 }

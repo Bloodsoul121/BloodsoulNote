@@ -152,6 +152,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.comment_detail_back:
+                mSwipeView.hide();
                 if (mOnCommentDetailClickListener != null) {
                     mOnCommentDetailClickListener.onCommentDetailViewClickBack(mData, mIsDataChange);
                 }
@@ -199,9 +200,9 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
     }
 
     private void showSwipeView(float startX) {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(mSwipeView, "translationX", startX, 0f);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mSwipeView, "translationX", startX, 0);
         animator.setInterpolator(new AccelerateDecelerateInterpolator());
-        animator.setDuration(400);
+        animator.setDuration(300);
         animator.start();
     }
 
@@ -215,12 +216,8 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
         showDiscussBox();
     }
 
-    public boolean onBackCliked() {
-        if (mDiscussView != null && mDiscussView.getVisibility() == VISIBLE) {
-            showBottomBar();
-            return true;
-        }
-        return false;
+    public void hide() {
+        mSwipeView.hide();
     }
 
     interface OnCommentDetailClickListener{
@@ -230,6 +227,14 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
 
     public void setOnCommentDetailClickListener(OnCommentDetailClickListener onCommentDetailClickListener) {
         this.mOnCommentDetailClickListener = onCommentDetailClickListener;
+    }
+
+    public boolean onBackCliked() {
+        if (mDiscussView != null && mDiscussView.getVisibility() == VISIBLE) {
+            showBottomBar();
+            return true;
+        }
+        return false;
     }
 
     private void toast(String msg) {

@@ -1,5 +1,6 @@
 package com.gionee.bloodsoulnote.webviewdetail.IContract;
 
+import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
 import com.gionee.bloodsoulnote.webviewdetail.bean.WebpageBean;
 
 public class IWebPage {
@@ -10,7 +11,7 @@ public class IWebPage {
         // 绑定presenter
         void bindPresenter(IPresenter presenter);
         // 发表成功
-        void publishSucceed();
+        void publishSucceed(CommentBean bean);
         // 发表失败
         void publishFailed();
 

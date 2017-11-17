@@ -47,6 +47,11 @@ public class ViewHolder
         textView.setText(text);
     }
 
+    public String getText(int viewId) {
+        TextView textView = getView(viewId);
+        return textView.getText().toString();
+    }
+
     public void setTextColor(int viewId, int colorId) {
         TextView textView = getView(viewId);
         textView.setTextColor(colorId);

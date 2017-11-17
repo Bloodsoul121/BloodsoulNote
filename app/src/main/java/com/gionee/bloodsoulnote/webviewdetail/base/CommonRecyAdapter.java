@@ -25,7 +25,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
 
     private LayoutInflater mInflater;
 
-    private List<T> mDatas;
+    protected List<T> mDatas;
 
     private boolean mOpenLoadMore = false;
     private boolean isAutoLoadMore = true;

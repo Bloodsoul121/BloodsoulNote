@@ -1,8 +1,6 @@
 package com.gionee.bloodsoulnote.webviewdetail.view;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -11,8 +9,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
-
-import com.gionee.bloodsoulnote.R;
 
 public class CustomSwipeView extends RelativeLayout {
 
@@ -33,13 +29,9 @@ public class CustomSwipeView extends RelativeLayout {
     private int mDownX;
 
     private int mDownY;
-    /**
-     * 记录滑动过程中的X坐标
-     */
+
     private int mTempX;
-    /**
-     * 记录滑动过程中的Y坐标
-     */
+
     private int mTempY;
 
     private boolean isSliding;
@@ -57,22 +49,8 @@ public class CustomSwipeView extends RelativeLayout {
     private VelocityTracker mVelocityTracker;
 
     private int mMinFlingVelocity;
-    /**
-     * content view
-     */
+
     private View mContentView;
-    /**
-     * View左侧的阴影
-     */
-    private Drawable mShadowDrawable;
-    /**
-     * 半透明的阴影, 透明度跟随手指的滑动而改变
-     */
-    private int mBackgroundColor = 0xaa000000;
-    /**
-     * 比例值，用于计算alpha值
-     */
-    private float mRatio = 1.0f;
 
     private OnSwipeFinishListener mOnSwipeFinishListener;
 
@@ -90,23 +68,16 @@ public class CustomSwipeView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        // 初始化最小滑动距离
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mMinFlingVelocity = 6 * ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
         Log.d(TAG, "mMinFlingVelocity: " + mMinFlingVelocity);
         mScroller = new Scroller(context);
-        mShadowDrawable = getResources().getDrawable(R.drawable.shadow);
         mContentView = this;
-    }
-
-    public void attachToParentView(View parent) {
-        mContentView = parent;
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-
         mViewWidth = w;
         mViewHeight = h;
     }
@@ -114,32 +85,6 @@ public class CustomSwipeView extends RelativeLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        setBackgroundColor(mBackgroundColor);
-    }
-
-    /**
-     * 给View的左侧加上阴影，阴影的宽度是 = (mViewWidth / 20)
-     * @param canvas
-     */
-    @Override
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (mShadowDrawable != null && mContentView != null) {
-            int left = mContentView.getLeft()
-                    - mViewWidth / 20;
-            int right = left + mViewWidth / 20;
-            int top = mContentView.getTop();
-            int bottom = mContentView.getBottom();
-
-            mShadowDrawable.setBounds(left, top, right, bottom);
-            mShadowDrawable.draw(canvas);
-
-            // 动态更新背景的alpha
-            int alphaValue = (mBackgroundColor >> 24) & 0xFF;
-            alphaValue *= mRatio;
-            int backGroundColor = alphaValue << 24;
-            setBackgroundColor(backGroundColor);
-        }
     }
 
     @Override
@@ -187,8 +132,6 @@ public class CustomSwipeView extends RelativeLayout {
                         if (mContentView.getScrollX() > 0) {
                             mContentView.scrollTo(0, 0);
                         }
-                        // 计算Scroll的比例值
-                        mRatio = 1- Math.abs(mContentView.getScrollX() * 1.0f / mViewWidth);
                     }
                 }
                 break;
@@ -231,17 +174,7 @@ public class CustomSwipeView extends RelativeLayout {
                     if (mOnSwipeFinishListener != null) {
                         mOnSwipeFinishListener.onSwipeFinish();
                     }
-                    return;
                 }
-            }
-
-            // 计算mRatio,用于设置alpha值
-            if (mContentView.getScrollX() != 0) {
-                // 横向滑动
-                mRatio = 1 - Math.abs(mContentView.getScrollX() * 1.0f / mViewWidth);
-            } else {
-                // 纵向滑动
-                mRatio = 1- Math.abs(mContentView.getScrollY() * 1.0f / mViewHeight);
             }
         }
     }
@@ -250,12 +183,16 @@ public class CustomSwipeView extends RelativeLayout {
         scrollToOriginX();
     }
 
+    public void hide() {
+        scrollToRight();
+    }
+
     private void scrollToOriginX() {
         isFinish = false;
         isScrolling = true;
         final int delta = mContentView.getScrollX();
         final int duration = (int) (MAX_DURATION * (Math.abs(delta) * 1.0f / mViewWidth));
-        Log.d(TAG, "duration: " + duration);
+        Log.d(TAG, "duration: " + duration + ", " + delta + ", " + mContentView.getScrollX());
         mScroller.startScroll(mContentView.getScrollX(), 0, -delta, 0, duration);
         postInvalidate();
     }
@@ -265,7 +202,7 @@ public class CustomSwipeView extends RelativeLayout {
         isScrolling = true;
         final int delta = mViewWidth + mContentView.getScrollX();
         final int duration = (int) (MAX_DURATION * (Math.abs(delta) * 1.0f / mViewWidth));
-        Log.d(TAG, "duration: " + duration);
+        Log.d(TAG, "duration: " + duration + ", " + delta + ", " + mContentView.getScrollX());
         mScroller.startScroll(mContentView.getScrollX(), 0, -delta, 0, duration);
         postInvalidate();
     }

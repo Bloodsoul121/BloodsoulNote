@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
@@ -103,7 +102,6 @@ public class CommentView extends LinearLayout implements IWebComment.IView,
 
     @Override
     public void updateNewData(List<CommentBean> datas) {
-        Log.i("bloodsoul", "updateNewData --> " + datas.size());
         mRecyclerAdapter.addNewBottomData(datas);
     }
 
