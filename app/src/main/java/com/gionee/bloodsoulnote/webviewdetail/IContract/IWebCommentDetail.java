@@ -7,10 +7,15 @@ public class IWebCommentDetail {
         void initView();
         // 绑定presenter
         void bindPresenter(IPresenter presenter);
+
+        void publishFailed();
+
+        void publishSucceed(String comment);
     }
 
     public interface IPresenter {
 
+        void publish(String comment);
     }
 
     public interface IModel {

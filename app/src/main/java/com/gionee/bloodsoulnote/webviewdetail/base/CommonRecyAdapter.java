@@ -2,10 +2,8 @@ package com.gionee.bloodsoulnote.webviewdetail.base;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,7 +113,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
 
     private void bindCommonItem(RecyclerView.ViewHolder holder, final int position) {
         final ViewHolder viewHolder = (ViewHolder) holder;
-        convert(viewHolder, mDatas.get(position), isFirstInGroup(position), isLastInGroup(position));
+        convert(viewHolder, mDatas.get(position), position, isFirstInGroup(position), isLastInGroup(position));
         viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,7 +174,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         return mDatas.get(position);
     }
 
-    protected abstract void convert(ViewHolder holder, T data, boolean isFirstInGroup, boolean isLastInGroup);
+    protected abstract void convert(ViewHolder holder, T data, int position, boolean isFirstInGroup, boolean isLastInGroup);
 
     protected abstract int getItemLayoutId();
 
@@ -259,28 +257,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         isAutoLoadMore = true;
     }
 
-    private int findLastVisibleItemPosition(RecyclerView.LayoutManager layoutManager) {
-        if (layoutManager instanceof LinearLayoutManager) {
-            return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
-        } else if (layoutManager instanceof StaggeredGridLayoutManager) {
-            int[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) layoutManager).findLastVisibleItemPositions(null);
-            return findMax(lastVisibleItemPositions);
-        }
-        return -1;
-    }
-
-    private static int findMax(int[] lastVisiblePositions) {
-        int max = lastVisiblePositions[0];
-        for (int value : lastVisiblePositions) {
-            if (value > max) {
-                max = value;
-            }
-        }
-        return max;
-    }
-
     private void scrollLoadMore() {
-        Log.i("bloodsoul", "scrollLoadMore ");
         if (mFooterLayout != null && mFooterLayout.getChildAt(0) == mLoadingView) {
             mLoadMoreListener.onLoadMore(false);
         }
@@ -292,7 +269,19 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         }
         int count = mDatas.size();
         this.mDatas.addAll(datas);
-        Log.i("bloodsoul", "addNewBottomData " + mDatas.size());
+        if (count <= 0) {
+            notifyDataSetChanged();
+        } else {
+            notifyItemChanged(count - 1);
+        }
+    }
+
+    public void addNewBottomData(T datas) {
+        if (datas == null) {
+            return;
+        }
+        int count = mDatas.size();
+        this.mDatas.add(datas);
         if (count <= 0) {
             notifyDataSetChanged();
         } else {
@@ -308,7 +297,18 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         notifyDataSetChanged();
     }
 
+    public void addNewTopData(T datas) {
+        if (datas == null) {
+            return;
+        }
+        this.mDatas.add(0, datas);
+        notifyDataSetChanged();
+    }
+
     public void setNewData(List<T> datas) {
+        if (datas == null || datas.isEmpty()) {
+            return;
+        }
         mDatas.clear();
         mDatas.addAll(datas);
         notifyDataSetChanged();
@@ -367,18 +367,12 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         setLoadEndView(mInflater.inflate(loadEndId, null));
     }
 
-    /**
-     * 数据加载完成
-     */
     public void loadEnd() {
         if (mLoadEndView != null) {
             addFooterView(mLoadEndView);
         }
     }
 
-    /**
-     * 数据加载失败
-     */
     public void loadFailed() {
         addFooterView(mLoadFailedView);
         mLoadFailedView.setOnClickListener(new View.OnClickListener() {
@@ -410,9 +404,6 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         mFooterLayout.removeAllViews();
     }
 
-    /**
-     * 重置
-     */
     public void reset() {
         if (mLoadingView != null) {
             addFooterView(mLoadingView);

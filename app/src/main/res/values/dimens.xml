@@ -71,5 +71,6 @@
     <dimen name="web_bottom_bar_commment_bar_margin_left">10dp</dimen>
     <dimen name="web_bottom_bar_commment_bar_margin_right">22dp</dimen>
     <dimen name="web_bottom_bar_comment_bar_bg_stroke_width">0.3dp</dimen>
+    <dimen name="web_bottom_bar_like_num_size">9sp</dimen>
 
 </resources>

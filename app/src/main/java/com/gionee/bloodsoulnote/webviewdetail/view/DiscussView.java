@@ -69,20 +69,20 @@ public class DiscussView extends RelativeLayout implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.discuss_cancel:
                 if (mOnDiscussViewClickListener != null) {
-                    mOnDiscussViewClickListener.onCancelClick();
+                    mOnDiscussViewClickListener.onDiscussViewClickCancel();
                 }
                 break;
             case R.id.discuss_publish:
                 if (mOnDiscussViewClickListener != null) {
-                    mOnDiscussViewClickListener.onPublishComment(mDiscussEdit.getText().toString());
+                    mOnDiscussViewClickListener.onDiscussViewClickPublish(mDiscussEdit.getText().toString());
                 }
                 break;
         }
     }
 
     public interface OnDiscussViewClickListener{
-        void onCancelClick();
-        void onPublishComment(String comment);
+        void onDiscussViewClickCancel();
+        void onDiscussViewClickPublish(String comment);
     }
 
     public void setOnDiscussViewClickListener(OnDiscussViewClickListener onDiscussViewClickListener) {

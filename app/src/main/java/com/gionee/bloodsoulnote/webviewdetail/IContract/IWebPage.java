@@ -13,6 +13,14 @@ public class IWebPage {
         void publishSucceed();
         // 发表失败
         void publishFailed();
+
+        void onLoadWebInfoBefore();
+
+        void onLoadWebInfoAfter();
+
+        void onLoadWebInfoResult(WebpageBean webpageInfo);
+
+        void onLoadWebInfoFailed();
     }
 
     public interface IPresenter {

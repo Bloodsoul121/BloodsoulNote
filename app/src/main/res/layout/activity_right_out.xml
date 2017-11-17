@@ -5,17 +5,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.gionee.bloodsoulnote.customview3.showAnimator.ShowAnimatorActivity">
 
     <View
         android:id="@+id/view1"
-        android:background="#FFEC8B"
-        android:layout_width="match_parent"
+        android:background="#40FFEC8B"
+        android:layout_width="300dp"
         android:layout_height="100dp"/>
 
+    <!--<View-->
+        <!--android:layout_below="@+id/view1"-->
+        <!--android:visibility="gone"-->
+        <!--android:id="@+id/view2"-->
+        <!--android:background="#FFBBFF"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"/>-->
+
+    <!--<View-->
+        <!--android:layout_toRightOf="@+id/view1"-->
+        <!--android:visibility="visible"-->
+        <!--android:id="@+id/view2"-->
+        <!--android:background="#FFBBFF"-->
+        <!--android:layout_width="300dp"-->
+        <!--android:layout_height="100dp"/>-->
+
     <View
-        android:visibility="gone"
+        android:visibility="visible"
         android:id="@+id/view2"
         android:background="#FFBBFF"
         android:layout_width="match_parent"

@@ -26,6 +26,8 @@ dependencies {
     compile files('libs/Amigo_GioneeAd.jar')
     //    compile 'io.reactivex:rxjava:1.1.9'
     //    compile 'io.reactivex:rxandroid:1.2.1'
+    //    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.2'
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
@@ -42,6 +44,4 @@ dependencies {
     compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.mcxiaoke.volley:library:1.0.19'
     testCompile 'junit:junit:4.12'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.2'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
 }

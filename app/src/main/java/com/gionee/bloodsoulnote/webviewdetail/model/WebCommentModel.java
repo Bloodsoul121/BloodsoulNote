@@ -6,6 +6,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.RequestFuture;
 import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebComment;
 import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
+import com.gionee.bloodsoulnote.webviewdetail.bean.CommentDetailBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,41 +67,47 @@ public class WebCommentModel implements IWebComment.IModel {
 
     private List<CommentBean> getWebComments() {
         List<CommentBean> datas = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             CommentBean bean = new CommentBean();
+            bean.setName("name - " + i);
             bean.setComment("评论区 - " + i);
             bean.setGroupId("hot");
+            bean.setId("" + i);
+
+            List<CommentDetailBean> details = new ArrayList<>();
+            for (int j = 0; j < 3; j++) {
+                CommentDetailBean detailBean = new CommentDetailBean();
+                detailBean.setName("detail name " + j);
+                detailBean.setComment("评论区 - " + i + j);
+                detailBean.setGroupId("hot");
+                detailBean.setId("" + i + "" + j);
+                details.add(detailBean);
+            }
+            bean.setDetails(details);
+
             datas.add(bean);
         }
-        for (int i = 5; i < 15; i++) {
+        for (int i = 5; i < 10; i++) {
             CommentBean bean = new CommentBean();
+            bean.setName("name - " + i);
             bean.setComment("评论区 - " + i);
             bean.setGroupId("new");
+            bean.setId("" + i);
+
+            List<CommentDetailBean> details = new ArrayList<>();
+            for (int j = 0; j < 3; j++) {
+                CommentDetailBean detailBean = new CommentDetailBean();
+                detailBean.setName("detail name " + j);
+                detailBean.setComment("评论区 - " + i + j);
+                detailBean.setGroupId("new");
+                detailBean.setId("" + i + "" + j);
+                details.add(detailBean);
+            }
+            bean.setDetails(details);
+
             datas.add(bean);
         }
         return datas;
-    }
-
-    private void requestData() {
-        RequestFuture<CommentBean> future = RequestFuture.newFuture();
-        Request<CommentBean> request = new Request<CommentBean>(0, "", future) {
-            @Override
-            protected Response<CommentBean> parseNetworkResponse(NetworkResponse response) {
-                return null;
-            }
-
-            @Override
-            protected void deliverResponse(CommentBean response) {
-
-            }
-        };
-        try {
-            CommentBean commentBean = future.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
     }
 
 }

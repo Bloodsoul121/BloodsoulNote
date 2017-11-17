@@ -25,4 +25,11 @@ public class WebviewDetailActivity
         mWebPageView.loadUrl("https://www.baidu.com");
     }
 
+    @Override
+    public void onBackPressed() {
+        if (mWebPageView.onBackCliked()) {
+            return;
+        }
+        super.onBackPressed();
+    }
 }

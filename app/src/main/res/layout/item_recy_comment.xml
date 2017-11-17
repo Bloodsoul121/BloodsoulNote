@@ -4,8 +4,8 @@
               android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/group_title"
         android:visibility="gone"
+        android:id="@+id/group_title"
         android:layout_marginBottom="10dp"
         android:layout_alignParentTop="true"
         android:text="子标题"
@@ -30,6 +30,25 @@
         <TextView
             android:id="@+id/user_name"
             android:text="name"
+            android:textColor="#3A5FCD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/reply_text"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/user_name"
+            android:text="@string/reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/reply_user"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/reply_text"
+            android:text="用户"
             android:textColor="#3A5FCD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

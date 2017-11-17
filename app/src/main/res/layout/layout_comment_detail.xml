@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <com.gionee.bloodsoulnote.webviewdetail.view.SwipeView
+    <com.gionee.bloodsoulnote.webviewdetail.view.CustomSwipeView
         android:id="@+id/swipe_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,6 +35,8 @@
             android:background="#FFFAF0"
             android:layout_below="@+id/comment_detail_top_bar"
             android:layout_above="@+id/comment_detail_bottom_bar"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -50,6 +52,14 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/web_bottom_bar_height"/>
 
-    </com.gionee.bloodsoulnote.webviewdetail.view.SwipeView>
+        <com.gionee.bloodsoulnote.webviewdetail.view.DiscussView
+            android:id="@+id/comment_detail_discuss_view"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:background="#FFF5EE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.gionee.bloodsoulnote.webviewdetail.view.CustomSwipeView>
 
 </merge>

@@ -26,11 +26,11 @@ public class CircularImageView extends AppCompatImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        reSetDrawble();
+        resetDrawble();
         super.onDraw(canvas);
     }
 
-    private void reSetDrawble() {
+    private void resetDrawble() {
         if (mRoundDrawble == getDrawable()) {
             return;
         }
@@ -51,7 +51,7 @@ public class CircularImageView extends AppCompatImageView {
     private Bitmap toRoundBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        int lenth = 0;
+        int lenth;
         if (width > height) {
             lenth = height;
         } else {

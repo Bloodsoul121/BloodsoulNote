@@ -7,48 +7,42 @@ import android.widget.TextView;
 import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.webviewdetail.base.CommonRecyAdapter;
 import com.gionee.bloodsoulnote.webviewdetail.base.ViewHolder;
-import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
+import com.gionee.bloodsoulnote.webviewdetail.bean.CommentDetailBean;
+import com.gionee.bloodsoulnote.webviewdetail.util.GNRegexUtils;
 import com.gionee.bloodsoulnote.webviewdetail.view.CircularImageView;
 
 import java.util.List;
 
-public class CommentAdapter extends CommonRecyAdapter<CommentBean>
-        implements CommonRecyAdapter.OnItemChildClickListener<CommentBean>
-{
-
-    private CommentBean mData;
-
-    private OnItemChildClickListener mOnItemChildClickListener;
+public class CommentDetailAdapter extends CommonRecyAdapter<CommentDetailBean> implements CommonRecyAdapter.OnItemChildClickListener<CommentDetailBean> {
 
     private TextView mLikeNum;
 
-    private TextView mCommentContent;
-
     private boolean isHasLiked;
 
-    public CommentAdapter(Context context) {
+    private OnItemChildClickListener mOnItemChildClickListener;
+
+    public CommentDetailAdapter(Context context) {
         super(context);
     }
 
-    public CommentAdapter(Context context, List<CommentBean> datas) {
+    public CommentDetailAdapter(Context context, List<CommentDetailBean> datas) {
         super(context, datas);
     }
 
-    public CommentAdapter(Context context, List<CommentBean> datas, boolean isOpenLoadMore) {
+    public CommentDetailAdapter(Context context, List<CommentDetailBean> datas, boolean isOpenLoadMore) {
         super(context, datas, isOpenLoadMore);
     }
 
     @Override
-    protected void convert(ViewHolder holder, CommentBean data, int position, boolean isFirstInGroup, boolean isLastInGroup) {
-        this.mData = data;
-        // 初始状态
-        holder.setVisibility(R.id.group_title, isFirstInGroup ? View.VISIBLE : View.GONE);
-        holder.setVisibility(R.id.comment_divider, isLastInGroup ? View.GONE : View.VISIBLE);
-        holder.setTextLine(R.id.comment_content_more);
-        // 点击事件
+    protected void convert(ViewHolder holder, CommentDetailBean data, int position, boolean isFirstInGroup, boolean isLastInGroup) {
+        holder.setVisibility(R.id.reply_text, position == 0 ? View.GONE : View.VISIBLE);
+        holder.setVisibility(R.id.reply_user, position == 0 ? View.GONE : View.VISIBLE);
+        holder.setVisibility(R.id.comment_content_more, View.GONE);
+        holder.setMaxLine(R.id.comment_content, 50);
+
         addOnItemChildClickListener(R.id.like_img, this);
-        addOnItemChildClickListener(R.id.comment_content_more, this);
         addOnItemChildClickListener(R.id.comment_reply, this);
+
         // 初始数据
         CircularImageView userImg = holder.getView(R.id.user_img);
 //        TextView groupTitle = holder.getView(R.id.group_title);
@@ -56,8 +50,9 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
 //        TextView likeNum = holder.getView(R.id.like_num);
 //        TextView commentContent = holder.getView(R.id.comment_content);
 //        TextView commentTime = holder.getView(R.id.comment_time);
+        holder.setText(R.id.user_name, GNRegexUtils.isMobileNO(data.getName()) ?
+                GNRegexUtils.formatPhoneNum(data.getName()) : data.getName());
         holder.setText(R.id.comment_content, data.getComment());
-//        holder.setText(R.id.user_name, data.getComment());
 //        holder.setText(R.id.like_num, data.getComment());
 //        holder.setText(R.id.comment_time, data.getComment());
         holder.setText(R.id.group_title, data.getGroupId());
@@ -69,28 +64,20 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
     }
 
     @Override
-    protected String getGroupId(CommentBean commentBean) {
+    protected String getGroupId(CommentDetailBean commentBean) {
         return commentBean.getGroupId();
     }
 
     @Override
-    public void onItemChildClick(ViewHolder viewHolder, CommentBean data, int position, int id) {
+    public void onItemChildClick(ViewHolder viewHolder, CommentDetailBean data, int position, int id) {
         switch (id) {
             case R.id.like_img:
                 // 点赞数 加减1
                 clickLike(viewHolder);
-
                 // 回调
                 if (mOnItemChildClickListener != null) {
                     mOnItemChildClickListener.onItemChildLikeClick(viewHolder, data, position);
                 }
-                break;
-            case R.id.comment_content_more:
-                // 查看更多
-                viewHolder.setMaxLine(R.id.comment_content, 10);
-                mCommentContent = viewHolder.getView(R.id.comment_content);
-                String content = mCommentContent.getText() + data.getComment();
-                mCommentContent.setText(content);
                 break;
             case R.id.comment_reply:
                 // 回复
@@ -116,8 +103,8 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
     }
 
     public interface OnItemChildClickListener {
-        void onItemChildLikeClick(ViewHolder viewHolder, CommentBean data, int position);
-        void onItemChildReplyClick(ViewHolder viewHolder, CommentBean data, int position);
+        void onItemChildLikeClick(ViewHolder viewHolder, CommentDetailBean data, int position);
+        void onItemChildReplyClick(ViewHolder viewHolder, CommentDetailBean data, int position);
     }
 
     public void setOnItemChildClickListener(OnItemChildClickListener itemChildClickListener) {

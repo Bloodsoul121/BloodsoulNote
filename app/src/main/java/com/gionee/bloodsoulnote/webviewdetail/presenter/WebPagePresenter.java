@@ -25,22 +25,22 @@ public class WebPagePresenter implements IWebPage.IPresenter{
         this.mModel.loadWebpageInfo(new IWebPage.IModel.OnLoadCommentBarListener() {
             @Override
             public void onLoadBefore() {
-
+                mView.onLoadWebInfoBefore();
             }
 
             @Override
             public void onLoadAfter() {
-
+                mView.onLoadWebInfoAfter();
             }
 
             @Override
             public void onResult(WebpageBean webpageInfo) {
-
+                mView.onLoadWebInfoResult(webpageInfo);
             }
 
             @Override
             public void onFailed(String info) {
-
+                mView.onLoadWebInfoFailed();
             }
         });
     }

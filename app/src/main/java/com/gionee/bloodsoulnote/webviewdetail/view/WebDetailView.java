@@ -36,6 +36,7 @@ public class WebDetailView extends ScrollView {
 
     private void init(Context context) {
         mContext = context;
+        setOverScrollMode(OVER_SCROLL_NEVER);
 
         mContainer = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.layout_web_detail, this, false);
         addView(mContainer);

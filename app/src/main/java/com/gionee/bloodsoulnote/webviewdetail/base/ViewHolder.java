@@ -77,4 +77,9 @@ public class ViewHolder
         view.setVisibility(visibility);
     }
 
+    public void setMaxLine(int viewId, int maxLine) {
+        TextView view = (TextView) getView(viewId);
+        view.setMaxLines(maxLine);
+    }
+
 }

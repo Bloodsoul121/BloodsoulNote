@@ -30,6 +30,7 @@ import com.gionee.bloodsoulnote.layout.LayoutActivity;
 import com.gionee.bloodsoulnote.leak.LeakActivity;
 import com.gionee.bloodsoulnote.listview.ListViewActivity;
 import com.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
+import com.gionee.bloodsoulnote.numformat.NumFormatActivity;
 import com.gionee.bloodsoulnote.okhttp.OkhttpActivity;
 import com.gionee.bloodsoulnote.openfile.OpenFileActivity;
 import com.gionee.bloodsoulnote.pxdp.PxDpActivity;
@@ -56,7 +57,6 @@ import com.gionee.bloodsoulnote.viewpagerfragment.ViewPagerFragmentActivity;
 import com.gionee.bloodsoulnote.viewstub.ViewStubActivity;
 import com.gionee.bloodsoulnote.webview.WebviewActivity;
 import com.gionee.bloodsoulnote.webviewdetail.WebviewDetailActivity;
-import com.squareup.leakcanary.RefWatcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("45 - view 控件 的视图效果");
         mDatas.add("46 - 自定义view 滑动退出效果");
         mDatas.add("47 - SurfaceView");
+        mDatas.add("48 - 数字格式化");
     }
 
     private void clickRecyclerItem(int position) {
@@ -272,6 +273,9 @@ public class MainActivity extends AppCompatActivity {
             case 47:
                 startActivity(new Intent(this, SurfaceViewActivity.class));
                 break;
+            case 48:
+                startActivity(new Intent(this, NumFormatActivity.class));
+                break;
         }
     }
 
@@ -328,7 +332,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RefWatcher refWatcher = NoteApplication.getRefWatcher(this);//1
-        refWatcher.watch(this);
+//        RefWatcher refWatcher = NoteApplication.getRefWatcher(this);//1
+//        refWatcher.watch(this);
     }
 }

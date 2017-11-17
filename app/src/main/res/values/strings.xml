@@ -73,5 +73,6 @@
     <string name="webpage_discuss_publish">发表</string>
     <string name="publish_succeed">发表成功</string>
     <string name="publish_failed">评论受限</string>
+    <string name="reply">回复</string>
 
 </resources>

@@ -9,10 +9,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
+import com.gionee.bloodsoulnote.webviewdetail.util.NumFormatUtil;
 
 public class WebPageBottomBar extends RelativeLayout implements View.OnClickListener {
 
-    private ImageView mCommentNum;
+    private TextView mCommentNum;
 
     private ImageView mShare;
 
@@ -34,7 +35,7 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
         mShare = (ImageView) findViewById(R.id.share);
         ImageView mutilWindow = (ImageView) findViewById(R.id.mutil_window);
         TextView commentBar = (TextView) findViewById(R.id.comment_bar);
-        mCommentNum = (ImageView) findViewById(R.id.comment_num);
+        mCommentNum = (TextView) findViewById(R.id.comment_num);
         back.setOnClickListener(this);
         mShare.setOnClickListener(this);
         mutilWindow.setOnClickListener(this);
@@ -42,12 +43,8 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
         commentBar.setOnClickListener(this);
     }
 
-    public void updateCommentNum() {
-
-    }
-
-    public void updateShareIcon() {
-
+    public void updateCommentNum(String num) {
+        mCommentNum.setText(NumFormatUtil.formatNum(num));
     }
 
     @Override
@@ -55,38 +52,38 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
         switch (v.getId()) {
             case R.id.back:
                 if (mOnWebPageBottomBarClickListener != null) {
-                    mOnWebPageBottomBarClickListener.onClickBack();
+                    mOnWebPageBottomBarClickListener.onBottomBarClickBack();
                 }
                 break;
             case R.id.share:
                 if (mOnWebPageBottomBarClickListener != null) {
-                    mOnWebPageBottomBarClickListener.onClickShare();
+                    mOnWebPageBottomBarClickListener.onBottomBarClickShare();
                 }
                 break;
             case R.id.comment_num:
                 if (mOnWebPageBottomBarClickListener != null) {
-                    mOnWebPageBottomBarClickListener.onClickCommentNum();
+                    mOnWebPageBottomBarClickListener.onBottomBarClickCommentNum();
                 }
                 break;
             case R.id.mutil_window:
                 if (mOnWebPageBottomBarClickListener != null) {
-                    mOnWebPageBottomBarClickListener.onClickMutilWindow();
+                    mOnWebPageBottomBarClickListener.onBottomBarClickMutilWindow();
                 }
                 break;
             case R.id.comment_bar:
                 if (mOnWebPageBottomBarClickListener != null) {
-                    mOnWebPageBottomBarClickListener.onClickCommentBar();
+                    mOnWebPageBottomBarClickListener.onBottomBarClickComment();
                 }
                 break;
         }
     }
 
     interface OnWebPageBottomBarClickListener{
-        void onClickBack();
-        void onClickCommentBar();
-        void onClickShare();
-        void onClickCommentNum();
-        void onClickMutilWindow();
+        void onBottomBarClickBack();
+        void onBottomBarClickComment();
+        void onBottomBarClickShare();
+        void onBottomBarClickCommentNum();
+        void onBottomBarClickMutilWindow();
     }
 
     public void setOnWebPageBottomBarClickListener(OnWebPageBottomBarClickListener onWebPageBottomBarClickListener) {

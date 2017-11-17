@@ -14,7 +14,7 @@ import android.widget.Scroller;
 
 import com.gionee.bloodsoulnote.R;
 
-public class SwipeView extends RelativeLayout {
+public class CustomSwipeView extends RelativeLayout {
 
     public static final String TAG = "SwipeView";
 
@@ -76,15 +76,15 @@ public class SwipeView extends RelativeLayout {
 
     private OnSwipeFinishListener mOnSwipeFinishListener;
 
-    public SwipeView(Context context) {
+    public CustomSwipeView(Context context) {
         this(context, null);
     }
 
-    public SwipeView(Context context, AttributeSet attrs) {
+    public CustomSwipeView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SwipeView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomSwipeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }

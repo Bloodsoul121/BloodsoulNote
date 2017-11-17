@@ -38,5 +38,6 @@
     <color name="web_bottom_bar_bg">#98fbfbfb</color>
     <color name="web_bottom_bar_bg_line">#cdcdcd</color>
     <color name="web_bottom_bar_comment_bar_bg_stroke">#e9e9e9</color>
+    <color name="web_bottom_bar_like_num">#ffffff</color>
 
 </resources>

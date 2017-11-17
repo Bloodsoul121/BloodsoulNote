@@ -5,9 +5,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.ViewGroup;
+import android.view.LayoutInflater;
 import android.webkit.WebView;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
@@ -20,7 +20,7 @@ import com.gionee.bloodsoulnote.webviewdetail.presenter.WebCommentPresenter;
 
 import java.util.List;
 
-public class CommentView extends FrameLayout implements IWebComment.IView,
+public class CommentView extends LinearLayout implements IWebComment.IView,
                                                            CommonRecyAdapter.OnLoadMoreListener,
                                                            CommentAdapter.OnItemChildClickListener
 {
@@ -49,6 +49,7 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
 
     private void init(Context context) {
         mContext = context;
+        LayoutInflater.from(context).inflate(R.layout.layout_web_page_comment_view, this);
         WebCommentPresenter.bindPresenter(this);
         mPresenter.loadMoreComments();
     }
@@ -60,7 +61,7 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
 
     @Override
     public void initView() {
-        mRecyclerView = new RecyclerView(mContext);
+        mRecyclerView = (RecyclerView) findViewById(R.id.comment_view);
         mLayoutManager = new LinearLayoutManager(mContext) {
             @Override
             public boolean canScrollVertically() {
@@ -69,13 +70,10 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
         };
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                                                    ViewGroup.LayoutParams.MATCH_PARENT));
         mRecyclerAdapter = new CommentAdapter(mContext);
         initAdapter();
         mRecyclerView.setAdapter(mRecyclerAdapter);
         mRecyclerAdapter.setOnItemChildClickListener(this);
-        addView(mRecyclerView);
     }
 
     private void initAdapter() {
@@ -150,14 +148,14 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
     }
 
     @Override
-    public void onLikeClick(ViewHolder viewHolder, CommentBean data, int position) {
+    public void onItemChildLikeClick(ViewHolder viewHolder, CommentBean data, int position) {
 
     }
 
     @Override
-    public void onReplyClick(ViewHolder viewHolder, CommentBean data, int position) {
+    public void onItemChildReplyClick(ViewHolder viewHolder, CommentBean data, int position) {
         if (mOnNeedOpenCommentDetailListener != null) {
-            mOnNeedOpenCommentDetailListener.onNeedOpenCommentDetail(viewHolder, data, position);
+            mOnNeedOpenCommentDetailListener.onNeedOpenCommentDetailView(viewHolder, data, position);
         }
     }
 
@@ -181,7 +179,7 @@ public class CommentView extends FrameLayout implements IWebComment.IView,
     }
 
     interface OnNeedOpenCommentDetailListener{
-        void onNeedOpenCommentDetail(ViewHolder viewHolder, CommentBean data, int position);
+        void onNeedOpenCommentDetailView(ViewHolder viewHolder, CommentBean data, int position);
     }
 
     public void setOnNeedOpenCommentDetailListener(OnNeedOpenCommentDetailListener onNeedOpenCommentDetailListener) {

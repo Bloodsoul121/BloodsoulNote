@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
 import com.gionee.bloodsoulnote.R;
+import com.gionee.bloodsoulnote.pxdp.PxUtil;
 
 public class RightOutActivity
         extends AppCompatActivity
@@ -30,7 +31,8 @@ public class RightOutActivity
             @Override
             public void onClick(View v) {
                 mView2.setVisibility(View.VISIBLE);
-                fromRightMoveToLeft();
+//                fromRightMoveToLeft();
+                fromRightMoveToLeft2();
             }
         });
     }
@@ -74,5 +76,10 @@ public class RightOutActivity
         animator.start();
     }
 
+    private void fromRightMoveToLeft2() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mView2, "translationX", 0.0f, -PxUtil.dip2px(this, 300));
+        animator.setDuration(500);
+        animator.start();
+    }
 
 }

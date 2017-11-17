@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.gionee.bloodsoulnote.NoteApplication;
 import com.gionee.bloodsoulnote.R;
 
 public class LeakActivity extends AppCompatActivity {
@@ -46,7 +45,7 @@ public class LeakActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        NoteApplication.getRefWatcher(this).watch(this);
+//        NoteApplication.getRefWatcher(this).watch(this);
     }
 
 
