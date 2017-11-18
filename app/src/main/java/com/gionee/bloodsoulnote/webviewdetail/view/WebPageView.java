@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -13,12 +14,13 @@ import com.gionee.bloodsoulnote.webviewdetail.base.ViewHolder;
 import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
 import com.gionee.bloodsoulnote.webviewdetail.bean.WebpageBean;
 import com.gionee.bloodsoulnote.webviewdetail.presenter.WebPagePresenter;
+import com.gionee.bloodsoulnote.webviewdetail.util.AnimatorUtil;
 
 public class WebPageView extends LinearLayout implements IWebPage.IView,
                                                         CommentView.OnNeedOpenCommentDetailListener,
                                                         CommentDetailView.OnCommentDetailClickListener,
                                                         DiscussView.OnDiscussViewClickListener,
-                                                        WebPageBottomBar.OnWebPageBottomBarClickListener {
+                                                        WebPageBottomBar.OnWebPageBottomBarClickListener, View.OnClickListener {
 
     private Context mContext;
 
@@ -35,6 +37,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     private Toast mToast;
 
     private int mWidth;
+    private View mDiscussBg;
 
     public WebPageView(Context context) {
         super(context);
@@ -67,6 +70,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
         mDiscussView = (DiscussView) findViewById(R.id.discuss_view);
         // comment detail view
         mCommentDetailView = (CommentDetailView) findViewById(R.id.comment_detail_view);
+        mDiscussBg = findViewById(R.id.discuss_background);
         initEvent();
     }
 
@@ -75,6 +79,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
         mCommentBottomBar.setOnWebPageBottomBarClickListener(this);
         mDiscussView.setOnDiscussViewClickListener(this);
         mCommentDetailView.setOnCommentDetailClickListener(this);
+        mDiscussBg.setOnClickListener(this);
     }
 
     @Override
@@ -182,11 +187,21 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     private void showDiscussBox() {
         mDiscussView.showDiscussBox();
         mCommentBottomBar.setVisibility(GONE);
+        showDiscussBg();
     }
 
     private void showBottomBar() {
         mDiscussView.hideDiscussBox();
         mCommentBottomBar.setVisibility(VISIBLE);
+        hideDiscussBg();
+    }
+
+    private void showDiscussBg() {
+        AnimatorUtil.startAlphaAnimator(mDiscussBg, 0f, 1.0f, VISIBLE);
+    }
+
+    private void hideDiscussBg() {
+        AnimatorUtil.startAlphaAnimator(mDiscussBg, 1.0f, 0f, GONE);
     }
 
     public void loadUrl(String url) {
@@ -217,5 +232,14 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.discuss_background:
+                showBottomBar();
+                break;
+        }
     }
 }

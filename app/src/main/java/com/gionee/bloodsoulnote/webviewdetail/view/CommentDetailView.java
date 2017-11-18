@@ -19,6 +19,7 @@ import com.gionee.bloodsoulnote.webviewdetail.adapter.CommentDetailAdapter;
 import com.gionee.bloodsoulnote.webviewdetail.base.ViewHolder;
 import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
 import com.gionee.bloodsoulnote.webviewdetail.presenter.WebCommentDetailPresenter;
+import com.gionee.bloodsoulnote.webviewdetail.util.AnimatorUtil;
 
 import java.util.List;
 
@@ -47,6 +48,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
     private boolean mIsFirstIn = true;
 
     private boolean mIsDataChange;
+    private ImageView mDiscussBg;
 
     public CommentDetailView(Context context) {
         super(context);
@@ -82,6 +84,8 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
         mDiscussView = (DiscussView) findViewById(R.id.comment_detail_discuss_view);
         mBottomBar.setOnClickListener(this);
         mDiscussView.setOnDiscussViewClickListener(this);
+        mDiscussBg = (ImageView) findViewById(R.id.discuss_background);
+        mDiscussBg.setOnClickListener(this);
     }
 
     @Override
@@ -113,11 +117,13 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
     private void showBottomBar() {
         mDiscussView.hideDiscussBox();
         mBottomBar.setVisibility(VISIBLE);
+        hideDiscussBg();
     }
 
     private void showDiscussBox() {
         mDiscussView.showDiscussBox();
         mBottomBar.setVisibility(GONE);
+        showDiscussBg();
     }
 
     @Override
@@ -158,6 +164,9 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
                 break;
             case R.id.comment_detail_bottom_bar:
                 showDiscussBox();
+                break;
+            case R.id.discuss_background:
+                showBottomBar();
                 break;
         }
     }
@@ -244,5 +253,14 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
         }
         mToast.show();
     }
+
+    private void showDiscussBg() {
+        AnimatorUtil.startAlphaAnimator(mDiscussBg, 0f, 1.0f, VISIBLE);
+    }
+
+    private void hideDiscussBg() {
+        AnimatorUtil.startAlphaAnimator(mDiscussBg, 1.0f, 0f, GONE);
+    }
+
 
 }
