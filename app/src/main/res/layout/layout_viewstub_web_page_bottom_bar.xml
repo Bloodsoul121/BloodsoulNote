@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gionee.bloodsoulnote.webviewdetail.view.WebPageBottomBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/web_bottom_bar"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/web_bottom_bar_bg"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/web_bottom_bar_margin_left"
+    android:paddingRight="@dimen/web_bottom_bar_margin_right"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/web_bottom_bar_height"/>
+

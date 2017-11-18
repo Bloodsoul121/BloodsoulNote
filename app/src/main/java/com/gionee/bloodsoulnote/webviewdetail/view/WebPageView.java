@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -53,7 +54,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
         mContext = context;
         LayoutInflater.from(context).inflate(R.layout.layout_web_page, this);
         WebPagePresenter.bindPresenter(this);
-        mPresenter.loadWebpageInfo();
+//        mPresenter.loadWebpageInfo();
     }
 
     @Override
@@ -64,6 +65,19 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     @Override
     public void initView() {
         mWebDetailView = (WebDetailView) findViewById(R.id.web_detail_view);
+
+        ViewStub webPageBottomBar = (ViewStub) findViewById(R.id.viewstub_web_page_bottom_bar);
+        if (isToggleOpen()) {
+            webPageBottomBar.inflate();
+            initWebCommentVIew();
+        }
+    }
+
+    private boolean isToggleOpen() {
+        return true;
+    }
+
+    private void initWebCommentVIew() {
         // bottom bar
         mCommentBottomBar = (WebPageBottomBar) findViewById(R.id.web_bottom_bar);
         // discuss box

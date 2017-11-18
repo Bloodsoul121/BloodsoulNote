@@ -3,6 +3,7 @@ package com.gionee.bloodsoulnote.webviewdetail.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.ViewStub;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -30,6 +31,8 @@ public class WebDetailView extends ScrollView {
 
     private Scroller mScroller;
 
+    private ViewStub mViewstubCommentView;
+
     public WebDetailView(Context context) {
         super(context);
         init(context);
@@ -48,11 +51,26 @@ public class WebDetailView extends ScrollView {
         mContainer = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.layout_web_detail, this, false);
         addView(mContainer);
 
-        mCommentView = (CommentView) mContainer.findViewById(R.id.web_comment_view);
-        mCommentView.bindParentViewGroup(this);
-
         mWebView = (WebView) findViewById(R.id.webview);
         initWebView(mWebView);
+
+        mViewstubCommentView = (ViewStub) findViewById(R.id.viewstub_comment_view);
+
+
+        // 判断开关, 最好是 webview 加载 finish 后再操作 // TODO: 17-11-18
+        if (isToggleOpen()) {
+            mViewstubCommentView.inflate();
+            initCommentView();
+        }
+    }
+
+    private boolean isToggleOpen() {
+        return true;
+    }
+
+    private void initCommentView() {
+        mCommentView = (CommentView) mContainer.findViewById(R.id.web_comment_view);
+        mCommentView.bindParentViewGroup(this);
     }
 
     private void initWebView(WebView webView) {
@@ -80,7 +98,11 @@ public class WebDetailView extends ScrollView {
         // 更新用户发表的评论 // TODO: 17-11-16
 
         // 并滚动到用户评论区
-        smoothScrollTo2(0, mHeight);
+        smoothScrollToMostNewTop();
+    }
+
+    private void smoothScrollToMostNewTop() {
+        smoothScrollToMost(0, mHeight);
     }
 
     @Override
@@ -127,7 +149,7 @@ public class WebDetailView extends ScrollView {
         }
     }
 
-    public void smoothScrollTo2(int destX,int destY){
+    public void smoothScrollToMost(int destX, int destY){
         int scrollX = getScrollX();
         int scrollY = getScrollY();
         int deltaX = destX - scrollX;

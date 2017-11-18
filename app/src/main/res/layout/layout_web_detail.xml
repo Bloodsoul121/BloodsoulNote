@@ -9,16 +9,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <RelativeLayout
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<com.gionee.bloodsoulnote.webviewdetail.view.CommentView-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:id="@+id/web_comment_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"/>-->
+
+    <!--</RelativeLayout>-->
+
+    <ViewStub
+        android:id="@+id/viewstub_comment_view"
+        android:layout="@layout/layout_viewstub_comment_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.gionee.bloodsoulnote.webviewdetail.view.CommentView
-            android:layout_centerInParent="true"
-            android:id="@+id/web_comment_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </RelativeLayout>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
