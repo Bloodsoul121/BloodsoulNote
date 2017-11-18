@@ -19,7 +19,6 @@ import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebCommentDetail;
 import com.gionee.bloodsoulnote.webviewdetail.adapter.CommentDetailAdapter;
 import com.gionee.bloodsoulnote.webviewdetail.base.ViewHolder;
 import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
-import com.gionee.bloodsoulnote.webviewdetail.bean.CommentDetailBean;
 import com.gionee.bloodsoulnote.webviewdetail.presenter.WebCommentDetailPresenter;
 
 import java.util.List;
@@ -107,7 +106,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
         }
     }
 
-    private void updateSelfComment(CommentDetailBean bean) {
+    private void updateSelfComment(CommentBean bean) {
         mAdapter.addNewBottomData(bean);
     }
 
@@ -138,7 +137,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
         showBottomBar();
         toast(getResources().getString(R.string.publish_succeed));
         // 更新评论区, 滑到最新评论区
-        CommentDetailBean bean = new CommentDetailBean();
+        CommentBean bean = new CommentBean();
         bean.setName("13654982630");
         bean.setComment("评论区 - " + comment);
         bean.setGroupId("new");
@@ -186,7 +185,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
         mData = data;
     }
 
-    private void setNewData(List<CommentDetailBean> datas) {
+    private void setNewData(List<CommentBean> datas) {
         mAdapter.setNewData(datas);
     }
 
@@ -207,12 +206,12 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
     }
 
     @Override
-    public void onItemChildLikeClick(ViewHolder viewHolder, CommentDetailBean data, int position) {
+    public void onItemChildLikeClick(ViewHolder viewHolder, CommentBean data, int position) {
 
     }
 
     @Override
-    public void onItemChildReplyClick(ViewHolder viewHolder, CommentDetailBean data, int position) {
+    public void onItemChildReplyClick(ViewHolder viewHolder, CommentBean data, int position) {
         showDiscussBox();
     }
 

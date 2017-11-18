@@ -1,5 +1,7 @@
 package com.gionee.bloodsoulnote.webviewdetail.bean;
 
+import java.util.List;
+
 public class CommentDetailBean {
 
     private String name;
@@ -9,6 +11,16 @@ public class CommentDetailBean {
     private String comment;
 
     private String groupId;
+
+    private List<CommentBean> replys;
+
+    public List<CommentBean> getReplys() {
+        return replys;
+    }
+
+    public void setReplys(List<CommentBean> replys) {
+        this.replys = replys;
+    }
 
     public String getName() {
         return name;

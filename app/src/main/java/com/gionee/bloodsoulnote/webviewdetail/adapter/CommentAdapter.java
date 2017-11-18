@@ -17,15 +17,11 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
         implements CommonRecyAdapter.OnItemChildClickListener<CommentBean>
 {
 
-    private CommentBean mData;
-
     private OnItemChildClickListener mOnItemChildClickListener;
 
     private TextView mLikeNum;
 
     private TextView mCommentContent;
-
-    private boolean isHasLiked;
 
     public CommentAdapter(Context context) {
         super(context);
@@ -41,13 +37,10 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
 
     @Override
     protected void convert(ViewHolder holder, CommentBean data, int position, boolean isFirstInGroup, boolean isLastInGroup) {
-        this.mData = data;
         // 初始状态
         holder.setVisibility(R.id.group_title, isFirstInGroup ? View.VISIBLE : View.GONE);
         holder.setVisibility(R.id.comment_divider, isLastInGroup ? View.GONE : View.VISIBLE);
-        String comment = holder.getText(R.id.comment_content);
-        Log.i("CommentAdapter", "comment --> " + comment);
-        holder.setTextLine(R.id.comment_content_more);
+
         // 点击事件
         addOnItemChildClickListener(R.id.like_img, this);
         addOnItemChildClickListener(R.id.comment_content_more, this);
@@ -64,6 +57,10 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
 //        holder.setText(R.id.like_num, data.getComment());
 //        holder.setText(R.id.comment_time, data.getComment());
         holder.setText(R.id.group_title, data.getGroupId());
+
+        String comment = holder.getText(R.id.comment_content);
+        Log.i("CommentAdapter", "comment --> " + comment);
+        holder.setTextLine(R.id.comment_content_more);
     }
 
     @Override
@@ -81,7 +78,7 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
         switch (id) {
             case R.id.like_img:
                 // 点赞数 加减1
-                clickLike(viewHolder);
+                clickLike(viewHolder, data);
 
                 // 回调
                 if (mOnItemChildClickListener != null) {
@@ -91,9 +88,7 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
             case R.id.comment_content_more:
                 // 查看更多
                 viewHolder.setMaxLine(R.id.comment_content, 10);
-                mCommentContent = viewHolder.getView(R.id.comment_content);
-                String content = mCommentContent.getText() + data.getComment();
-                mCommentContent.setText(content);
+                viewHolder.setText(R.id.comment_content, data.getComment());
                 break;
             case R.id.comment_reply:
                 // 回复
@@ -104,9 +99,9 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
         }
     }
 
-    private void clickLike(ViewHolder viewHolder) {
+    private void clickLike(ViewHolder viewHolder, CommentBean data) {
         mLikeNum = viewHolder.getView(R.id.like_num);
-        if (isHasLiked) {
+        if (data.isHasLiked()) {
             String num = mLikeNum.getText().toString();
             int newNum = Integer.valueOf(num) - 1;
             mLikeNum.setText(String.valueOf(newNum));
@@ -115,7 +110,7 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
             int newNum = Integer.valueOf(num) + 1;
             mLikeNum.setText(String.valueOf(newNum));
         }
-        isHasLiked = !isHasLiked;
+        data.setHasLiked(!data.isHasLiked());
     }
 
     public interface OnItemChildClickListener {

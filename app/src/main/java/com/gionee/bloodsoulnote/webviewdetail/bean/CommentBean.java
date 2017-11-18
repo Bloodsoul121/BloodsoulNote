@@ -4,8 +4,8 @@ import java.util.List;
 
 public class CommentBean {
 
+    // 用户名
     private String name;
-
     // 唯一id
     private String id;
     // 评论内容
@@ -13,9 +13,24 @@ public class CommentBean {
     // 评论组 id , 比如 最新组, 最热组
     private String groupId;
     // 该评论下的, 其余回复
-    private List<CommentDetailBean> details;
+    private List<CommentBean> details;
 
-    public List<CommentDetailBean> getDetails() {
+
+    // 状态
+    // 是否点赞
+    private boolean isHasLiked;
+
+
+
+    public boolean isHasLiked() {
+        return isHasLiked;
+    }
+
+    public void setHasLiked(boolean hasLiked) {
+        isHasLiked = hasLiked;
+    }
+
+    public List<CommentBean> getDetails() {
         return details;
     }
 
@@ -27,7 +42,7 @@ public class CommentBean {
         this.name = name;
     }
 
-    public void setDetails(List<CommentDetailBean> details) {
+    public void setDetails(List<CommentBean> details) {
         this.details = details;
     }
 

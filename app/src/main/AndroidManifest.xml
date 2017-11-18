@@ -212,6 +212,8 @@
         </activity>
         <activity android:name=".numformat.NumFormatActivity">
         </activity>
+        <activity android:name=".vieweffects.textview.TextViewLinesActivity">
+        </activity>
     </application>
 
 </manifest>

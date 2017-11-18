@@ -7,17 +7,15 @@ import android.widget.TextView;
 import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.webviewdetail.base.CommonRecyAdapter;
 import com.gionee.bloodsoulnote.webviewdetail.base.ViewHolder;
-import com.gionee.bloodsoulnote.webviewdetail.bean.CommentDetailBean;
+import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
 import com.gionee.bloodsoulnote.webviewdetail.util.GNRegexUtils;
 import com.gionee.bloodsoulnote.webviewdetail.view.CircularImageView;
 
 import java.util.List;
 
-public class CommentDetailAdapter extends CommonRecyAdapter<CommentDetailBean> implements CommonRecyAdapter.OnItemChildClickListener<CommentDetailBean> {
+public class CommentDetailAdapter extends CommonRecyAdapter<CommentBean> implements CommonRecyAdapter.OnItemChildClickListener<CommentBean> {
 
     private TextView mLikeNum;
-
-    private boolean isHasLiked;
 
     private OnItemChildClickListener mOnItemChildClickListener;
 
@@ -25,16 +23,16 @@ public class CommentDetailAdapter extends CommonRecyAdapter<CommentDetailBean> i
         super(context);
     }
 
-    public CommentDetailAdapter(Context context, List<CommentDetailBean> datas) {
+    public CommentDetailAdapter(Context context, List<CommentBean> datas) {
         super(context, datas);
     }
 
-    public CommentDetailAdapter(Context context, List<CommentDetailBean> datas, boolean isOpenLoadMore) {
+    public CommentDetailAdapter(Context context, List<CommentBean> datas, boolean isOpenLoadMore) {
         super(context, datas, isOpenLoadMore);
     }
 
     @Override
-    protected void convert(ViewHolder holder, CommentDetailBean data, int position, boolean isFirstInGroup, boolean isLastInGroup) {
+    protected void convert(ViewHolder holder, CommentBean data, int position, boolean isFirstInGroup, boolean isLastInGroup) {
         holder.setVisibility(R.id.reply_text, position == 0 ? View.GONE : View.VISIBLE);
         holder.setVisibility(R.id.reply_user, position == 0 ? View.GONE : View.VISIBLE);
         holder.setVisibility(R.id.comment_content_more, View.GONE);
@@ -64,16 +62,16 @@ public class CommentDetailAdapter extends CommonRecyAdapter<CommentDetailBean> i
     }
 
     @Override
-    protected String getGroupId(CommentDetailBean commentBean) {
+    protected String getGroupId(CommentBean commentBean) {
         return commentBean.getGroupId();
     }
 
     @Override
-    public void onItemChildClick(ViewHolder viewHolder, CommentDetailBean data, int position, int id) {
+    public void onItemChildClick(ViewHolder viewHolder, CommentBean data, int position, int id) {
         switch (id) {
             case R.id.like_img:
                 // 点赞数 加减1
-                clickLike(viewHolder);
+                clickLike(viewHolder, data);
                 // 回调
                 if (mOnItemChildClickListener != null) {
                     mOnItemChildClickListener.onItemChildLikeClick(viewHolder, data, position);
@@ -88,9 +86,9 @@ public class CommentDetailAdapter extends CommonRecyAdapter<CommentDetailBean> i
         }
     }
 
-    private void clickLike(ViewHolder viewHolder) {
+    private void clickLike(ViewHolder viewHolder, CommentBean data) {
         mLikeNum = viewHolder.getView(R.id.like_num);
-        if (isHasLiked) {
+        if (data.isHasLiked()) {
             String num = mLikeNum.getText().toString();
             int newNum = Integer.valueOf(num) - 1;
             mLikeNum.setText(String.valueOf(newNum));
@@ -99,12 +97,12 @@ public class CommentDetailAdapter extends CommonRecyAdapter<CommentDetailBean> i
             int newNum = Integer.valueOf(num) + 1;
             mLikeNum.setText(String.valueOf(newNum));
         }
-        isHasLiked = !isHasLiked;
+        data.setHasLiked(!data.isHasLiked());
     }
 
     public interface OnItemChildClickListener {
-        void onItemChildLikeClick(ViewHolder viewHolder, CommentDetailBean data, int position);
-        void onItemChildReplyClick(ViewHolder viewHolder, CommentDetailBean data, int position);
+        void onItemChildLikeClick(ViewHolder viewHolder, CommentBean data, int position);
+        void onItemChildReplyClick(ViewHolder viewHolder, CommentBean data, int position);
     }
 
     public void setOnItemChildClickListener(OnItemChildClickListener itemChildClickListener) {

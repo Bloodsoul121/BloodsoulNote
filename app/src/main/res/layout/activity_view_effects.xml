@@ -9,14 +9,21 @@
 
     <Button
         android:onClick="clickBtn1"
-        android:text="TextView"
+        android:text="TextView 字体"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <Button
         android:onClick="clickBtn2"
-        android:text="ImageView"
+        android:text="ImageView 右上角数字"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="clickBtn3"
+        android:text="TextView 显示全部"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

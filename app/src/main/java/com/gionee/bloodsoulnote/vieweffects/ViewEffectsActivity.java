@@ -8,6 +8,7 @@ import android.view.View;
 import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.vieweffects.imageview.ImageViewActivity;
 import com.gionee.bloodsoulnote.vieweffects.textview.TextViewActivity;
+import com.gionee.bloodsoulnote.vieweffects.textview.TextViewLinesActivity;
 
 public class ViewEffectsActivity extends AppCompatActivity {
 
@@ -23,5 +24,9 @@ public class ViewEffectsActivity extends AppCompatActivity {
 
     public void clickBtn2(View view) {
         startActivity(new Intent(this, ImageViewActivity.class));
+    }
+
+    public void clickBtn3(View view) {
+        startActivity(new Intent(this, TextViewLinesActivity.class));
     }
 }

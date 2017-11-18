@@ -1,16 +1,10 @@
 package com.gionee.bloodsoulnote.webviewdetail.model;
 
-import com.android.volley.NetworkResponse;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.toolbox.RequestFuture;
 import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebComment;
 import com.gionee.bloodsoulnote.webviewdetail.bean.CommentBean;
-import com.gionee.bloodsoulnote.webviewdetail.bean.CommentDetailBean;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -74,9 +68,9 @@ public class WebCommentModel implements IWebComment.IModel {
             bean.setGroupId("hot");
             bean.setId("" + i);
 
-            List<CommentDetailBean> details = new ArrayList<>();
+            List<CommentBean> details = new ArrayList<>();
             for (int j = 0; j < 3; j++) {
-                CommentDetailBean detailBean = new CommentDetailBean();
+                CommentBean detailBean = new CommentBean();
                 detailBean.setName("detail name " + j);
                 detailBean.setComment("评论区 - " + i + j);
                 detailBean.setGroupId("hot");
@@ -94,9 +88,9 @@ public class WebCommentModel implements IWebComment.IModel {
             bean.setGroupId("new");
             bean.setId("" + i);
 
-            List<CommentDetailBean> details = new ArrayList<>();
+            List<CommentBean> details = new ArrayList<>();
             for (int j = 0; j < 3; j++) {
-                CommentDetailBean detailBean = new CommentDetailBean();
+                CommentBean detailBean = new CommentBean();
                 detailBean.setName("detail name " + j);
                 detailBean.setComment("评论区 - " + i + j);
                 detailBean.setGroupId("new");
