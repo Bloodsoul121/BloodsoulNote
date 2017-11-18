@@ -3,7 +3,7 @@
 
     <item>
         <shape>
-            <solid android:color="@color/web_bottom_bar_bg_line"/>
+            <solid android:color="@color/web_bottom_bar_bg_line_color"/>
         </shape>
     </item>
 
@@ -13,10 +13,10 @@
         </shape>
     </item>
 
-    <item android:drawable="@drawable/web_bottom_bar_comment_bar_bg"
-          android:top="5dp"
-          android:left="10dp"
-          android:right="10dp"
+    <item android:drawable="@drawable/web_detail_bottom_bar_comment_bar_bg"
+          android:top="6dp"
+          android:left="15dp"
+          android:right="15dp"
           android:bottom="5dp">
     </item>
 

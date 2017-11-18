@@ -2,7 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <size android:width="2dp"/>
-    <solid android:color="#6495ED"/>
+    <size android:width="@dimen/web_discuss_view_edit_cursor_width"
+          android:height="@dimen/web_discuss_view_edit_cursor_height"/>
+    <solid android:color="@color/web_discuss_view_edit_cursor_color"/>
 
 </shape>

@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/comment_bar"
         android:layout_toRightOf="@+id/back"
-        android:background="@drawable/web_bottom_bar_comment_bar_bg"
+        android:background="@drawable/web_page_bottom_bar_comment_bar_bg"
         android:text="文案后台配置"
         android:gravity="center_vertical"
         android:textColor="@color/web_bottom_bar_comment_bar_text_color"
@@ -33,7 +33,7 @@
         <TextView
             android:id="@+id/comment_num"
             android:text="0"
-            android:textColor="@color/web_bottom_bar_like_num"
+            android:textColor="@color/web_bottom_bar_like_num_color"
             android:textSize="@dimen/web_bottom_bar_like_num_size"
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/comment_num_img"

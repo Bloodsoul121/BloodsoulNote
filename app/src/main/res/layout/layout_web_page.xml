@@ -13,7 +13,8 @@
         android:visibility="gone"
         android:id="@+id/discuss_view"
         android:layout_alignParentBottom="true"
-        android:background="#FFF5EE"
+        android:background="@color/web_discuss_view_background"
+        android:paddingBottom="@dimen/web_discuss_view_padding_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

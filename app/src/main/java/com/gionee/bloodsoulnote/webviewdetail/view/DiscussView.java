@@ -1,6 +1,9 @@
 package com.gionee.bloodsoulnote.webviewdetail.view;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,13 +13,17 @@ import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
 
-public class DiscussView extends RelativeLayout implements View.OnClickListener {
+public class DiscussView extends RelativeLayout implements View.OnClickListener, TextWatcher {
 
     private Context mContext;
 
     private ToastEditText mDiscussEdit;
 
     private OnDiscussViewClickListener mOnDiscussViewClickListener;
+
+    private TextView mDiscussPublish;
+
+    private boolean mIsEditEmpty = true;
 
     public DiscussView(Context context) {
         super(context);
@@ -33,10 +40,11 @@ public class DiscussView extends RelativeLayout implements View.OnClickListener 
         LayoutInflater.from(context).inflate(R.layout.layout_discuss_view, this);
 
         TextView discussCancel = (TextView) findViewById(R.id.discuss_cancel);
-        TextView discussPublish = (TextView) findViewById(R.id.discuss_publish);
+        mDiscussPublish = (TextView) findViewById(R.id.discuss_publish);
         mDiscussEdit = (ToastEditText) findViewById(R.id.discuss_edit);
         discussCancel.setOnClickListener(this);
-        discussPublish.setOnClickListener(this);
+        mDiscussPublish.setOnClickListener(this);
+        mDiscussEdit.addTextChangedListener(this);
     }
 
     public void showDiscussBox() {
@@ -77,6 +85,34 @@ public class DiscussView extends RelativeLayout implements View.OnClickListener 
                     mOnDiscussViewClickListener.onDiscussViewClickPublish(mDiscussEdit.getText().toString());
                 }
                 break;
+        }
+    }
+
+    public void clear() {
+        mDiscussEdit.setText(null);
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//        Log.i("DiscussView", "beforeTextChanged content " + s + ", " + start + ", " + after + ", " + count);
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+//        Log.i("DiscussView", "onTextChanged content " + s + ", " + start + ", " + before + ", " + count);
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        String content = s.toString();
+        if (TextUtils.isEmpty(content)) {
+            mIsEditEmpty = true;
+            mDiscussPublish.setTextColor(getResources().getColor(R.color.web_discuss_view_publish_noclickable_color));
+        } else {
+            if (mIsEditEmpty) {
+                mDiscussPublish.setTextColor(getResources().getColor(R.color.web_discuss_view_publish_clickable_color));
+                mIsEditEmpty = false;
+            }
         }
     }
 

@@ -21,7 +21,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
     public static final int TYPE_NODATE_VIEW = 100004;
     public static final int TYPE_RELOAD_VIEW = 100005;
 
-    private Context mContext;
+    protected Context mContext;
 
     private LayoutInflater mInflater;
 

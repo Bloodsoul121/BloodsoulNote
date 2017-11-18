@@ -109,6 +109,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
             return;
         }
         mPresenter.publish(comment);
+        mDiscussView.clear();
     }
 
     @Override

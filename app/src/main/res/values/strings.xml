@@ -76,6 +76,8 @@
     <string name="publish_succeed">发表成功</string>
     <string name="publish_failed">评论受限</string>
     <string name="reply">回复</string>
+    <string name="reply_ta"> · 回复TA</string>
+    <string name="expand">展开</string>
 
 
 </resources>

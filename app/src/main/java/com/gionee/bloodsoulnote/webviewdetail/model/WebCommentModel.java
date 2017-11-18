@@ -64,8 +64,12 @@ public class WebCommentModel implements IWebComment.IModel {
         for (int i = 0; i < 3; i++) {
             CommentBean bean = new CommentBean();
             bean.setName("name - " + i);
-            bean.setComment("评论区 - " + i);
-            bean.setGroupId("hot");
+            bean.setComment("评论区 - " +
+                    "Named and variadic parameters can be used in the same function, simply by placing the variadic ellipsis after the list of named parameters. \n" +
+                    "可以在同一个函数中同时使用命名参数和可变参数，只需要将可变参数的省略号放在命名参数列表之后。Named and variadic parameters can be used in the same function, simply by placing the variadic ellipsis after the list of named parameters. \n" +
+                    "可以在同一个函数中同时使用命名参数和可变参数，只需要将可变参数的省略号放在命名参数列表之后。vNamed and variadic parameters can be used in the same function, simply by placing the variadic ellipsis after the list of named parameters. \n" +
+                    "可以在同一个函数中同时使用命名参数和可变参数，只需要将可变参数的省略号放在命名参数列表之后。" + i);
+            bean.setGroupId("最热评论");
             bean.setId("" + i);
 
             List<CommentBean> details = new ArrayList<>();
@@ -73,7 +77,7 @@ public class WebCommentModel implements IWebComment.IModel {
                 CommentBean detailBean = new CommentBean();
                 detailBean.setName("detail name " + j);
                 detailBean.setComment("评论区 - " + i + j);
-                detailBean.setGroupId("hot");
+                detailBean.setGroupId("最热评论");
                 detailBean.setId("" + i + "" + j);
                 details.add(detailBean);
             }
@@ -85,7 +89,7 @@ public class WebCommentModel implements IWebComment.IModel {
             CommentBean bean = new CommentBean();
             bean.setName("name - " + i);
             bean.setComment("评论区 - " + i);
-            bean.setGroupId("new");
+            bean.setGroupId("最新评论");
             bean.setId("" + i);
 
             List<CommentBean> details = new ArrayList<>();
@@ -93,7 +97,7 @@ public class WebCommentModel implements IWebComment.IModel {
                 CommentBean detailBean = new CommentBean();
                 detailBean.setName("detail name " + j);
                 detailBean.setComment("评论区 - " + i + j);
-                detailBean.setGroupId("new");
+                detailBean.setGroupId("最新评论");
                 detailBean.setId("" + i + "" + j);
                 details.add(detailBean);
             }

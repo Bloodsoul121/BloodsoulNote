@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/item_web_comment"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
+
+    <View
+        android:visibility="gone"
+        android:id="@+id/group_cursor"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/web_comment_item_group_cursor_margin_top"
+        android:layout_marginLeft="@dimen/web_comment_item_group_cursor_margin_left"
+        android:background="@color/web_comment_item_group_cursor_color"
+        android:layout_width="@dimen/web_comment_item_group_cursor_width"
+        android:layout_height="@dimen/web_comment_item_group_cursor_height"/>
 
     <TextView
         android:visibility="gone"
         android:id="@+id/group_title"
-        android:layout_marginBottom="10dp"
         android:layout_alignParentTop="true"
-        android:text="子标题"
+        android:layout_toRightOf="@+id/group_cursor"
+        android:layout_marginTop="@dimen/web_comment_item_group_title_margin_top"
+        android:layout_marginLeft="@dimen/web_comment_item_group_title_margin_left"
+        android:text="最热评论"
+        android:textSize="@dimen/web_comment_item_group_title_text_size"
+        android:textColor="@color/web_comment_item_group_title_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -17,62 +32,83 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/group_title"
         android:background="@drawable/user_default_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginTop="@dimen/web_comment_item_comment_margin_top"
+        android:layout_marginLeft="@dimen/web_comment_item_user_img_margin_left"
+        android:layout_marginRight="@dimen/web_comment_item_user_img_margin_right"
+        android:layout_width="@dimen/web_comment_item_user_img_width"
+        android:layout_height="@dimen/web_comment_item_user_img_height"/>
 
     <RelativeLayout
         android:id="@+id/comment_container"
         android:layout_below="@+id/group_title"
         android:layout_toRightOf="@+id/user_img"
+        android:layout_marginTop="@dimen/web_comment_item_comment_margin_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/user_name"
-            android:text="name"
-            android:textColor="#3A5FCD"
+            android:text="梦幻如蝶"
+            android:maxLength="20"
+            android:layout_marginTop="@dimen/web_comment_item_user_name_margin_top"
+            android:textSize="@dimen/web_comment_item_user_name_text_size"
+            android:textColor="@color/web_comment_item_user_name_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:visibility="gone"
             android:id="@+id/reply_text"
+            android:layout_marginTop="@dimen/web_comment_item_user_name_margin_top"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/user_name"
             android:text="@string/reply"
+            android:textColor="@color/web_comment_item_user_name_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:visibility="gone"
             android:id="@+id/reply_user"
+            android:layout_marginTop="@dimen/web_comment_item_user_name_margin_top"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/reply_text"
             android:text="用户"
-            android:textColor="#3A5FCD"
+            android:textColor="@color/web_comment_item_user_name_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <ImageView
             android:id="@+id/like_img"
             android:layout_alignParentRight="true"
-            android:src="@drawable/comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:src="@drawable/web_comment_like_img"
+            android:layout_marginTop="@dimen/web_comment_item_like_img_margin_top"
+            android:layout_marginRight="@dimen/web_comment_item_like_img_margin_right"
+            android:layout_width="@dimen/web_comment_item_like_img_width"
+            android:layout_height="@dimen/web_comment_item_like_img_height"/>
 
         <TextView
             android:id="@+id/like_num"
             android:text="3"
             android:layout_toLeftOf="@+id/like_img"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/web_comment_item_user_num_margin_top"
+            android:layout_marginRight="@dimen/web_comment_item_like_num_margin_right"
+            android:textSize="@dimen/web_comment_item_like_num_text_size"
+            android:textColor="@color/web_comment_item_like_num_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/comment_content"
-            android:maxLines="5"
             android:layout_below="@+id/user_name"
+            android:layout_marginTop="@dimen/web_comment_item_content_margin_top"
+            android:layout_marginRight="@dimen/web_comment_item_margin_right"
+            android:maxLines="5"
             android:ellipsize="end"
-            android:text="aaaaaaaaaaaaaaaa\naaaaaaaa\na\na\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:text="aaaaaaa\naaaaaaaa\na\na\naaaaaaaaaaaaaaaaaaaaaaaaaaaaa\na"
+            android:textSize="@dimen/web_comment_item_content_text_size"
+            android:textColor="@color/web_comment_item_content_text_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -80,15 +116,21 @@
             android:id="@+id/comment_content_more"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/comment_content"
-            android:text="查看更多"
-            android:textColor="#3A5FCD"
+            android:layout_marginTop="@dimen/web_comment_item_expand_margin_top"
+            android:layout_marginRight="@dimen/web_comment_item_margin_right"
+            android:text="@string/expand"
+            android:textSize="@dimen/web_comment_item_expand_text_size"
+            android:textColor="@color/web_comment_item_expand_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/comment_time"
-            android:text="time"
+            android:text="15分钟前"
             android:layout_below="@+id/comment_content_more"
+            android:layout_marginTop="@dimen/web_comment_item_time_margin_top"
+            android:textSize="@dimen/web_comment_item_time_size"
+            android:textColor="@color/web_comment_item_time_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -96,7 +138,11 @@
             android:id="@+id/comment_reply"
             android:layout_below="@id/comment_content_more"
             android:layout_toRightOf="@id/comment_time"
-            android:text=" · 回复他"
+            android:layout_marginLeft="@dimen/web_comment_item_reply_margin_left"
+            android:text="@string/reply_ta"
+            android:textSize="@dimen/web_comment_item_time_size"
+            android:textColor="@color/web_comment_item_time_text_color"
+            android:layout_marginTop="@dimen/web_comment_item_time_margin_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -105,10 +151,30 @@
     <View
         android:id="@+id/comment_divider"
         android:layout_below="@+id/comment_container"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#5e5e5e"
+        android:layout_marginTop="@dimen/web_comment_item_divider_margin_top"
+        android:layout_marginLeft="@dimen/web_comment_item_divider_margin_left"
+        android:layout_marginRight="@dimen/web_comment_item_divider_margin_right"
+        android:background="@color/web_comment_item_divider_color"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <View
+        android:visibility="gone"
+        android:id="@+id/comment_divider_half_whole"
+        android:layout_below="@+id/comment_container"
+        android:layout_marginTop="@dimen/web_comment_item_divider_margin_top"
+        android:layout_marginLeft="@dimen/web_comment_item_divider_half_whole_margin_left"
+        android:layout_marginRight="@dimen/web_comment_item_divider_margin_right"
+        android:background="@color/web_comment_item_divider_color"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <View
+        android:visibility="gone"
+        android:id="@+id/comment_divider_whole"
+        android:layout_below="@+id/comment_container"
+        android:layout_marginTop="@dimen/web_comment_item_divider_margin_top"
+        android:background="@color/web_comment_item_divider_whole_color"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
 

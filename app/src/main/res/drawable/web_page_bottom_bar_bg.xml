@@ -9,8 +9,15 @@
 
     <item android:top="1dp">
         <shape>
-            <solid android:color="@color/web_bottom_bar_bg"/>
+            <solid android:color="#ffffff"/>
         </shape>
+    </item>
+
+    <item android:drawable="@drawable/web_page_bottom_bar_comment_bar_bg"
+          android:top="5dp"
+          android:left="10dp"
+          android:right="10dp"
+          android:bottom="5dp">
     </item>
 
 </layer-list>

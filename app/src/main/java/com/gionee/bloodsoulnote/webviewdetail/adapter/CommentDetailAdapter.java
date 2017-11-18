@@ -2,6 +2,7 @@ package com.gionee.bloodsoulnote.webviewdetail.adapter;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
@@ -14,8 +15,6 @@ import com.gionee.bloodsoulnote.webviewdetail.view.CircularImageView;
 import java.util.List;
 
 public class CommentDetailAdapter extends CommonRecyAdapter<CommentBean> implements CommonRecyAdapter.OnItemChildClickListener<CommentBean> {
-
-    private TextView mLikeNum;
 
     private OnItemChildClickListener mOnItemChildClickListener;
 
@@ -35,25 +34,23 @@ public class CommentDetailAdapter extends CommonRecyAdapter<CommentBean> impleme
     protected void convert(ViewHolder holder, CommentBean data, int position, boolean isFirstInGroup, boolean isLastInGroup) {
         holder.setVisibility(R.id.reply_text, position == 0 ? View.GONE : View.VISIBLE);
         holder.setVisibility(R.id.reply_user, position == 0 ? View.GONE : View.VISIBLE);
+        holder.setVisibility(R.id.comment_divider_whole, position == 0 ? View.VISIBLE : View.GONE);
         holder.setVisibility(R.id.comment_content_more, View.GONE);
         holder.setMaxLine(R.id.comment_content, 50);
+        holder.setBgColor(R.id.item_web_comment, position == 0 ? mContext.getResources().getColor(R.color.web_detail_view_item_main_color)
+                : mContext.getResources().getColor(R.color.web_detail_view_item_next_color));
 
         addOnItemChildClickListener(R.id.like_img, this);
         addOnItemChildClickListener(R.id.comment_reply, this);
 
         // 初始数据
         CircularImageView userImg = holder.getView(R.id.user_img);
-//        TextView groupTitle = holder.getView(R.id.group_title);
-//        TextView userName = holder.getView(R.id.user_name);
-//        TextView likeNum = holder.getView(R.id.like_num);
-//        TextView commentContent = holder.getView(R.id.comment_content);
-//        TextView commentTime = holder.getView(R.id.comment_time);
         holder.setText(R.id.user_name, GNRegexUtils.isMobileNO(data.getName()) ?
                 GNRegexUtils.formatPhoneNum(data.getName()) : data.getName());
         holder.setText(R.id.comment_content, data.getComment());
+        holder.setText(R.id.group_title, data.getGroupId());
 //        holder.setText(R.id.like_num, data.getComment());
 //        holder.setText(R.id.comment_time, data.getComment());
-        holder.setText(R.id.group_title, data.getGroupId());
     }
 
     @Override
@@ -87,15 +84,20 @@ public class CommentDetailAdapter extends CommonRecyAdapter<CommentBean> impleme
     }
 
     private void clickLike(ViewHolder viewHolder, CommentBean data) {
-        mLikeNum = viewHolder.getView(R.id.like_num);
+        TextView likeNum = viewHolder.getView(R.id.like_num);
+        ImageView likeImg = viewHolder.getView(R.id.like_img);
         if (data.isHasLiked()) {
-            String num = mLikeNum.getText().toString();
+            String num = likeNum.getText().toString();
             int newNum = Integer.valueOf(num) - 1;
-            mLikeNum.setText(String.valueOf(newNum));
+            likeNum.setText(String.valueOf(newNum));
+            likeNum.setTextColor(mContext.getResources().getColor(R.color.web_comment_item_like_num_color));
+            likeImg.setImageLevel(0);
         } else {
-            String num = mLikeNum.getText().toString();
+            String num = likeNum.getText().toString();
             int newNum = Integer.valueOf(num) + 1;
-            mLikeNum.setText(String.valueOf(newNum));
+            likeNum.setText(String.valueOf(newNum));
+            likeNum.setTextColor(mContext.getResources().getColor(R.color.web_comment_item_like_num_like_color));
+            likeImg.setImageLevel(1);
         }
         data.setHasLiked(!data.isHasLiked());
     }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <corners android:radius="@dimen/web_discuss_view_edit_bg_cornor"/>
+
+    <stroke android:color="@color/web_discuss_view_edit_bg_stroke_color"
+            android:width="@dimen/web_discuss_view_edit_bg_stroke"/>
+
+    <solid android:color="@color/web_discuss_view_edit_bg_background"/>
+
+</shape>

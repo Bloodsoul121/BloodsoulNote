@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gionee.bloodsoulnote.R;
@@ -43,7 +42,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
 
     private Toast mToast;
 
-    private TextView mBottomBar;
+    private RelativeLayout mBottomBar;
 
     private boolean mIsFirstIn = true;
 
@@ -79,7 +78,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
         mAdapter.setOpenLoadMore(false);
         mAdapter.setOnItemChildClickListener(this);
         recyclerView.setAdapter(mAdapter);
-        mBottomBar = (TextView) findViewById(R.id.comment_detail_bottom_bar);
+        mBottomBar = (RelativeLayout) findViewById(R.id.comment_detail_bottom_bar);
         mDiscussView = (DiscussView) findViewById(R.id.comment_detail_discuss_view);
         mBottomBar.setOnClickListener(this);
         mDiscussView.setOnDiscussViewClickListener(this);
@@ -97,6 +96,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
             return;
         }
         mPresenter.publish(comment);
+        mDiscussView.clear();
     }
 
     @Override

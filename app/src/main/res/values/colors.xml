@@ -35,9 +35,33 @@
     <!--// webpage-->
     <color name="web_bottom_bar_comment_bar_text_color">#828282</color>
     <color name="web_bottom_bar_comment_bar_bg">#f0f0f0</color>
-    <color name="web_bottom_bar_bg">#98fbfbfb</color>
-    <color name="web_bottom_bar_bg_line">#cdcdcd</color>
-    <color name="web_bottom_bar_comment_bar_bg_stroke">#e9e9e9</color>
-    <color name="web_bottom_bar_like_num">#ffffff</color>
+    <color name="web_bottom_bar_bg">#fbfbfb</color>
+    <color name="web_bottom_bar_bg_line_color">#cdcdcd</color>
+    <color name="web_bottom_bar_comment_bar_bg_stroke_color">#e9e9e9</color>
+    <color name="web_bottom_bar_like_num_color">#ffffff</color>
+    <color name="web_discuss_view_background">#ffffff</color>
+    <color name="web_discuss_view_cancel_color">#222222</color>
+    <color name="web_discuss_view_publish_noclickable_color">#b0b0b0</color>
+    <color name="web_discuss_view_publish_clickable_color">#ff9000</color>
+    <color name="web_discuss_view_edit_bg_stroke_color">#d4d4d4</color>
+    <color name="web_discuss_view_edit_bg_background">#ffffff</color>
+    <color name="web_discuss_view_edit_hint_color">#999999</color>
+    <color name="web_discuss_view_edit_text_color">#222222</color>
+    <color name="web_discuss_view_edit_cursor_color">#ff9000</color>
+    <color name="web_comment_item_group_cursor_color">#ff9000</color>
+    <color name="web_comment_item_group_title_color">#222222</color>
+    <color name="web_comment_item_user_name_color">#999999</color>
+    <color name="web_comment_item_like_num_color">#999999</color>
+    <color name="web_comment_item_like_num_like_color">#ff9000</color>
+    <color name="web_comment_item_content_text_color">#222222</color>
+    <color name="web_comment_item_expand_text_color">#307ec5</color>
+    <color name="web_comment_item_time_text_color">#999999</color>
+    <color name="web_comment_item_divider_color">#e3e3e3</color>
+    <color name="web_comment_item_divider_whole_color">#e2e2e2</color>
+    <color name="web_detail_bottom_bar_comment_bar_bg">#f4f5f6</color>
+    <color name="web_detail_bottom_bar_comment_bar_reply_text_hint_color">#828282</color>
+    <color name="web_detail_view_item_main_color">#ffffff</color>
+    <color name="web_detail_view_item_next_color">#f8f8f8</color>
+    <color name="web_detail_view_content_bg_color">#f8f8f8</color>
 
 </resources>

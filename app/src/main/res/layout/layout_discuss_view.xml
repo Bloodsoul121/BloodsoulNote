@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@color/web_discuss_view_background"
+                android:paddingBottom="@dimen/web_discuss_view_padding_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/discuss_cancel"
+        android:layout_marginTop="@dimen/web_discuss_view_cannel_margin_top"
+        android:layout_marginLeft="@dimen/web_discuss_view_cannel_margin_left"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:text="@string/webpage_discuss_cancel"
+        android:textColor="@color/web_discuss_view_cancel_color"
+        android:textSize="@dimen/web_discuss_view_cannel_text_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/discuss_publish"
+        android:layout_marginTop="@dimen/web_discuss_view_publish_margin_top"
+        android:layout_marginRight="@dimen/web_discuss_view_publish_margin_right"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="@string/webpage_discuss_publish"
+        android:textColor="@color/web_discuss_view_publish_noclickable_color"
+        android:textSize="@dimen/web_discuss_view_publish_text_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <com.gionee.bloodsoulnote.webviewdetail.view.ToastEditText
         android:id="@+id/discuss_edit"
-        android:background="@null"
+        android:layout_marginTop="@dimen/web_discuss_view_edit_margin_top"
+        android:layout_marginLeft="@dimen/web_discuss_view_edit_margin_left"
+        android:background="@drawable/web_discuss_view_edit_bg"
         android:textCursorDrawable="@drawable/edit_cursor_color"
         android:layout_below="@+id/discuss_cancel"
         android:minLines="5"
         android:gravity="top"
         android:maxLength="1500"
         android:hint="文案后台配置"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:paddingLeft="@dimen/web_discuss_view_edit_hint_padding_left"
+        android:textColor="@color/web_discuss_view_edit_text_color"
+        android:paddingTop="@dimen/web_discuss_view_edit_hint_padding_top"
+        android:textSize="@dimen/web_discuss_view_text_size"
+        android:textColorHint="@color/web_discuss_view_edit_hint_color"
+        android:layout_width="@dimen/web_discuss_view_edit_width"
+        android:layout_height="@dimen/web_discuss_view_edit_height"/>
 
 </merge>
