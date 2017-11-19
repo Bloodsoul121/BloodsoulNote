@@ -80,7 +80,7 @@ public class CommentView extends LinearLayout implements IWebComment.IView,
         mRecyclerAdapter.setOnLoadMoreListener(this);
         mRecyclerAdapter.setOnItemChildClickListener(this);
         //初始化EmptyView
-        mRecyclerAdapter.setEmptyView(R.layout.layout_foot_comment_empty);
+//        mRecyclerAdapter.setEmptyView(R.layout.layout_foot_comment_empty);
         //初始化 开始加载更多的loading View
         mRecyclerAdapter.setLoadingView(R.layout.layout_foot_comment_empty);
 
@@ -147,7 +147,7 @@ public class CommentView extends LinearLayout implements IWebComment.IView,
 
     @Override
     public void onItemChildLikeClick(ViewHolder viewHolder, CommentBean data, int position) {
-
+        mPresenter.requestLike();
     }
 
     @Override

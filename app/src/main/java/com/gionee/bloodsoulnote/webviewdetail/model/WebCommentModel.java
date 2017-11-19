@@ -59,6 +59,11 @@ public class WebCommentModel implements IWebComment.IModel {
                 });
     }
 
+    @Override
+    public void requestLike() {
+
+    }
+
     private List<CommentBean> getWebComments() {
         List<CommentBean> datas = new ArrayList<>();
         for (int i = 0; i < 3; i++) {

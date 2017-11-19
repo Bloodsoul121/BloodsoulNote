@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.gionee.bloodsoulnote.R;
+import com.gionee.bloodsoulnote.customview3.layer.LayerActivity;
+import com.gionee.bloodsoulnote.customview3.matrix.ColorMatrixActivity;
 import com.gionee.bloodsoulnote.customview3.showAnimator.RightOutActivity;
 import com.gionee.bloodsoulnote.customview3.showAnimator.ShowAnimatorActivity;
 import com.gionee.bloodsoulnote.customview3.slidefinish.SlideFinishActivity;
@@ -28,5 +30,13 @@ public class Customview3Activity extends AppCompatActivity {
 
     public void clickBtn3(View view) {
         startActivity(new Intent(this, RightOutActivity.class));
+    }
+
+    public void clickBtn4(View view) {
+        startActivity(new Intent(this, LayerActivity.class));
+    }
+
+    public void clickBtn5(View view) {
+        startActivity(new Intent(this, ColorMatrixActivity.class));
     }
 }

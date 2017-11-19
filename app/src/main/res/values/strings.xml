@@ -68,7 +68,8 @@
     <string name="toast_downloaded_File">正在下载中，</string>
     <string name="toast_downloaded_click">点击查看</string>
 
-    <string name="text">最近在做一个类似于QQ空间的一个社交圈的模块的开发。有一个需求是当用户发表的内容超出4行时，显示一个按钮，点击按钮展示全文。我还真没有发现TextView有获取文本内容有没有显示省略号这个方法。没办法，只能自己想办法了</string>>
+    <string name="text">最近在做一个类似于QQ空间的一个社交圈的模块的开发。有一个需求是当用户发表的内容超出4行时，显示一个按钮，点击按钮展示全文。我还真没有发现TextView有获取文本内容有没有显示省略号这个方法。没办法，只能自己想办法了</string>
+    >
 
     <!--// webpage-->
     <string name="webpage_discuss_cancel">取消</string>

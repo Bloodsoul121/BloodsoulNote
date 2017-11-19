@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.gionee.bloodsoulnote">
+<manifest package="com.gionee.bloodsoulnote"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -213,6 +213,10 @@
         <activity android:name=".numformat.NumFormatActivity">
         </activity>
         <activity android:name=".vieweffects.textview.TextViewLinesActivity">
+        </activity>
+        <activity android:name=".customview3.layer.LayerActivity">
+        </activity>
+        <activity android:name=".customview3.matrix.ColorMatrixActivity">
         </activity>
     </application>
 

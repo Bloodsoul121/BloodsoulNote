@@ -31,11 +31,15 @@ public interface IWebComment {
 
     public interface IPresenter {
         void loadMoreComments();
+
+        void requestLike();
     }
 
     public interface IModel {
 
         void loadWebComments(OnLoadCommentListener onLoadCommentListener);
+
+        void requestLike();
 
         interface OnLoadCommentListener {
             void onLoadBefore();

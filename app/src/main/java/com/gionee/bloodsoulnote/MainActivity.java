@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("32 - ViewStub");
         mDatas.add("33 - 源生操作数据库");
         mDatas.add("34 - 线程池工具类");
-        mDatas.add("35 - 自定义View, 测试");
+        mDatas.add("35 - 自定义View custom-2");
         mDatas.add("36 - ListView, 测试");
         mDatas.add("37 - 侧滑菜单");
         mDatas.add("38 - px 和 dp 的相互转换");
@@ -123,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("42 - RxBus 2.0 测试");
         mDatas.add("43 - 测试线程");
         mDatas.add("44 - webview底部加上评论区");
-        mDatas.add("45 - view 控件 的视图效果");
-        mDatas.add("46 - 自定义view 滑动退出效果");
+        mDatas.add("45 - Android view 控件 的视图效果");
+        mDatas.add("46 - 自定义view custom-3");
         mDatas.add("47 - SurfaceView");
         mDatas.add("48 - 数字格式化");
     }

@@ -50,7 +50,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         mPath = new Path();
         mPaint = new Paint();
         mPaint.setColor(Color.BLACK);
-        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(20);
     }
 
     @Override
@@ -95,9 +96,11 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mPath.moveTo(x, y);
+//                draw();
                 break;
             case MotionEvent.ACTION_MOVE:
                 mPath.lineTo(x, y);
+//                draw();
                 break;
             case MotionEvent.ACTION_UP:
                 break;
@@ -120,5 +123,13 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                 mHolder.unlockCanvasAndPost(mCanvas);
             }
         }
+    }
+
+    //清理画布
+    public  void clear(){
+        //路径重置
+        mPath.reset();
+        //重新锁定，否则不能再次绘画
+        draw();
     }
 }

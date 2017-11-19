@@ -35,12 +35,6 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="@dimen/web_bottom_bar_height"/>-->
 
-    <com.gionee.bloodsoulnote.webviewdetail.view.CommentDetailView
-        android:visibility="gone"
-        android:id="@+id/comment_detail_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
     <ViewStub
         android:id="@+id/viewstub_web_page_bottom_bar"
         android:layout="@layout/layout_viewstub_web_page_bottom_bar"
@@ -51,5 +45,12 @@
         android:paddingRight="@dimen/web_bottom_bar_margin_right"
         android:layout_width="match_parent"
         android:layout_height="@dimen/web_bottom_bar_height"/>
+
+    <com.gionee.bloodsoulnote.webviewdetail.view.CommentDetailView
+        android:visibility="gone"
+        android:id="@+id/comment_detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 </RelativeLayout>

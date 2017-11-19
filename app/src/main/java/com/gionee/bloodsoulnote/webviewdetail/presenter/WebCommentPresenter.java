@@ -9,7 +9,7 @@ import java.util.List;
 public class WebCommentPresenter implements IWebComment.IPresenter {
 
     private IWebComment.IView mView;
-    private WebCommentModel   mModel;
+    private IWebComment.IModel mModel;
 
     public WebCommentPresenter(IWebComment.IView view) {
         this.mView = view;
@@ -45,5 +45,10 @@ public class WebCommentPresenter implements IWebComment.IPresenter {
                 mView.onLoadFailed();
             }
         });
+    }
+
+    @Override
+    public void requestLike() {
+        mModel.requestLike();
     }
 }
