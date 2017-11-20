@@ -35,10 +35,6 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
 
     private CommentDetailView mCommentDetailView;
 
-    private Toast mToast;
-
-    private int mWidth;
-
     private View mDiscussBg;
 
     private ViewStub mViewstubWebPageBottomBar;
@@ -49,8 +45,14 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
 
     private ViewStub mViewstubDiscussView;
 
+    private Toast mToast;
+
+    private int mWidth;
+
     private boolean isInflateCommentDetailView = false;
+
     private boolean isInflateWebPageBottomBar = false;
+
     private boolean isInflateDiscussView = false;
 
     public WebPageView(Context context) {
@@ -67,7 +69,6 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
         mContext = context;
         LayoutInflater.from(context).inflate(R.layout.layout_web_page, this);
         WebPagePresenter.bindPresenter(this);
-//        mPresenter.loadWebpageInfo();
     }
 
     @Override
@@ -89,6 +90,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     private void toggle() {
         if (isToggleOpen()) {
             inflateWebPageBottomBar();
+            mPresenter.loadWebpageInfo();
         }
     }
 
@@ -200,12 +202,13 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
 
     @Override
     public void onBottomBarClickCommentNum() {
+        mWebDetailView.openCommentsArea();
         toast("打开评论区");
     }
 
     @Override
-    public void onBottomBarClickCollect() {
-        toast("收藏");
+    public void onBottomBarClickCollect(boolean isCollected) {
+        toast(isCollected ? "收藏" : "取消收藏");
     }
 
     @Override

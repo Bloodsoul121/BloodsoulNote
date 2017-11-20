@@ -57,6 +57,7 @@ public class WebPageModel implements IWebPage.IModel {
     private WebpageBean getWebPageInfo() {
         WebpageBean bean = new WebpageBean();
         bean.setCommentNum("503");
+        bean.setCollected(true);
         return bean;
     }
 

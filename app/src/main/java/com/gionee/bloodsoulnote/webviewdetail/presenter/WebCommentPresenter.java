@@ -14,8 +14,8 @@ public class WebCommentPresenter implements IWebComment.IPresenter {
     public WebCommentPresenter(IWebComment.IView view) {
         this.mView = view;
         this.mView.bindPresenter(this);
-        this.mView.initView();
         this.mModel = new WebCommentModel();
+        this.mView.initView();
     }
 
     public static WebCommentPresenter bindPresenter(IWebComment.IView view) {

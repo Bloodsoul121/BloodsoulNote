@@ -41,14 +41,15 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
 
     private DiscussView mDiscussView;
 
-    private Toast mToast;
-
     private RelativeLayout mBottomBar;
+
+    private ImageView mDiscussBg;
+
+    private Toast mToast;
 
     private boolean mIsFirstIn = true;
 
     private boolean mIsDataChange;
-    private ImageView mDiscussBg;
 
     public CommentDetailView(Context context) {
         super(context);

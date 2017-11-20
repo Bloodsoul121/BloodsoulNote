@@ -18,6 +18,10 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
 
     private ImageView mCollectIcon;
 
+    private WebpageBean mWebpageBean;
+
+    private boolean mIsCollected;
+
     private OnWebPageBottomBarClickListener mOnWebPageBottomBarClickListener;
 
     public WebPageBottomBar(Context context) {
@@ -49,6 +53,7 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
         if (webpageBean == null) {
             return;
         }
+        this.mWebpageBean = webpageBean;
         updateCommentNum(webpageBean.getCommentNum());
         updateCollectIcon(webpageBean.isCollected());
     }
@@ -58,6 +63,7 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
     }
 
     private void updateCollectIcon(boolean isCollected) {
+        this.mIsCollected = isCollected;
         mCollectIcon.setImageLevel(isCollected ? 1 : 0);
     }
 
@@ -70,8 +76,9 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
                 }
                 break;
             case R.id.collect:
+                clickCollectIcon();
                 if (mOnWebPageBottomBarClickListener != null) {
-                    mOnWebPageBottomBarClickListener.onBottomBarClickCollect();
+                    mOnWebPageBottomBarClickListener.onBottomBarClickCollect(mIsCollected);
                 }
                 break;
             case R.id.comment_num_group:
@@ -80,7 +87,6 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
                 }
                 break;
             case R.id.share:
-
                 if (mOnWebPageBottomBarClickListener != null) {
                     mOnWebPageBottomBarClickListener.onBottomBarClickShare();
                 }
@@ -93,12 +99,22 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
         }
     }
 
+    private void clickCollectIcon() {
+        mCollectIcon.setImageLevel(mIsCollected ? 0 : 1);
+        if (mIsCollected) {
+            // 取消收藏, 请求
+        } else {
+            // 收藏, 请求 // TODO: 17-11-20
+        }
+        mIsCollected = !mIsCollected;
+    }
+
     interface OnWebPageBottomBarClickListener{
         void onBottomBarClickBack();
         void onBottomBarClickComment();
         void onBottomBarClickShare();
         void onBottomBarClickCommentNum();
-        void onBottomBarClickCollect();
+        void onBottomBarClickCollect(boolean isCollected);
     }
 
     public void setOnWebPageBottomBarClickListener(OnWebPageBottomBarClickListener onWebPageBottomBarClickListener) {

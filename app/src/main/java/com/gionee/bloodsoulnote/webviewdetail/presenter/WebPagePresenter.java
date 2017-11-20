@@ -13,8 +13,8 @@ public class WebPagePresenter implements IWebPage.IPresenter{
     public WebPagePresenter(IWebPage.IView view) {
         this.mView = view;
         this.mView.bindPresenter(this);
-        this.mView.initView();
         this.mModel = new WebPageModel();
+        this.mView.initView();
     }
 
     public static WebPagePresenter bindPresenter(IWebPage.IView view) {

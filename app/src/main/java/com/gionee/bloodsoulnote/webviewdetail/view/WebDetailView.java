@@ -25,13 +25,15 @@ public class WebDetailView extends ScrollView {
 
     private CommentView mCommentView;
 
-    public OnScrollChangeListener onScrollChangeListener;
-
-    private int mHeight;
+    private ViewStub mViewstubCommentView;
 
     private Scroller mScroller;
 
-    private ViewStub mViewstubCommentView;
+    private int mHeight;
+
+    private boolean mIsInflateCommentView = false;
+
+    public OnScrollChangeListener onScrollChangeListener;
 
     public WebDetailView(Context context) {
         super(context);
@@ -56,11 +58,9 @@ public class WebDetailView extends ScrollView {
 
         mViewstubCommentView = (ViewStub) findViewById(R.id.viewstub_comment_view);
 
-
         // 判断开关, 最好是 webview 加载 finish 后再操作 // TODO: 17-11-18
         if (isToggleOpen()) {
-            mViewstubCommentView.inflate();
-            initCommentView();
+            inflateCommentView();
         }
     }
 
@@ -68,9 +68,13 @@ public class WebDetailView extends ScrollView {
         return true;
     }
 
-    private void initCommentView() {
-        mCommentView = (CommentView) mContainer.findViewById(R.id.web_comment_view);
-        mCommentView.bindParentViewGroup(this);
+    private void inflateCommentView() {
+        if (!mIsInflateCommentView) {
+            mViewstubCommentView.inflate();
+            mCommentView = (CommentView) mContainer.findViewById(R.id.web_comment_view);
+            mCommentView.bindParentViewGroup(this);
+            mIsInflateCommentView = true;
+        }
     }
 
     private void initWebView(WebView webView) {
@@ -90,8 +94,8 @@ public class WebDetailView extends ScrollView {
         return mWebView;
     }
 
-    public CommentView getWebCommentView() {
-        return mCommentView;
+    public void openCommentsArea() {
+        smoothScrollToMostNewTop();
     }
 
     public void updateSelfComment(CommentBean bean) {
@@ -133,8 +137,8 @@ public class WebDetailView extends ScrollView {
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
         if (mWebView != null) {
             mHeight = mWebView.getHeight();
         }
@@ -156,5 +160,12 @@ public class WebDetailView extends ScrollView {
         int deltaY = destY - scrollY;
         mScroller.startScroll(scrollX, scrollY, deltaX, deltaY, 500);
         invalidate();
+    }
+
+    public interface OnWebviewStateChangeListener {
+        void onWebviewScrollToBottom(WebView webView);
+        void onWebviewPageStart(WebView webView, String url);
+        void onWebviewPageOverrideUrl(WebView webView, String url);
+        void onWebviewPageFinish(WebView webView, String url);
     }
 }

@@ -1,4 +1,4 @@
-package com.gionee.bloodsoulnote.webviewdetail.view;
+package com.gionee.bloodsoulnote.vieweffects;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -15,7 +15,7 @@ public class ImageViewActivity extends AppCompatActivity {
         NumImageView myIv = (NumImageView) findViewById(R.id.num_img);
         myIv.setNum(50);
 
-        com.gionee.bloodsoulnote.webviewdetail.view.NumImageView numImg = (com.gionee.bloodsoulnote.webviewdetail.view.NumImageView) findViewById(R.id.num_img2);
+        com.gionee.bloodsoulnote.vieweffects.NumImageView numImg = (com.gionee.bloodsoulnote.vieweffects.NumImageView) findViewById(R.id.num_img2);
         numImg.setNum(20000);
     }
 }

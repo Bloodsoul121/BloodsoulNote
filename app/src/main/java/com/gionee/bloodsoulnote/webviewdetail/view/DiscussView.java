@@ -19,11 +19,11 @@ public class DiscussView extends RelativeLayout implements View.OnClickListener,
 
     private ToastEditText mDiscussEdit;
 
-    private OnDiscussViewClickListener mOnDiscussViewClickListener;
-
     private TextView mDiscussPublish;
 
     private boolean mIsEditEmpty = true;
+
+    private OnDiscussViewClickListener mOnDiscussViewClickListener;
 
     public DiscussView(Context context) {
         super(context);
