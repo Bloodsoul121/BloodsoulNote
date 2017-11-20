@@ -153,7 +153,7 @@ public class CommentView extends LinearLayout implements IWebComment.IView,
     @Override
     public void onItemChildReplyClick(ViewHolder viewHolder, CommentBean data, int position) {
         if (mOnNeedOpenCommentDetailListener != null) {
-            mOnNeedOpenCommentDetailListener.onNeedOpenCommentDetailView(viewHolder, data, position);
+            mOnNeedOpenCommentDetailListener.onNeedOpenCommentDetailView(viewHolder, data, position, true);
         }
     }
 
@@ -177,7 +177,7 @@ public class CommentView extends LinearLayout implements IWebComment.IView,
     }
 
     interface OnNeedOpenCommentDetailListener{
-        void onNeedOpenCommentDetailView(ViewHolder viewHolder, CommentBean data, int position);
+        void onNeedOpenCommentDetailView(ViewHolder viewHolder, CommentBean data, int position, boolean isShowDiscuss);
     }
 
     public void setOnNeedOpenCommentDetailListener(OnNeedOpenCommentDetailListener onNeedOpenCommentDetailListener) {

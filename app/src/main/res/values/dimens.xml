@@ -116,6 +116,7 @@
     <dimen name="web_comment_item_content_text_size">16sp</dimen>
     <dimen name="web_comment_item_expand_margin_top">12dp</dimen>
     <dimen name="web_comment_item_expand_text_size">14sp</dimen>
+    <dimen name="web_comment_item_expand_padding_icon">5dp</dimen>
     <dimen name="web_comment_item_time_margin_top">14dp</dimen>
     <dimen name="web_comment_item_time_size">12sp</dimen>
     <dimen name="web_comment_item_reply_margin_left">6dp</dimen>

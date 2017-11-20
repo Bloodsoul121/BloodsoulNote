@@ -171,7 +171,7 @@ public class CommentDetailView extends RelativeLayout implements IWebCommentDeta
         }
     }
 
-    public void OpenCommentDetail(CommentBean data, int startX) {
+    public void OpenCommentDetail(CommentBean data, int startX, boolean isShowDiscuss) {
         show(startX);
         checkLastData(data);
     }

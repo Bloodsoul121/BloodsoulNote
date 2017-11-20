@@ -4,6 +4,16 @@ public class WebpageBean {
 
     private String commentNum;
 
+    private boolean isCollected;
+
+    public boolean isCollected() {
+        return isCollected;
+    }
+
+    public void setCollected(boolean collected) {
+        isCollected = collected;
+    }
+
     public String getCommentNum() {
         return commentNum;
     }

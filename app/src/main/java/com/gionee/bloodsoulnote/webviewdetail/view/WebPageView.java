@@ -38,7 +38,20 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     private Toast mToast;
 
     private int mWidth;
+
     private View mDiscussBg;
+
+    private ViewStub mViewstubWebPageBottomBar;
+
+    private ViewStub mViewstubCommentDetailView;
+
+    private ViewStub mViewstubDiscussBackground;
+
+    private ViewStub mViewstubDiscussView;
+
+    private boolean isInflateCommentDetailView = false;
+    private boolean isInflateWebPageBottomBar = false;
+    private boolean isInflateDiscussView = false;
 
     public WebPageView(Context context) {
         super(context);
@@ -65,11 +78,17 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     @Override
     public void initView() {
         mWebDetailView = (WebDetailView) findViewById(R.id.web_detail_view);
+        mWebDetailView.setOnNeedOpenCommentDetailListener(this);
+        mViewstubWebPageBottomBar = (ViewStub) findViewById(R.id.viewstub_web_page_bottom_bar);
+        mViewstubCommentDetailView = (ViewStub) findViewById(R.id.viewstub_comment_detail_view);
+        mViewstubDiscussBackground = (ViewStub) findViewById(R.id.viewstub_discuss_background);
+        mViewstubDiscussView = (ViewStub) findViewById(R.id.viewstub_discuss_view);
+        toggle();
+    }
 
-        ViewStub webPageBottomBar = (ViewStub) findViewById(R.id.viewstub_web_page_bottom_bar);
+    private void toggle() {
         if (isToggleOpen()) {
-            webPageBottomBar.inflate();
-            initWebCommentVIew();
+            inflateWebPageBottomBar();
         }
     }
 
@@ -77,23 +96,38 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
         return true;
     }
 
-    private void initWebCommentVIew() {
-        // bottom bar
-        mCommentBottomBar = (WebPageBottomBar) findViewById(R.id.web_bottom_bar);
-        // discuss box
-        mDiscussView = (DiscussView) findViewById(R.id.discuss_view);
-        // comment detail view
-        mCommentDetailView = (CommentDetailView) findViewById(R.id.comment_detail_view);
-        mDiscussBg = findViewById(R.id.discuss_background);
-        initEvent();
+    private void inflateWebPageBottomBar() {
+        if (!isInflateWebPageBottomBar) {
+            mViewstubWebPageBottomBar.inflate();
+            // bottom bar
+            mCommentBottomBar = (WebPageBottomBar) findViewById(R.id.web_bottom_bar);
+            mCommentBottomBar.setOnWebPageBottomBarClickListener(this);
+            isInflateWebPageBottomBar= true;
+        }
     }
 
-    private void initEvent() {
-        mWebDetailView.setOnNeedOpenCommentDetailListener(this);
-        mCommentBottomBar.setOnWebPageBottomBarClickListener(this);
-        mDiscussView.setOnDiscussViewClickListener(this);
-        mCommentDetailView.setOnCommentDetailClickListener(this);
-        mDiscussBg.setOnClickListener(this);
+    private void inflateCommentDetailView() {
+        if (!isInflateCommentDetailView) {
+            mViewstubCommentDetailView.inflate();
+            // comment detail view
+            mCommentDetailView = (CommentDetailView) findViewById(R.id.comment_detail_view);
+            mCommentDetailView.setOnCommentDetailClickListener(this);
+            isInflateCommentDetailView = true;
+        }
+    }
+
+    private void inflateDiscussView() {
+        if (!isInflateDiscussView) {
+            mViewstubDiscussView.inflate();
+            mViewstubDiscussBackground.inflate();
+            // discuss box
+            mDiscussView = (DiscussView) findViewById(R.id.discuss_view);
+            mDiscussView.setOnDiscussViewClickListener(this);
+            // bg
+            mDiscussBg = findViewById(R.id.discuss_background);
+            mDiscussBg.setOnClickListener(this);
+            isInflateDiscussView = true;
+        }
     }
 
     @Override
@@ -108,7 +142,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
 
     @Override
     public void onLoadWebInfoResult(WebpageBean webpageInfo) {
-
+        mCommentBottomBar.uppdateBottomBarStatus(webpageInfo);
     }
 
     @Override
@@ -124,7 +158,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     @Override
     public void onDiscussViewClickPublish(String comment) {
         if (TextUtils.isEmpty(comment)) {
-            toast("发表不能为空");
+            toast("发表内容不能为空");
             return;
         }
         mPresenter.publish(comment);
@@ -142,10 +176,11 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     }
 
     @Override
-    public void onNeedOpenCommentDetailView(ViewHolder viewHolder, CommentBean data, int position) {
+    public void onNeedOpenCommentDetailView(ViewHolder viewHolder, CommentBean data, int position, boolean isShowDiscuss) {
         // 打开评论详情页
+        inflateCommentDetailView();
         mCommentDetailView.setVisibility(VISIBLE);
-        mCommentDetailView.OpenCommentDetail(data, mWidth <= 0 ? getWidth() : mWidth);
+        mCommentDetailView.OpenCommentDetail(data, mWidth <= 0 ? getWidth() : mWidth, isShowDiscuss);
     }
 
     @Override
@@ -169,8 +204,8 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     }
 
     @Override
-    public void onBottomBarClickMutilWindow() {
-        toast("多窗口");
+    public void onBottomBarClickCollect() {
+        toast("收藏");
     }
 
     @Override
@@ -199,6 +234,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     }
 
     private void showDiscussBox() {
+        inflateDiscussView();
         mDiscussView.showDiscussBox();
         mCommentBottomBar.setVisibility(GONE);
         showDiscussBg();

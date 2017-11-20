@@ -32,7 +32,7 @@
         android:id="@+id/user_img"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/group_title"
-        android:background="@drawable/user_default_image"
+        android:background="@drawable/web_comment_item_user_icon"
         android:layout_marginTop="@dimen/web_comment_item_comment_margin_top"
         android:layout_marginLeft="@dimen/web_comment_item_user_img_margin_left"
         android:layout_marginRight="@dimen/web_comment_item_user_img_margin_right"
@@ -122,6 +122,8 @@
             android:text="@string/expand"
             android:textSize="@dimen/web_comment_item_expand_text_size"
             android:textColor="@color/web_comment_item_expand_text_color"
+            android:drawableRight="@drawable/web_comment_item_expand_icon"
+            android:drawablePadding="@dimen/web_comment_item_expand_padding_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

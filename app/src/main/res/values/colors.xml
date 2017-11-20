@@ -63,5 +63,7 @@
     <color name="web_detail_view_item_main_color">#ffffff</color>
     <color name="web_detail_view_item_next_color">#f8f8f8</color>
     <color name="web_detail_view_content_bg_color">#f8f8f8</color>
+    <color name="web_detail_view_top_bar_bg_color">#f8f8f8</color>
+    <color name="web_detail_view_top_bar_bg_divider_color">#e2e2e2</color>
 
 </resources>

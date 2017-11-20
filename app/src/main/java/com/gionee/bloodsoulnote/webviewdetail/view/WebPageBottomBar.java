@@ -9,13 +9,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
+import com.gionee.bloodsoulnote.webviewdetail.bean.WebpageBean;
 import com.gionee.bloodsoulnote.webviewdetail.util.NumFormatUtil;
 
 public class WebPageBottomBar extends RelativeLayout implements View.OnClickListener {
 
     private TextView mCommentNum;
 
-    private ImageView mShare;
+    private ImageView mCollectIcon;
 
     private OnWebPageBottomBarClickListener mOnWebPageBottomBarClickListener;
 
@@ -32,19 +33,32 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_web_page_bottom_bar, this);
         ImageView back = (ImageView) findViewById(R.id.back);
-        mShare = (ImageView) findViewById(R.id.share);
-        ImageView mutilWindow = (ImageView) findViewById(R.id.mutil_window);
+        mCollectIcon = (ImageView) findViewById(R.id.collect);
+        ImageView share = (ImageView) findViewById(R.id.share);
         TextView commentBar = (TextView) findViewById(R.id.comment_bar);
+        RelativeLayout commentNumGroup = (RelativeLayout) findViewById(R.id.comment_num_group);
         mCommentNum = (TextView) findViewById(R.id.comment_num);
         back.setOnClickListener(this);
-        mShare.setOnClickListener(this);
-        mutilWindow.setOnClickListener(this);
-        mCommentNum.setOnClickListener(this);
+        mCollectIcon.setOnClickListener(this);
+        share.setOnClickListener(this);
+        commentNumGroup.setOnClickListener(this);
         commentBar.setOnClickListener(this);
     }
 
-    public void updateCommentNum(String num) {
+    public void uppdateBottomBarStatus(WebpageBean webpageBean) {
+        if (webpageBean == null) {
+            return;
+        }
+        updateCommentNum(webpageBean.getCommentNum());
+        updateCollectIcon(webpageBean.isCollected());
+    }
+
+    private void updateCommentNum(String num) {
         mCommentNum.setText(NumFormatUtil.formatNum(num));
+    }
+
+    private void updateCollectIcon(boolean isCollected) {
+        mCollectIcon.setImageLevel(isCollected ? 1 : 0);
     }
 
     @Override
@@ -55,19 +69,20 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
                     mOnWebPageBottomBarClickListener.onBottomBarClickBack();
                 }
                 break;
-            case R.id.share:
+            case R.id.collect:
                 if (mOnWebPageBottomBarClickListener != null) {
-                    mOnWebPageBottomBarClickListener.onBottomBarClickShare();
+                    mOnWebPageBottomBarClickListener.onBottomBarClickCollect();
                 }
                 break;
-            case R.id.comment_num:
+            case R.id.comment_num_group:
                 if (mOnWebPageBottomBarClickListener != null) {
                     mOnWebPageBottomBarClickListener.onBottomBarClickCommentNum();
                 }
                 break;
-            case R.id.mutil_window:
+            case R.id.share:
+
                 if (mOnWebPageBottomBarClickListener != null) {
-                    mOnWebPageBottomBarClickListener.onBottomBarClickMutilWindow();
+                    mOnWebPageBottomBarClickListener.onBottomBarClickShare();
                 }
                 break;
             case R.id.comment_bar:
@@ -83,7 +98,7 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
         void onBottomBarClickComment();
         void onBottomBarClickShare();
         void onBottomBarClickCommentNum();
-        void onBottomBarClickMutilWindow();
+        void onBottomBarClickCollect();
     }
 
     public void setOnWebPageBottomBarClickListener(OnWebPageBottomBarClickListener onWebPageBottomBarClickListener) {
