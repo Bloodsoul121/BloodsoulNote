@@ -167,5 +167,6 @@ public class WebDetailView extends ScrollView {
         void onWebviewPageStart(WebView webView, String url);
         void onWebviewPageOverrideUrl(WebView webView, String url);
         void onWebviewPageFinish(WebView webView, String url);
+        void onWebviewPageError(WebView webView, String url);
     }
 }

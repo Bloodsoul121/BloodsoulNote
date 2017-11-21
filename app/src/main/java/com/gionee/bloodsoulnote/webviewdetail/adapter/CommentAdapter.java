@@ -42,7 +42,7 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
 
         // 点击事件
         addOnItemChildClickListener(R.id.like_img, this);
-        addOnItemChildClickListener(R.id.comment_content_more, this);
+        addOnItemChildClickListener(R.id.comment_content_expand, this);
         addOnItemChildClickListener(R.id.comment_reply, this);
         // 初始数据
         CircularImageView userImg = holder.getView(R.id.user_img);
@@ -59,7 +59,7 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
             @Override
             public void run() {
                 int ellipsisCount = contentView.getLayout().getEllipsisCount(contentView.getLineCount() - 1);
-                holder.setVisibility(R.id.comment_content_more, ellipsisCount > 0 ? View.VISIBLE : View.GONE);
+                holder.setVisibility(R.id.comment_content_expand, ellipsisCount > 0 ? View.VISIBLE : View.GONE);
             }
         });
     }
@@ -85,11 +85,11 @@ public class CommentAdapter extends CommonRecyAdapter<CommentBean>
                     mOnItemChildClickListener.onItemChildLikeClick(viewHolder, data, position);
                 }
                 break;
-            case R.id.comment_content_more:
+            case R.id.comment_content_expand:
                 // 查看更多
                 viewHolder.setMaxLine(R.id.comment_content, 10);
                 viewHolder.setText(R.id.comment_content, data.getComment());
-                viewHolder.setVisibility(R.id.comment_content_more, View.GONE);
+                viewHolder.setVisibility(R.id.comment_content_expand, View.GONE);
                 break;
             case R.id.comment_reply:
                 // 回复

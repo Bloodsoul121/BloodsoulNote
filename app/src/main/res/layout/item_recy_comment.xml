@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/comment_content_more"
+            android:id="@+id/comment_content_expand"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/comment_content"
             android:layout_marginTop="@dimen/web_comment_item_expand_margin_top"
@@ -130,7 +130,7 @@
         <TextView
             android:id="@+id/comment_time"
             android:text="15分钟前"
-            android:layout_below="@+id/comment_content_more"
+            android:layout_below="@+id/comment_content_expand"
             android:layout_marginTop="@dimen/web_comment_item_time_margin_top"
             android:textSize="@dimen/web_comment_item_time_size"
             android:textColor="@color/web_comment_item_time_text_color"
@@ -139,7 +139,7 @@
 
         <TextView
             android:id="@+id/comment_reply"
-            android:layout_below="@id/comment_content_more"
+            android:layout_below="@id/comment_content_expand"
             android:layout_toRightOf="@id/comment_time"
             android:layout_marginLeft="@dimen/web_comment_item_reply_margin_left"
             android:text="@string/reply_ta"
@@ -148,6 +148,201 @@
             android:layout_marginTop="@dimen/web_comment_item_time_margin_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/comment_reply_comment_group"
+            android:layout_marginTop="@dimen/web_comment_item_comment_reply_comment_group_margin_top"
+            android:layout_below="@+id/comment_time"
+            android:layout_marginRight="@dimen/web_comment_item_comment_reply_comment_group_margin_right"
+            android:background="@color/web_comment_item_comment_reply_comment_group_bg"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/comment_reply_comment_group_one"
+                android:layout_marginTop="@dimen/web_comment_item_comment_reply_comment_group_child_margin_top"
+                android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_margin_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_one_name_first"
+                    android:text="眼镜_歌"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:maxLines="1"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_name_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/comment_reply_comment_group_one_reply"
+                    android:layout_toRightOf="@+id/comment_reply_comment_group_one_name_first"
+                    android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_child_margin_left"
+                    android:text="@string/reply"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_comment_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/comment_reply_comment_group_one_name_second"
+                    android:layout_toRightOf="@+id/comment_reply_comment_group_one_reply"
+                    android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_child_margin_left"
+                    android:text="霸王别急"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_name_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_one_comment"
+                    android:layout_below="@+id/comment_reply_comment_group_one_name_first"
+                    android:layout_marginTop="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_margin_top"
+                    android:layout_marginRight="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_margin_right"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_comment_color"
+                    android:maxLines="2"
+                    android:text="这个比装的可以"
+                    android:lineSpacingExtra="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_line_spacing_size"
+                    android:ellipsize="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/comment_reply_comment_group_two"
+                android:layout_marginTop="@dimen/web_comment_item_comment_reply_comment_group_child_margin_top"
+                android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_margin_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_two_name_first"
+                    android:text="眼镜_歌"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_name_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_two_reply"
+                    android:layout_toRightOf="@+id/comment_reply_comment_group_two_name_first"
+                    android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_child_margin_left"
+                    android:text="@string/reply"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_comment_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_two_name_second"
+                    android:layout_toRightOf="@+id/comment_reply_comment_group_two_reply"
+                    android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_child_margin_left"
+                    android:text="霸王别急"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_name_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_two_comment"
+                    android:layout_below="@+id/comment_reply_comment_group_two_name_first"
+                    android:layout_marginTop="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_margin_top"
+                    android:layout_marginRight="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_margin_right"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_comment_color"
+                    android:maxLines="2"
+                    android:text="这个比装的可以"
+                    android:lineSpacingExtra="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_line_spacing_size"
+                    android:ellipsize="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/comment_reply_comment_group_three"
+                android:layout_marginTop="@dimen/web_comment_item_comment_reply_comment_group_child_margin_top"
+                android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_margin_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_three_name_first"
+                    android:text="眼镜_歌"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_name_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_three_reply"
+                    android:layout_toRightOf="@+id/comment_reply_comment_group_three_name_first"
+                    android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_child_margin_left"
+                    android:text="@string/reply"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_comment_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_three_name_second"
+                    android:layout_toRightOf="@+id/comment_reply_comment_group_three_reply"
+                    android:layout_marginLeft="@dimen/web_comment_item_comment_reply_comment_group_child_child_margin_left"
+                    android:text="霸王别急霸王别急霸王别急霸王别急霸王别急"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_name_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/comment_reply_comment_group_three_comment"
+                    android:layout_below="@+id/comment_reply_comment_group_three_name_first"
+                    android:layout_marginTop="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_margin_top"
+                    android:layout_marginRight="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_margin_right"
+                    android:textSize="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_text_size"
+                    android:textColor="@color/web_comment_item_comment_reply_comment_group_child_child_comment_color"
+                    android:maxLines="2"
+                    android:text="这个比装的可以这个比装的可以这个比装的可以这个比装的可以这个比装的可以这个比装的可以这个比装的可以"
+                    android:lineSpacingExtra="@dimen/web_comment_item_comment_reply_comment_group_child_child_comment_line_spacing_size"
+                    android:ellipsize="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/comment_more"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/web_comment_item_comment_more_margin_top"
+                android:layout_marginBottom="@dimen/web_comment_item_comment_more_margin_bottom"
+                android:layout_marginLeft="@dimen/web_comment_item_comment_more_margin_left"
+                android:textSize="@dimen/web_comment_item_comment_more_text_size"
+                android:textColor="@color/web_comment_item_comment_more_text_color"
+                android:text="查看全部6条回复"
+                android:drawableRight="@drawable/web_comment_item_more"
+                android:drawablePadding="@dimen/web_comment_item_comment_more_drawable_padding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

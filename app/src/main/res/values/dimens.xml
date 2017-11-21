@@ -128,6 +128,20 @@
     <dimen name="web_comment_detail_bottom_bar_reply_margin_left">9dp</dimen>
     <dimen name="web_comment_detail_bottom_bar_padding_top">6dp</dimen>
     <dimen name="web_comment_detail_bottom_bar_reply_text_size">14sp</dimen>
-
+    <dimen name="web_comment_item_comment_more_margin_top">12dp</dimen>
+    <dimen name="web_comment_item_comment_more_margin_bottom">12dp</dimen>
+    <dimen name="web_comment_item_comment_more_margin_left">8dp</dimen>
+    <dimen name="web_comment_item_comment_more_text_size">14sp</dimen>
+    <dimen name="web_comment_item_comment_more_drawable_padding">4dp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_margin_top">14dp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_margin_right">18dp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_child_margin_top">10dp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_child_margin_left">8dp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_child_child_text_size">12sp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_child_child_margin_left">8dp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_child_child_comment_margin_top">7dp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_child_child_comment_margin_right">7dp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_child_child_comment_text_size">14sp</dimen>
+    <dimen name="web_comment_item_comment_reply_comment_group_child_child_comment_line_spacing_size">3dp</dimen>
 
 </resources>

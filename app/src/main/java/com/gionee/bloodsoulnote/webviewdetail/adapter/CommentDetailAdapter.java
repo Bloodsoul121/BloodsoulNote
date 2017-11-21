@@ -35,7 +35,7 @@ public class CommentDetailAdapter extends CommonRecyAdapter<CommentBean> impleme
         holder.setVisibility(R.id.reply_text, position == 0 ? View.GONE : View.VISIBLE);
         holder.setVisibility(R.id.reply_user, position == 0 ? View.GONE : View.VISIBLE);
         holder.setVisibility(R.id.comment_divider_whole, position == 0 ? View.VISIBLE : View.GONE);
-        holder.setVisibility(R.id.comment_content_more, View.GONE);
+        holder.setVisibility(R.id.comment_content_expand, View.GONE);
         holder.setMaxLine(R.id.comment_content, 50);
         holder.setBgColor(R.id.item_web_comment, position == 0 ? mContext.getResources().getColor(R.color.web_detail_view_item_main_color)
                 : mContext.getResources().getColor(R.color.web_detail_view_item_next_color));

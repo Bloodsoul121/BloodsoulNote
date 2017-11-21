@@ -65,5 +65,9 @@
     <color name="web_detail_view_content_bg_color">#f8f8f8</color>
     <color name="web_detail_view_top_bar_bg_color">#f8f8f8</color>
     <color name="web_detail_view_top_bar_bg_divider_color">#e2e2e2</color>
+    <color name="web_comment_item_comment_more_text_color">#999999</color>
+    <color name="web_comment_item_comment_reply_comment_group_bg">#f7f7f7</color>
+    <color name="web_comment_item_comment_reply_comment_group_child_child_name_color">#999999</color>
+    <color name="web_comment_item_comment_reply_comment_group_child_child_comment_color">#222222</color>
 
 </resources>
