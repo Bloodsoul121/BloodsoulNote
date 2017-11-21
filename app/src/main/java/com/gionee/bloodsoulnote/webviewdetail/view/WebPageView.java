@@ -284,6 +284,9 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
             showBottomBar();
             return true;
         }
+        if (mWebDetailView.onBackCliked()) {
+            return true;
+        }
         return false;
     }
 

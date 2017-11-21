@@ -3,8 +3,6 @@ package com.gionee.bloodsoulnote.webviewdetail.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewStub;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -83,14 +81,7 @@ public class WebDetailView extends ScrollView {
         webView.setWebChromeClient(new WebChromeClient());
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-
-        webView.setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                ((WebView)v).requestDisallowInterceptTouchEvent(true);
-                return false;
-            }
-        });
+        webView.getSettings().setDomStorageEnabled(true);
     }
 
     public void loadUrl(String url) {
@@ -173,9 +164,19 @@ public class WebDetailView extends ScrollView {
 
     public interface OnWebviewStateChangeListener {
         void onWebviewScrollToBottom(WebView webView);
-        void onWebviewPageStart(WebView webView, String url);
-        void onWebviewPageOverrideUrl(WebView webView, String url);
-        void onWebviewPageFinish(WebView webView, String url);
-        void onWebviewPageError(WebView webView, String url);
+        void onWebviewLoadPageStart(WebView webView, String url);
+        void onWebviewLoadPageOverrideUrl(WebView webView, String url);
+        void onWebviewLoadPageFinish(WebView webView, String url);
+        void onWebviewLoadPageError(WebView webView, String url);
+    }
+
+    public boolean onBackCliked() {
+        if (mWebView != null) {
+            if (mWebView.canGoBack()) {
+                mWebView.goBack();
+                return true;
+            }
+        }
+        return false;
     }
 }
