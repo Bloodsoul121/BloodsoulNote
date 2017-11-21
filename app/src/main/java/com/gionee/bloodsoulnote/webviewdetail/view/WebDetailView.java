@@ -3,6 +3,8 @@ package com.gionee.bloodsoulnote.webviewdetail.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewStub;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -47,7 +49,6 @@ public class WebDetailView extends ScrollView {
 
     private void init(Context context) {
         mContext = context;
-        setOverScrollMode(OVER_SCROLL_NEVER);
         mScroller = new Scroller(context);
 
         mContainer = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.layout_web_detail, this, false);
@@ -65,7 +66,7 @@ public class WebDetailView extends ScrollView {
     }
 
     private boolean isToggleOpen() {
-        return true;
+        return false;
     }
 
     private void inflateCommentView() {
@@ -82,6 +83,14 @@ public class WebDetailView extends ScrollView {
         webView.setWebChromeClient(new WebChromeClient());
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+        webView.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ((WebView)v).requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
     }
 
     public void loadUrl(String url) {

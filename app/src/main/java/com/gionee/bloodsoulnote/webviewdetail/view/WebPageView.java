@@ -95,7 +95,7 @@ public class WebPageView extends LinearLayout implements IWebPage.IView,
     }
 
     private boolean isToggleOpen() {
-        return true;
+        return false;
     }
 
     private void inflateWebPageBottomBar() {

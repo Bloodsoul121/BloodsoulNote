@@ -6,6 +6,8 @@
     <com.gionee.bloodsoulnote.webviewdetail.view.WebDetailView
         android:id="@+id/web_detail_view"
         android:layout_above="@+id/web_bottom_bar"
+        android:scrollbars="none"
+        android:overScrollMode="never"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
