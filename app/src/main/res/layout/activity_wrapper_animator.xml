@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/container"
+    android:animateLayoutChanges="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gionee.bloodsoulnote.customview3.wrapanimator.WrapperAnimatorActivity">
+
+    <Button
+        android:onClick="clickBtn1"
+        android:text="包装动画"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="clickBtn2"
+        android:text="PropertyValuesHolder"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="clickBtn3"
+        android:text="ValueAnimator"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="clickBtn4"
+        android:text="XML Animator"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="clickBtn5"
+        android:text="view animate"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="clickBtn6"
+        android:text="add view"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:background="#ee5814"
+        android:id="@+id/tv"
+        android:text="演示view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:background="@drawable/vectortest"
+        android:id="@+id/tv2"
+        android:text="演示view"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
+
+</LinearLayout>

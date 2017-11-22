@@ -12,6 +12,7 @@ import com.gionee.bloodsoulnote.customview3.matrix.ColorMatrixActivity;
 import com.gionee.bloodsoulnote.customview3.showAnimator.RightOutActivity;
 import com.gionee.bloodsoulnote.customview3.showAnimator.ShowAnimatorActivity;
 import com.gionee.bloodsoulnote.customview3.slidefinish.SlideFinishActivity;
+import com.gionee.bloodsoulnote.customview3.wrapanimator.WrapperAnimatorActivity;
 
 public class Customview3Activity extends AppCompatActivity {
 
@@ -43,5 +44,9 @@ public class Customview3Activity extends AppCompatActivity {
 
     public void clickBtn6(View view) {
         startActivity(new Intent(this, RightTopTextActivity.class));
+    }
+
+    public void clickBtn7(View view) {
+        startActivity(new Intent(this, WrapperAnimatorActivity.class));
     }
 }
