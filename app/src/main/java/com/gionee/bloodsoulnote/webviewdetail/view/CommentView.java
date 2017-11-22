@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.R;
 import com.gionee.bloodsoulnote.webviewdetail.IContract.IWebComment;
@@ -35,6 +34,7 @@ public class CommentView extends LinearLayout implements IWebComment.IView,
     private LinearLayoutManager mLayoutManager;
 
     private OnNeedOpenCommentDetailListener mOnNeedOpenCommentDetailListener;
+    private CommentLoadStateView mCommentLoadStateView;
 
     public CommentView(Context context) {
         super(context);
@@ -73,18 +73,13 @@ public class CommentView extends LinearLayout implements IWebComment.IView,
         initAdapter();
         mRecyclerView.setAdapter(mRecyclerAdapter);
         mRecyclerAdapter.setOnItemChildClickListener(this);
+        mCommentLoadStateView = new CommentLoadStateView(mContext);
     }
 
     private void initAdapter() {
         mRecyclerAdapter.setOpenLoadMore(true);
         mRecyclerAdapter.setOnLoadMoreListener(this);
         mRecyclerAdapter.setOnItemChildClickListener(this);
-        //初始化EmptyView
-//        mRecyclerAdapter.setEmptyView(R.layout.layout_foot_comment_empty);
-        //初始化 开始加载更多的loading View
-        mRecyclerAdapter.setLoadingView(R.layout.layout_foot_comment_empty);
-
-//        mRecyclerAdapter.startLoadMore(mRecyclerView, mLayoutManager);
 
 //        //加载失败，更新footer view提示
 //        mRecyclerAdapter.setLoadFailedView(R.layout.load_failed_layout);
@@ -117,9 +112,8 @@ public class CommentView extends LinearLayout implements IWebComment.IView,
 
     @Override
     public void onLoadBefore() {
-        TextView tv = new TextView(mContext);
-        tv.setText("加载中...");
-        mRecyclerAdapter.setLoadingView(tv);
+        mCommentLoadStateView.setOnClickListener(null);
+        mRecyclerAdapter.setLoadingView(mCommentLoadStateView);
     }
 
     @Override

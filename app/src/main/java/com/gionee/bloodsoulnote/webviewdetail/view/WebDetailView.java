@@ -64,7 +64,7 @@ public class WebDetailView extends ScrollView {
     }
 
     private boolean isToggleOpen() {
-        return false;
+        return true;
     }
 
     private void inflateCommentView() {

@@ -38,4 +38,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:onClick="clickBtn6"
+        android:text="右上角文字 布局"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

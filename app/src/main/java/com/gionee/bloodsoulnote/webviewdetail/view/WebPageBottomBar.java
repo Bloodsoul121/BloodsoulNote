@@ -40,12 +40,12 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
         mCollectIcon = (ImageView) findViewById(R.id.collect);
         ImageView share = (ImageView) findViewById(R.id.share);
         TextView commentBar = (TextView) findViewById(R.id.comment_bar);
-        RelativeLayout commentNumGroup = (RelativeLayout) findViewById(R.id.comment_num_group);
+        ImageView commentNumImg = (ImageView) findViewById(R.id.comment_num_img);
         mCommentNum = (TextView) findViewById(R.id.comment_num);
         back.setOnClickListener(this);
         mCollectIcon.setOnClickListener(this);
         share.setOnClickListener(this);
-        commentNumGroup.setOnClickListener(this);
+        commentNumImg.setOnClickListener(this);
         commentBar.setOnClickListener(this);
     }
 
@@ -81,7 +81,7 @@ public class WebPageBottomBar extends RelativeLayout implements View.OnClickList
                     mOnWebPageBottomBarClickListener.onBottomBarClickCollect(mIsCollected);
                 }
                 break;
-            case R.id.comment_num_group:
+            case R.id.comment_num_img:
                 if (mOnWebPageBottomBarClickListener != null) {
                     mOnWebPageBottomBarClickListener.onBottomBarClickCommentNum();
                 }

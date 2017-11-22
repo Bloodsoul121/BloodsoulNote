@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/web_bottom_bar"
+    android:background="@drawable/web_bottom_bar_bg"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/web_bottom_bar_margin_left"
+    android:paddingRight="@dimen/web_bottom_bar_margin_right"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/web_bottom_bar_height">
+
 
     <ImageView
         android:id="@+id/back"
@@ -24,25 +31,30 @@
         android:layout_width="@dimen/web_bottom_bar_commment_bar_width"
         android:layout_height="@dimen/web_bottom_bar_commment_bar_height"/>
 
-    <ImageView
-        android:id="@+id/comment_num_img"
-        android:layout_toRightOf="@id/comment_bar"
-        android:background="@drawable/web_bottom_bar_comment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/comment_num"
-        android:text="0000"
-        android:maxLines="1"
-        android:background="@drawable/web_bottom_bar_comment_num_bg"
-        android:textColor="@color/web_bottom_bar_like_num_color"
-        android:textSize="@dimen/web_bottom_bar_like_num_size"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/comment_num_img"
-        android:layout_marginLeft="17dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_toRightOf="@id/comment_bar"
+
+            android:id="@+id/comment_num_img"
+            android:background="@drawable/web_bottom_bar_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginRight="10dp"
+
+            android:id="@+id/comment_num"
+            android:text="0000"
+            android:maxLines="1"
+            android:background="@drawable/web_bottom_bar_comment_num_bg"
+            android:textColor="@color/web_bottom_bar_like_num_color"
+            android:textSize="@dimen/web_bottom_bar_like_num_size"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/comment_num_img"
+            android:layout_marginLeft="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     <ImageView
         android:id="@+id/collect"
@@ -59,4 +71,4 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-</merge>
+</RelativeLayout>

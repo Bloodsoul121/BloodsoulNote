@@ -138,9 +138,21 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/comment_reply"
+            android:id="@+id/comment_reply_dot"
             android:layout_below="@id/comment_content_expand"
             android:layout_toRightOf="@id/comment_time"
+            android:layout_marginLeft="@dimen/web_comment_item_reply_margin_left"
+            android:text="@string/reply_dot"
+            android:textSize="@dimen/web_comment_item_time_size"
+            android:textColor="@color/web_comment_item_time_text_color"
+            android:layout_marginTop="@dimen/web_comment_item_time_margin_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/comment_reply"
+            android:layout_below="@id/comment_content_expand"
+            android:layout_toRightOf="@id/comment_reply_dot"
             android:layout_marginLeft="@dimen/web_comment_item_reply_margin_left"
             android:text="@string/reply_ta"
             android:textSize="@dimen/web_comment_item_time_size"

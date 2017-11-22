@@ -1,6 +1,8 @@
 package com.gionee.bloodsoulnote.webview;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -67,5 +69,17 @@ public class WebviewActivity extends AppCompatActivity {
             return;
         }
         super.onBackPressed();
+    }
+
+    public void goBrowser(View view) {
+        String url = "https://www.baidu.com";
+
+        Intent intent = new Intent();
+        intent.setAction("com.gionee.intent.action.WEB_SEARCH");
+        intent.addCategory("android.intent.category.BROWSABLE");
+        intent.addCategory("android.intent.category.DEFAULT");
+        intent.setData(Uri.parse(url));
+        intent.setClassName("com.android.browser","com.android.browser.InnBrowserActivity");
+        this.startActivity(intent);
     }
 }

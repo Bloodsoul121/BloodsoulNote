@@ -25,6 +25,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:onClick="goBrowser"
+            android:text="goBrowser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
     <com.gionee.bloodsoulnote.webview.MyWebview
