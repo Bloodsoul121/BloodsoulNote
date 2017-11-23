@@ -13,6 +13,7 @@ import com.gionee.bloodsoulnote.customview3.showAnimator.RightOutActivity;
 import com.gionee.bloodsoulnote.customview3.showAnimator.ShowAnimatorActivity;
 import com.gionee.bloodsoulnote.customview3.slidefinish.SlideFinishActivity;
 import com.gionee.bloodsoulnote.customview3.wrapanimator.WrapperAnimatorActivity;
+import com.gionee.bloodsoulnote.customview3.webview.ScrollWebviewActivity;
 
 public class Customview3Activity extends AppCompatActivity {
 
@@ -48,5 +49,9 @@ public class Customview3Activity extends AppCompatActivity {
 
     public void clickBtn7(View view) {
         startActivity(new Intent(this, WrapperAnimatorActivity.class));
+    }
+
+    public void clickBtn8(View view) {
+        startActivity(new Intent(this, ScrollWebviewActivity.class));
     }
 }
