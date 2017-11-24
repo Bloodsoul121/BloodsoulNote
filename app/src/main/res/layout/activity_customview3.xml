@@ -72,4 +72,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="哈哈哈哈"
+        android:background="#859468"
+        android:padding="5dp"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

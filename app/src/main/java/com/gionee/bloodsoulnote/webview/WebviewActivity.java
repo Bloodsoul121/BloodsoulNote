@@ -44,7 +44,8 @@ public class WebviewActivity extends AppCompatActivity {
 
         mWebView.initWebSetting();
         mWebView.initClient();
-        mWebView.loadUrl(videoUrl);
+//        mWebView.loadUrl(videoUrl);
+        mWebView.loadUrl("http://open.toutiao.com/q6489605088124862733/?utm_campaign=open&utm_medium=webview&utm_source=jinli_fyp_api&group_id=6491460185456902414&gy=8120fa23c9947d0a040c738069f2bcc7ba1c846fd3f0a8b202f99714666a0ee0a11a7c84ac65c548d7279509320e0183&crypt=2979&item_id=6491460185456902414&&openudid=25e1890fc3394576 ");
     }
 
     /**

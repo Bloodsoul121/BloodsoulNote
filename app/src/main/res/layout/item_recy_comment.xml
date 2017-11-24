@@ -366,7 +366,7 @@
         android:layout_marginRight="@dimen/web_comment_item_divider_margin_right"
         android:background="@color/web_comment_item_divider_color"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1px"/>
 
     <View
         android:visibility="gone"
@@ -377,7 +377,7 @@
         android:layout_marginRight="@dimen/web_comment_item_divider_margin_right"
         android:background="@color/web_comment_item_divider_color"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1px"/>
 
     <View
         android:visibility="gone"
@@ -386,6 +386,6 @@
         android:layout_marginTop="@dimen/web_comment_item_divider_margin_top"
         android:background="@color/web_comment_item_divider_whole_color"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1px"/>
 
 </RelativeLayout>
