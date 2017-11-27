@@ -222,9 +222,8 @@
         </activity>
         <activity android:name=".customview3.wrapanimator.WrapperAnimatorActivity">
         </activity>
-<<<<<<< Updated upstream
         <activity android:name=".customview3.webview.ScrollWebviewActivity">
-=======
+        </activity>
         <activity
             android:name=".materialdesign.MaterialDesignActivity"
             android:theme="@style/MaterialDesignStyle">
@@ -234,7 +233,6 @@
             android:theme="@style/MaterialDesignStyle">
         </activity>
         <activity android:name=".vieweffects.textview.AutoCompleteTextViewActivity">
->>>>>>> Stashed changes
         </activity>
     </application>
 
