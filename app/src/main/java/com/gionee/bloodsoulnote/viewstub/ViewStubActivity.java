@@ -46,6 +46,7 @@ public class ViewStubActivity extends AppCompatActivity {
     public void onclick5(View view) {
         TextView tv = (TextView) findViewById(R.id.viewstub_tv);
         Log.i("ViewStubActivity", " --> " + (tv == null));  // 返回为 false
+        Log.i("ViewStubActivity", " --> " + (mViewStub == null));  // 返回为 false
         if (tv != null) {
             tv.setText("来咬我啊");
         }

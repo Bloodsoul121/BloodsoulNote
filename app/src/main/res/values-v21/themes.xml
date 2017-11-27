@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MaterialDesignStyle" parent="android:Theme.Material">
+        <item name="android:colorPrimary">#148684</item>
+        <!--<item name="android:colorPrimary">#986574</item>-->
+        <item name="android:colorPrimaryDark">#986574</item>
+    </style>
+
+</resources>

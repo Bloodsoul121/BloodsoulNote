@@ -29,6 +29,7 @@ import com.gionee.bloodsoulnote.ipc.IPCActivity;
 import com.gionee.bloodsoulnote.layout.LayoutActivity;
 import com.gionee.bloodsoulnote.leak.LeakActivity;
 import com.gionee.bloodsoulnote.listview.ListViewActivity;
+import com.gionee.bloodsoulnote.materialdesign.MaterialDesignActivity;
 import com.gionee.bloodsoulnote.mvprxpicture.MvpRxPictureActivity;
 import com.gionee.bloodsoulnote.numformat.NumFormatActivity;
 import com.gionee.bloodsoulnote.okhttp.OkhttpActivity;
@@ -127,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("46 - 自定义view custom-3");
         mDatas.add("47 - SurfaceView");
         mDatas.add("48 - 数字格式化");
+        mDatas.add("49 - Material Design");
     }
 
     private void clickRecyclerItem(int position) {
@@ -275,6 +277,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 48:
                 startActivity(new Intent(this, NumFormatActivity.class));
+                break;
+            case 49:
+                startActivity(new Intent(this, MaterialDesignActivity.class));
                 break;
         }
     }
