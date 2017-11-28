@@ -18,6 +18,8 @@ public class GradientView extends View {
 
     private Paint mPaint;
 
+    private LinearGradient mLinearGradientNormal;
+
     public GradientView(Context context) {
         super(context);
         init(context);
@@ -30,16 +32,36 @@ public class GradientView extends View {
 
     private void init(Context context) {
         mPaint = new Paint();
-        LinearGradient linearGradient = new LinearGradient(0, 0, 100, 0,
-                new int[]{Color.BLUE, 0xffffff, Color.BLUE}, null,
-                Shader.TileMode.CLAMP);
-        mPaint.setShader(linearGradient);
+
+        mPaint.setColor(Color.parseColor("#FFFF00"));
+
+
+
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawRect(0, 0, 200, 200, mPaint);
+//        canvas.drawRect(0, 0, 200, 200, mPaint);
+
+        mLinearGradientNormal = new LinearGradient(80, 80, 320, 320,
+                new int[]{Color.parseColor("#2600baff"), Color.parseColor("#2616d5ff")}, null,
+                Shader.TileMode.CLAMP);
+        mPaint.setShader(mLinearGradientNormal);
+
+
+        mPaint.setColor(Color.parseColor("#2616d5ff"));
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(1);
+        canvas.drawCircle(200, 200, 122, mPaint);
+
+
+        mPaint.setStyle(Paint.Style.FILL);
+//        mPaint.setColor(Color.parseColor("#2600baff"));  // 这个坑
+
+        mPaint.setColor(Color.WHITE);
+
+        canvas.drawCircle(200, 200, 120, mPaint);
     }
 }
