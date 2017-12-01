@@ -10,7 +10,15 @@ import com.gionee.bloodsoulnote.rxjava.event.EventMsg;
 import com.gionee.bloodsoulnote.rxjava.event.TestEvent1;
 import com.gionee.bloodsoulnote.rxjava.event.TestEvent2;
 import com.gionee.bloodsoulnote.rxjava.rx2.RxBus2;
+import com.orhanobut.logger.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 public class RxJavaActivity extends AppCompatActivity {
@@ -63,6 +71,56 @@ public class RxJavaActivity extends AppCompatActivity {
     }
 
 //11-08 15:11:49.051 3860-3860/com.gionee.bloodsoulnote I/RxJavaActivity: 1 data ---> TestEvent1
-//11-08 15:11:51.432 3860-3860/com.gionee.bloodsoulnote I/RxJavaActivity: 5 data ---> TestEvent2
 //11-08 15:11:56.283 3860-3860/com.gionee.bloodsoulnote I/RxJavaActivity: 5 data ---> TestEvent2
+//11-08 15:11:51.432 3860-3860/com.gionee.bloodsoulnote I/RxJavaActivity: 5 data ---> TestEvent2
+
+
+    public void clickBtn7(View view) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            list.add("item - " + i);
+        }
+        Observable.fromArray(list, list)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<String>>() {
+                    @Override
+                    public void accept(List<String> strings) throws Exception {
+                        Logger.i(strings.toString());
+                    }
+                });
+        Observable.just(list)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<String>>() {
+                    @Override
+                    public void accept(List<String> strings) throws Exception {
+                        Logger.i(strings.toString());
+                    }
+                });
+        Observable.just(list)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<String>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<String> value) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+
+
 }

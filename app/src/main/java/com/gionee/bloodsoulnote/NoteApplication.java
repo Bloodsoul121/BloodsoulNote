@@ -2,6 +2,8 @@ package com.gionee.bloodsoulnote;
 
 import android.app.Application;
 
+import com.orhanobut.logger.Logger;
+
 public class NoteApplication extends Application {
 
     private static NoteApplication sInstance;
@@ -15,6 +17,8 @@ public class NoteApplication extends Application {
         super.onCreate();
         sInstance = this;
 //        refWatcher= setupLeakCanary();
+
+        Logger.init("logger");
     }
 
 //    private RefWatcher setupLeakCanary() {
