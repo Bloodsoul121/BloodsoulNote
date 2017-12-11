@@ -10,6 +10,7 @@ import com.gionee.bloodsoulnote.rxjava.event.EventMsg;
 import com.gionee.bloodsoulnote.rxjava.event.TestEvent1;
 import com.gionee.bloodsoulnote.rxjava.event.TestEvent2;
 import com.gionee.bloodsoulnote.rxjava.rx2.RxBus2;
+import com.gionee.bloodsoulnote.rxjava.rx2.RxBus5;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ import io.reactivex.functions.Consumer;
 public class RxJavaActivity extends AppCompatActivity {
 
     private static final String TAG = "RxJavaActivity";
+    private Disposable mDisposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,14 @@ public class RxJavaActivity extends AppCompatActivity {
                 Log.i(TAG, "3 data ---> " + eventMsg.data);
             }
         });
+
+        RxBus5.getDefault().register(TestEvent2.class)
+                .subscribe(new Consumer<TestEvent2>() {
+                    @Override
+                    public void accept(TestEvent2 testEvent2) throws Exception {
+                        Logger.i("rx5 data testEvent2 " + testEvent2.data);
+                    }
+                });
     }
 
     public void clickBtn4(View view) {
@@ -122,5 +132,29 @@ public class RxJavaActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
+    public void clickBtn8(View view) {
+        mDisposable = RxBus5.getDefault().register(TestEvent1.class, null, AndroidSchedulers.mainThread(), new Consumer<TestEvent1>() {
+            @Override
+            public void accept(TestEvent1 testEvent1) throws Exception {
+                Logger.i("rx5 data testEvent2 " + testEvent1.data);
+            }
+        });
+    }
+
+    public void clickBtn9(View view) {
+        RxBus5.getDefault().post(new TestEvent1("lalallalal"));
+    }
+
+    public void clickBtn10(View view) {
+        RxBus5.getDefault().unregister(mDisposable);
+    }
+
+    public void clickBtn11(View view) {
+        RxBus5.getDefault().unregisterAll();
+    }
 }

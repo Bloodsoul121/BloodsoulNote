@@ -141,7 +141,7 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
         if (mDatas.isEmpty() && mEmptyView != null) {
             return 1;
         }
-        return mDatas.size() + + getFooterViewCount();
+        return mDatas.size() + getFooterViewCount();
     }
 
     private int getFooterViewCount() {

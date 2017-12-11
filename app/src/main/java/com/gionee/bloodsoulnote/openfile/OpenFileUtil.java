@@ -300,7 +300,7 @@ public class OpenFileUtil {
         /*Uri uri;
         if (AndroidUtils.isAboveSpecifiedVersion(AndroidUtils.N)) {
             addPrivacyReadUriPermission(intent);
-            uri = FileProvider.getUriForFile(Controller.getInstance().getContext(), "com.android.browser.fileprovider", new File(filePath));
+            uri = FileProvider.getUriForFile(Controller.getDefault().getContext(), "com.android.browser.fileprovider", new File(filePath));
         } else {
             uri = Uri.fromFile(new File(filePath));
         }

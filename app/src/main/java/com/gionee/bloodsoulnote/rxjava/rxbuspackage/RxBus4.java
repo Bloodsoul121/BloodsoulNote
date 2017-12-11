@@ -51,6 +51,7 @@ public class RxBus4 {
         }
         return instance;
     }
+
     //TAG默认值
     public static final int TAG_DEFAULT = -1000;
     public static final int TAG_UPDATE = -1010;
@@ -78,7 +79,7 @@ public class RxBus4 {
 
     /**
      * 发布事件
-     * @param code 值使用RxBus.getInstance().getTag(class,value)获取
+     * @param code 值使用RxBus.getDefault().getTag(class,value)获取
      * @param obj 为需要被处理的事件
      */
     public void post(@NonNull int code,@NonNull Object obj) {
@@ -119,7 +120,12 @@ public class RxBus4 {
      */
     public void init(@NonNull final Object object){
 //        Flowable.just(object)
-//                .map(o -> o.getClass().getAnnotation(UseRxBus.class))
+//                .map(new Function<Object, Object>() {
+//                    @Override
+//                    public Object apply(Object o) throws Exception {
+//                        return o.getClass().getAnnotation(UseRxBus.class);
+//                    }
+//                })
 //                .filter(new Predicate<Object>() {
 //                    @Override
 //                    public boolean test(Object a) throws Exception {
@@ -246,7 +252,7 @@ public class RxBus4 {
     }
 
     /**
-     * tag值使用RxBus.getInstance().getTag(class,value)获取
+     * tag值使用RxBus.getDefault().getTag(class,value)获取
      * 使用getTag主要用于后期维护方便，可以及时找到发布事件的对应处理。
      * @param cla 为Rxbus事件处理的类
      * @param value 是事件处理的tag

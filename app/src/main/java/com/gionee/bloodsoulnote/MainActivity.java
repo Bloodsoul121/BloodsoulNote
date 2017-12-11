@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("47 - SurfaceView");
         mDatas.add("48 - 数字格式化");
         mDatas.add("49 - Material Design");
+        mDatas.add("50 - 判断view是否被遮挡");
     }
 
     private void clickRecyclerItem(int position) {
@@ -280,6 +281,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 49:
                 startActivity(new Intent(this, MaterialDesignActivity.class));
+                break;
+            case 50:
+                startActivity(new Intent(this, ViewCoverActivity.class));
                 break;
         }
     }
