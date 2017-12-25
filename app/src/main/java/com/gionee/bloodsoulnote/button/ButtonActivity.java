@@ -16,19 +16,26 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.gionee.ad.sdkbase.common.utils.UIUtils;
 import com.gionee.bloodsoulnote.R;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ButtonActivity extends AppCompatActivity {
+
+    private TextView mTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button);
+
+        mTv = (TextView) findViewById(R.id.textView2);
     }
 
     public void onclick1(View view) {
@@ -127,5 +134,56 @@ public class ButtonActivity extends AppCompatActivity {
                 "        }}";
         TipFa tipFa = gson.fromJson(json, TipFa.class);
         Log.i("bloodsoul", "tips --> " + tipFa.toString());
+    }
+
+    public void clickBtn8(View view) {
+        String str = "&#128522;";
+//        try {
+//            String s = EmojiUtil.emojiRecovery2(str);
+//            mTv.setText(s);
+//            Log.i("bloodsoul", "emoji --> " + s);
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+        String emoji = getEmoji(this, str);
+        Log.i("bloodsoul", "emoji --> " + emoji);
+
+        String s1 = EmojiUtil2.unicode2String(str);
+        Log.i("bloodsoul", "emoji --> " + s1);
+
+        String s2 = EmojiUtil2.unicodeToString(str);
+        Log.i("bloodsoul", "emoji --> " + s2);
+
+        String s3 = EmojiUtil2.utf8ToString(str);
+        Log.i("bloodsoul", "emoji --> " + s3);
+
+        mTv.setText(emoji);
+
+        mTv.setText("&#160;");
+    }
+
+    /**
+     * 将表情描述转换成表情
+     *
+     * @param str
+     * @return
+     */
+    public static String getEmoji(Context context, String str) {
+        String string = str;
+        String rep = "\\{(.*?)\\}";
+        Pattern p = Pattern.compile(rep);
+        Matcher m = p.matcher(string);
+        while (m.find()) {
+            String s1 = m.group().toString();
+            String s2 = s1.substring(1, s1.length() - 1);
+            String s3;
+            try {
+                s3 = String.valueOf((char) Integer.parseInt(s2, 16));
+                string = string.replace(s1, s3);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return string;
     }
 }

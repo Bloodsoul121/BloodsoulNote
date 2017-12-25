@@ -70,4 +70,6 @@
     <color name="web_comment_item_comment_reply_comment_group_child_child_name_color">#999999</color>
     <color name="web_comment_item_comment_reply_comment_group_child_child_comment_color">#222222</color>
 
+    <color name="white">#ffffff</color>
+
 </resources>

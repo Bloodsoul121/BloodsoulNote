@@ -24,6 +24,7 @@ import com.gionee.bloodsoulnote.halfitem.HalfItemActivity;
 import com.gionee.bloodsoulnote.heap.HeapActivity;
 import com.gionee.bloodsoulnote.huitu.HuituActivity;
 import com.gionee.bloodsoulnote.immersive.ImmersiveActivity;
+import com.gionee.bloodsoulnote.input.InputActivity;
 import com.gionee.bloodsoulnote.inputbar.InputBarActivity;
 import com.gionee.bloodsoulnote.ipc.IPCActivity;
 import com.gionee.bloodsoulnote.layout.LayoutActivity;
@@ -46,10 +47,12 @@ import com.gionee.bloodsoulnote.sliding.SlidingActivity;
 import com.gionee.bloodsoulnote.sqlite.SQLiteActivity;
 import com.gionee.bloodsoulnote.stepdownload.StepDownloadActivity;
 import com.gionee.bloodsoulnote.surfaceview.SurfaceViewActivity;
+import com.gionee.bloodsoulnote.testmap.TestMapActivity;
 import com.gionee.bloodsoulnote.thread.ThreadActivity;
 import com.gionee.bloodsoulnote.threadpool.ThreadPoolActivity;
 import com.gionee.bloodsoulnote.toast.ToastActivity;
 import com.gionee.bloodsoulnote.uploadordownload.UploadDownloadActivity;
+import com.gionee.bloodsoulnote.util.UtilActivity;
 import com.gionee.bloodsoulnote.vieweffects.ViewEffectsActivity;
 import com.gionee.bloodsoulnote.viewpager.ViewPagerActivity;
 import com.gionee.bloodsoulnote.viewpagerfragment.LazyViewPagerActivity;
@@ -130,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("48 - 数字格式化");
         mDatas.add("49 - Material Design");
         mDatas.add("50 - 判断view是否被遮挡");
+        mDatas.add("51 - 测试map的clear方法");
+        mDatas.add("52 - 测试软键盘的弹框");
+        mDatas.add("53 - String与十六进制的互相转换");
     }
 
     private void clickRecyclerItem(int position) {
@@ -284,6 +290,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 50:
                 startActivity(new Intent(this, ViewCoverActivity.class));
+                break;
+            case 51:
+                startActivity(new Intent(this, TestMapActivity.class));
+                break;
+            case 52:
+                startActivity(new Intent(this, InputActivity.class));
+                break;
+            case 53:
+                startActivity(new Intent(this, UtilActivity.class));
                 break;
         }
     }

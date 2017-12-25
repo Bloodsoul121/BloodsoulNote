@@ -192,7 +192,8 @@
         </activity>
         <activity
             android:name=".webviewdetail.WebviewDetailActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
         </activity>
         <activity android:name=".vieweffects.ViewEffectsActivity">
         </activity>
@@ -235,6 +236,15 @@
         <activity android:name=".vieweffects.textview.AutoCompleteTextViewActivity">
         </activity>
         <activity android:name=".ViewCoverActivity">
+        </activity>
+        <activity android:name=".testmap.TestMapActivity">
+        </activity>
+        <activity
+            android:name=".input.InputActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity android:name=".util.UtilActivity">
         </activity>
     </application>
 

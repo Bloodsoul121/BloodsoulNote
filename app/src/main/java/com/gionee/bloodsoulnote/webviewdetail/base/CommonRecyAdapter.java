@@ -2,6 +2,7 @@ package com.gionee.bloodsoulnote.webviewdetail.base;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -433,5 +434,37 @@ public abstract class CommonRecyAdapter<T> extends RecyclerView.Adapter<ViewHold
     }
 
     protected abstract String getGroupId(T t);
+
+    public void bindRecyclerViewAutoScrollLoadMore(RecyclerView recyclerView, final RecyclerView.LayoutManager layoutManager) {
+        if (!mOpenLoadMore || mLoadMoreListener == null) {
+            return;
+        }
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    if (!isAutoLoadMore && findLastVisibleItemPosition(layoutManager) + 1 == getItemCount()) {
+                        scrollLoadMore();
+                    }
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (isAutoLoadMore && findLastVisibleItemPosition(layoutManager) + 1 == getItemCount()) {
+                    scrollLoadMore();
+                } else if (isAutoLoadMore) {
+                    isAutoLoadMore = false;
+                }
+            }
+        });
+    }
+
+    private int findLastVisibleItemPosition(RecyclerView.LayoutManager layoutManager) {
+        return ((LinearLayoutManager)layoutManager).findLastVisibleItemPosition();
+    }
 
 }
