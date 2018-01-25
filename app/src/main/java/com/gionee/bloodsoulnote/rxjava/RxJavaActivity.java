@@ -53,14 +53,6 @@ public class RxJavaActivity extends AppCompatActivity {
                 Log.i(TAG, "3 data ---> " + eventMsg.data);
             }
         });
-
-        RxBus5.getDefault().register(TestEvent2.class)
-                .subscribe(new Consumer<TestEvent2>() {
-                    @Override
-                    public void accept(TestEvent2 testEvent2) throws Exception {
-                        Logger.i("rx5 data testEvent2 " + testEvent2.data);
-                    }
-                });
     }
 
     public void clickBtn4(View view) {
@@ -141,9 +133,17 @@ public class RxJavaActivity extends AppCompatActivity {
         mDisposable = RxBus5.getDefault().register(TestEvent1.class, null, AndroidSchedulers.mainThread(), new Consumer<TestEvent1>() {
             @Override
             public void accept(TestEvent1 testEvent1) throws Exception {
-                Logger.i("rx5 data testEvent2 " + testEvent1.data);
+                Logger.i("rx5 data TestEvent1 " + testEvent1.data);
             }
         });
+
+        RxBus5.getDefault().register(TestEvent2.class)
+                .subscribe(new Consumer<TestEvent2>() {
+                    @Override
+                    public void accept(TestEvent2 testEvent2) throws Exception {
+                        Logger.i("rx5 data testEvent2 " + testEvent2.data);
+                    }
+                });
     }
 
     public void clickBtn9(View view) {

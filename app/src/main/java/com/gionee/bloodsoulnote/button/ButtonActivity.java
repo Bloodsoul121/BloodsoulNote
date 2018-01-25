@@ -23,6 +23,8 @@ import com.gionee.bloodsoulnote.R;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -185,5 +187,24 @@ public class ButtonActivity extends AppCompatActivity {
             }
         }
         return string;
+    }
+
+    public void clickBtn9(View view) {
+        List<String> list1 = new ArrayList<>();
+        list1.add("a");
+//        list1.add("b");
+        List<String> list2 = new ArrayList<>();
+        list2.add("1");
+        list2.add("2");
+        list2.add("3");
+        list1.addAll(1, list2);
+        Log.i("bloodsoul", "list --> " + list1.toString());
+
+        list1.add("b");
+        list1.add("c");
+        list2.add("c");
+        list2.add("b");
+        list2.add("a");
+        Log.i("bloodsoul", "list --> " + list2.containsAll(list1));
     }
 }
