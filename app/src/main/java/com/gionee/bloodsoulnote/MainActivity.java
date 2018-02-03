@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gionee.bloodsoulnote.addBookMark.AddBookMarkActivity;
+import com.gionee.bloodsoulnote.androidview.editview.EditTextViewActivity;
+import com.gionee.bloodsoulnote.androidview.textview.TextViewActivity;
 import com.gionee.bloodsoulnote.animation.AnimationActivity;
 import com.gionee.bloodsoulnote.bitmap.ClipPatchActivity;
 import com.gionee.bloodsoulnote.button.ButtonActivity;
@@ -136,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("51 - 测试map的clear方法");
         mDatas.add("52 - 测试软键盘的弹框");
         mDatas.add("53 - String与十六进制的互相转换");
+        mDatas.add("54 - TextView的部分字体多种颜色");
+        mDatas.add("55 - EditText实现QQ表情输入");
     }
 
     private void clickRecyclerItem(int position) {
@@ -299,6 +303,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 53:
                 startActivity(new Intent(this, UtilActivity.class));
+                break;
+            case 54:
+                startActivity(new Intent(this, TextViewActivity.class));
+                break;
+            case 55:
+                startActivity(new Intent(this, EditTextViewActivity.class));
                 break;
         }
     }
