@@ -32,6 +32,7 @@ public class Retrofit2Activity extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                Log.i(TAG, "" + Thread.currentThread().getName());
                 Log.i(TAG, "onResponse : " + response.body().getData() + response.body().getMsg() + response.body().isSuccess());
             }
 

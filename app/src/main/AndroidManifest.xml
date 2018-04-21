@@ -250,6 +250,8 @@
         </activity>
         <activity android:name=".androidview.editview.EditTextViewActivity">
         </activity>
+        <activity android:name=".xrecyclerview.XRecyclerViewActivity">
+        </activity>
     </application>
 
 </manifest>

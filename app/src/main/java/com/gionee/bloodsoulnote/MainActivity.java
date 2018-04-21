@@ -63,6 +63,7 @@ import com.gionee.bloodsoulnote.viewpagerfragment.ViewPagerFragmentActivity;
 import com.gionee.bloodsoulnote.viewstub.ViewStubActivity;
 import com.gionee.bloodsoulnote.webview.WebviewActivity;
 import com.gionee.bloodsoulnote.webviewdetail.WebviewDetailActivity;
+import com.gionee.bloodsoulnote.xrecyclerview.XRecyclerViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -140,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         mDatas.add("53 - String与十六进制的互相转换");
         mDatas.add("54 - TextView的部分字体多种颜色");
         mDatas.add("55 - EditText实现QQ表情输入");
+        mDatas.add("56 - XRecyclerView 的 sticky");
     }
 
     private void clickRecyclerItem(int position) {
@@ -309,6 +311,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 55:
                 startActivity(new Intent(this, EditTextViewActivity.class));
+                break;
+            case 56:
+                startActivity(new Intent(this, XRecyclerViewActivity.class));
                 break;
         }
     }

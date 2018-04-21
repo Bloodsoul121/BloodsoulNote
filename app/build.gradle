@@ -45,4 +45,5 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.19'
     compile 'com.orhanobut:logger:1.4'
     testCompile 'junit:junit:4.12'
+    compile 'com.jcodecraeer:xrecyclerview:1.5.9'
 }
